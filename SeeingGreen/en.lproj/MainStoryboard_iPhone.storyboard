@@ -147,11 +147,11 @@
                 <relationship kind="outlet" name="cameraView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="compassImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eb1CompassImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="eb1headingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="poiCompassImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="poiHeadingLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

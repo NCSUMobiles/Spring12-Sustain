@@ -40,7 +40,10 @@
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 andLongitude:-78.639214 andName:@"State Capitol" andDescription:@"Capitol. With an O."]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773605 andLongitude:-78.640831 andName:@"Raleigh Convention Center" andDescription:@"Evryday I'm convention. Evryday I'm convention."]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773609 andLongitude:-78.640541 andName:@"R-Line Hybrid Electric Bus" andDescription:@"I'm on a bus."]];
-
+	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773132 andLongitude:-78.640602 andName:@"Big Belly Solar Trash Compactor" andDescription:@"I'm on a bus."]];
+	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.772404 andLongitude:-78.640617 andName:@"Solar EV Charging Stations" andDescription:@"I'm on a bus."]];
+	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771580 andLongitude:-78.639587 andName:@"Progress Energy Center" andDescription:@"I'm on a bus."]];
+	
 	// programmatically add a button for the POIs	
 	for(PointOfInterest *poi in poiArray) {
 		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -48,8 +51,9 @@
 					  action:@selector(poiButtonTouched:)
 			forControlEvents:UIControlEventTouchUpInside];
 		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
-		poiButton.frame = CGRectMake(-1000, 240, 117, 37);
+		poiButton.frame = CGRectMake(-1000, 240, 157, 67);
 		poiButton.alpha = 0.5;
+		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		[[self view] addSubview:poiButton];
 		[poiButtons addObject:poiButton];
 		[poi setButton:poiButton];
