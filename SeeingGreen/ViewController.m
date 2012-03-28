@@ -28,6 +28,9 @@
 
 @synthesize cameraView;
 
+#define DEFAULT_BUTTON_HEIGHT 50
+#define DEFAULT_BUTTON_WIDTH 150
+
 //initializes location services and video capture functions
 - (void)viewDidLoad {
 	
@@ -37,7 +40,7 @@
 	
 	poiArray = [[NSMutableArray alloc] initWithCapacity:30];
 	
-	
+	//Add POIs for the walking tour
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 longitude:-78.639214 andName:@"State Capitol"]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773605 longitude:-78.640831 andName:@"Raleigh Convention Center"]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773609 longitude:-78.640541 andName:@"R-Line Hybrid Electric Bus"]];
@@ -45,7 +48,7 @@
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.772404 longitude:-78.640617 andName:@"Solar EV Charging Stations"]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771580 longitude:-78.639587 andName:@"Progress Energy Center"]];
 	
-	
+	//add POIs for Centennial Campus
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771621 longitude:-78.675048 andName:@"EB I"]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771969 longitude:-78.673847 andName:@"EB II"]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770925 longitude:-78.673804 andName:@"EB III"]];
@@ -55,14 +58,14 @@
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
 	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
 
-	// programmatically add a button for the POIs	
+	//add a UIButton for each POI
 	for(PointOfInterest *poi in poiArray) {
 		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[poiButton addTarget:self 
 					  action:@selector(poiButtonTouched:)
 			forControlEvents:UIControlEventTouchUpInside];
 		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
-		poiButton.frame = CGRectMake(-1000, 240, 157, 67);
+		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
 		poiButton.alpha = 0.5;
 		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		[[self view] addSubview:poiButton];
@@ -123,13 +126,7 @@
 
 //returns the heading to a POI from the current location and orientation
 -(double)headingToInDegrees:(PointOfInterest *)poi {
-	/*
-	double dLongitude = locationServicesManager.latitude-poi.longitude;
-	double yDistance = sin(DEGREES_TO_RADIANS * dLongitude) * cos(DEGREES_TO_RADIANS * poi.latitude);
-	double xDistance = cos(DEGREES_TO_RADIANS * locationServicesManager.latitude)*sin(DEGREES_TO_RADIANS * poi.latitude) 
-						- sin(DEGREES_TO_RADIANS * locationServicesManager.latitude)*cos(DEGREES_TO_RADIANS * poi.latitude)*cos(DEGREES_TO_RADIANS * dLongitude);
-	 
-	 */
+
 	double lon1, lon2, lat1, lat2;
 	lon1 = DEGREES_TO_RADIANS * locationServicesManager.longitude;
 	lat1 = DEGREES_TO_RADIANS * locationServicesManager.latitude;
@@ -172,10 +169,7 @@
 
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
-	
-	//UIButton *poiButton = [poiButtons objectAtIndex:0];
-	
-	//CLLocationDirection headingToPOI = [self headingTo:[poiArray objectAtIndex:0]];
+		
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading]));
 		
 	for(PointOfInterest *poi in poiArray) {

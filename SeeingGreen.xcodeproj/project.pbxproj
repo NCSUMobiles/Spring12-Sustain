@@ -28,6 +28,8 @@
 		B47AEDCB15233F6800F0280B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDC815233F6800F0280B /* AVFoundation.framework */; };
 		B47AEDCC15233F6800F0280B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDC915233F6800F0280B /* CoreData.framework */; };
 		B47AEDCD15233F6800F0280B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDCA15233F6800F0280B /* CoreLocation.framework */; };
+		B47AEDD31523835300F0280B /* SeeingGreen512.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDD11523835300F0280B /* SeeingGreen512.png */; };
+		B47AEDD51523837200F0280B /* SeeingGreen114.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDD41523837200F0280B /* SeeingGreen114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		B47AEDC815233F6800F0280B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B47AEDC915233F6800F0280B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B47AEDCA15233F6800F0280B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B47AEDD11523835300F0280B /* SeeingGreen512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SeeingGreen512.png; path = ../../SeeingGreen512.png; sourceTree = "<group>"; };
+		B47AEDD41523837200F0280B /* SeeingGreen114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeeingGreen114.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B47AEDD41523837200F0280B /* SeeingGreen114.png */,
+				B47AEDD11523835300F0280B /* SeeingGreen512.png */,
 				B47AEDC415233EDF00F0280B /* compass.png */,
 				B47AEDC515233EDF00F0280B /* poiCompass.png */,
 			);
@@ -273,6 +279,8 @@
 				B47AED9A15233E6700F0280B /* MainStoryboard_iPad.storyboard in Resources */,
 				B47AEDC615233EDF00F0280B /* compass.png in Resources */,
 				B47AEDC715233EDF00F0280B /* poiCompass.png in Resources */,
+				B47AEDD31523835300F0280B /* SeeingGreen512.png in Resources */,
+				B47AEDD51523837200F0280B /* SeeingGreen114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
