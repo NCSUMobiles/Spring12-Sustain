@@ -135,12 +135,8 @@
 		B47AED8915233E6700F0280B /* SeeingGreen */ = {
 			isa = PBXGroup;
 			children = (
-				B47AEDC415233EDF00F0280B /* compass.png */,
-				B47AEDC515233EDF00F0280B /* poiCompass.png */,
-				B47AEDBB15233EBE00F0280B /* LocationServicesManager.h */,
-				B47AEDBC15233EBE00F0280B /* LocationServicesManager.m */,
-				B47AEDBD15233EBE00F0280B /* PointOfInterest.h */,
-				B47AEDBE15233EBE00F0280B /* PointOfInterest.m */,
+				B47AEDCE1523409A00F0280B /* Images */,
+				B47AEDCF152340A600F0280B /* Classes */,
 				B47AEDBF15233EBE00F0280B /* ViewController.h */,
 				B47AEDC015233EBE00F0280B /* ViewController.m */,
 				B47AED9215233E6700F0280B /* AppDelegate.h */,
@@ -180,6 +176,26 @@
 				B47AEDAD15233E6800F0280B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B47AEDCE1523409A00F0280B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B47AEDC415233EDF00F0280B /* compass.png */,
+				B47AEDC515233EDF00F0280B /* poiCompass.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B47AEDCF152340A600F0280B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B47AEDBB15233EBE00F0280B /* LocationServicesManager.h */,
+				B47AEDBC15233EBE00F0280B /* LocationServicesManager.m */,
+				B47AEDBD15233EBE00F0280B /* PointOfInterest.h */,
+				B47AEDBE15233EBE00F0280B /* PointOfInterest.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
