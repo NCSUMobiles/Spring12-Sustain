@@ -21,10 +21,10 @@
 @synthesize latLabel;
 @synthesize longLabel;
 @synthesize headingLabel;
-@synthesize eb1headingLabel;
+@synthesize poiHeadingLabel;
 @synthesize distanceLabel;
 @synthesize compassImage;
-@synthesize eb1CompassImage;
+@synthesize poiCompassImage;
 
 @synthesize cameraView;
 
@@ -35,7 +35,7 @@
 	
 	poiButtons = [[NSMutableArray alloc] initWithCapacity:30];
 	
-	eb1 = [[PointOfInterest alloc] initWithLatitude:35.780204 andLongitude:-78.639214 andName:@"State Capitol" andDescription:@"Capitol. With an O."];
+	capitolBuilding = [[PointOfInterest alloc] initWithLatitude:35.780204 andLongitude:-78.639214 andName:@"State Capitol" andDescription:@"Capitol. With an O."];
 	
 	
 	// programmatically add a button for the POI
@@ -46,7 +46,7 @@
 	[poiButton addTarget:self 
 				  action:@selector(poiButtonTouched:)
 		forControlEvents:UIControlEventTouchUpInside];
-	[poiButton setTitle:[eb1 name] forState:UIControlStateNormal];
+	[poiButton setTitle:[capitolBuilding name] forState:UIControlStateNormal];
 	poiButton.frame = CGRectMake(-1000, 240, 117, 37);
 	poiButton.alpha = 0.7;
 	[[self view] addSubview:poiButton];
@@ -74,7 +74,7 @@
 		[locationManager startUpdatingLocation];
 		[locationManager startUpdatingHeading];	
 		
-		[self updateEB1Compass];
+		[self updatePOICompass];
 	}	
 }
 
@@ -138,17 +138,17 @@
     return distanceInMiles;
 }
 
-//rotates the EB1 compass and moves the EB1 overlay
--(void)updateEB1Compass {
+//rotates the POI compass and moves the POI overlay
+-(void)updatePOICompass {
 	
-	UIButton *eb1Button = [poiButtons objectAtIndex:0];
+	UIButton *poiButton = [poiButtons objectAtIndex:0];
 	
-	eb1CompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingTo:eb1]-[locationServicesManager getHeading]));
+	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingTo:capitolBuilding]-[locationServicesManager getHeading]));
 	
-	if(fabs([self headingTo:eb1]-[locationServicesManager getHeading]) < 90)
-		eb1Button.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * ([self headingTo:eb1]-[locationServicesManager getHeading])), eb1Button.center.y);
+	if(fabs([self headingTo:capitolBuilding]-[locationServicesManager getHeading]) < 90)
+		poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * ([self headingTo:capitolBuilding]-[locationServicesManager getHeading])), poiButton.center.y);
 	else
-		eb1Button.center = CGPointMake(-1000,eb1Button.center.y);
+		poiButton.center = CGPointMake(-1000,poiButton.center.y);
 	
 }
 
@@ -165,8 +165,8 @@
 		[locationServicesManager addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
 		latLabel.text = [NSString stringWithFormat:@"%+.6f", [locationServicesManager latitude]];
 		longLabel.text = [NSString stringWithFormat:@"%+.6f", [locationServicesManager longitude]];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:eb1])];
-		[self updateEB1Compass];
+		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:capitolBuilding])];
+		[self updatePOICompass];
     }
     // else skip the event and process the next one.
 }
@@ -190,10 +190,10 @@
 	[locationServicesManager addHeading:theHeading];
 	
 	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[locationServicesManager getHeading]];
-	eb1headingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingTo:eb1]-[locationServicesManager getHeading])];
+	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingTo:capitolBuilding]-[locationServicesManager getHeading])];
 	
 	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[locationServicesManager getHeading]);
-	[self updateEB1Compass];
+	[self updatePOICompass];
 } 
 
 //called when the location manager experiences a failure

@@ -125,11 +125,11 @@
                         <outlet property="cameraView" destination="RTc-9M-Pmw" id="jT5-xK-Am6"/>
                         <outlet property="compassImage" destination="IL7-Mj-Y0s" id="oL4-M6-W40"/>
                         <outlet property="distanceLabel" destination="BUK-mm-Bxd" id="k68-rS-H3d"/>
-                        <outlet property="eb1CompassImage" destination="m4a-xI-4qJ" id="SBT-uC-Tov"/>
-                        <outlet property="eb1headingLabel" destination="xJx-De-mnN" id="WTl-4z-3dS"/>
                         <outlet property="headingLabel" destination="Aon-8S-fuM" id="XTN-lz-MuH"/>
                         <outlet property="latLabel" destination="Otb-1S-NgN" id="dji-Z9-RNc"/>
                         <outlet property="longLabel" destination="Gt3-7x-EXl" id="rmT-RT-WJS"/>
+                        <outlet property="poiCompassImage" destination="m4a-xI-4qJ" id="PSC-N2-bie"/>
+                        <outlet property="poiHeadingLabel" destination="xJx-De-mnN" id="rJu-Ph-ZYm"/>
                     </connections>
                 </viewController>
             </objects>

@@ -20,17 +20,17 @@
 	UILabel *latLabel;
 	UILabel *longLabel;
 	UILabel *headingLabel;
-	UILabel *eb1headingLabel;
+	UILabel *poiHeadingLabel;
 	UILabel *distanceLabel;
 	
 	UIView *cameraView;
 	
 	UIImageView *compassImage;
-	UIImageView *eb1CompassImage;
+	UIImageView *poiCompassImage;
 	
 	NSMutableArray *poiButtons;
-	
-	PointOfInterest *eb1;
+
+	PointOfInterest *capitolBuilding;
 	LocationServicesManager *locationServicesManager;
 }
 
@@ -41,11 +41,11 @@
 @property (nonatomic, retain) IBOutlet UILabel *latLabel;
 @property (nonatomic, retain) IBOutlet UILabel *longLabel;
 @property (nonatomic, retain) IBOutlet UILabel *headingLabel;
-@property (nonatomic, retain) IBOutlet UILabel *eb1headingLabel;
+@property (nonatomic, retain) IBOutlet UILabel *poiHeadingLabel;
 @property (nonatomic, retain) IBOutlet UILabel *distanceLabel;
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
-@property (nonatomic, retain) IBOutlet UIImageView *eb1CompassImage;
+@property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;
 
 -(IBAction)poiButtonTouched:(id)sender;
 
