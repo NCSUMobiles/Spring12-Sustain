@@ -1,0 +1,26 @@
+//
+//  LocationServicesManager.h
+//  LocationTest
+//
+//  Created by JONATHAN B MORGAN on 3/27/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#define DEGREES_TO_RADIANS (M_PI / 180.0)
+
+@interface LocationServicesManager : NSObject {
+	double latitude;
+	double longitude;
+	NSMutableArray *headings;
+}
+
+-(void)addLatitude:(double)lat andLongitude:(double)lon;
+-(void)addHeading:(double)heading;
+-(CLLocationDirection)getHeading;
+
+@property (readonly) double latitude;
+@property (readonly) double longitude;
+
+@end

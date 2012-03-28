@@ -15,12 +15,19 @@
 		B47AED9415233E6700F0280B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AED9315233E6700F0280B /* AppDelegate.m */; };
 		B47AED9715233E6700F0280B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47AED9515233E6700F0280B /* MainStoryboard_iPhone.storyboard */; };
 		B47AED9A15233E6700F0280B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47AED9815233E6700F0280B /* MainStoryboard_iPad.storyboard */; };
-		B47AED9D15233E6700F0280B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AED9C15233E6700F0280B /* ViewController.m */; };
 		B47AEDA515233E6800F0280B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDA415233E6800F0280B /* SenTestingKit.framework */; };
 		B47AEDA615233E6800F0280B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8315233E6700F0280B /* UIKit.framework */; };
 		B47AEDA715233E6800F0280B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8515233E6700F0280B /* Foundation.framework */; };
 		B47AEDAF15233E6800F0280B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDAD15233E6800F0280B /* InfoPlist.strings */; };
 		B47AEDB215233E6800F0280B /* SeeingGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDB115233E6800F0280B /* SeeingGreenTests.m */; };
+		B47AEDC115233EBE00F0280B /* LocationServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDBC15233EBE00F0280B /* LocationServicesManager.m */; };
+		B47AEDC215233EBE00F0280B /* PointOfInterest.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDBE15233EBE00F0280B /* PointOfInterest.m */; };
+		B47AEDC315233EBE00F0280B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDC015233EBE00F0280B /* ViewController.m */; };
+		B47AEDC615233EDF00F0280B /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDC415233EDF00F0280B /* compass.png */; };
+		B47AEDC715233EDF00F0280B /* poiCompass.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDC515233EDF00F0280B /* poiCompass.png */; };
+		B47AEDCB15233F6800F0280B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDC815233F6800F0280B /* AVFoundation.framework */; };
+		B47AEDCC15233F6800F0280B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDC915233F6800F0280B /* CoreData.framework */; };
+		B47AEDCD15233F6800F0280B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDCA15233F6800F0280B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,22 +45,31 @@
 		B47AED8315233E6700F0280B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B47AED8515233E6700F0280B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B47AED8715233E6700F0280B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B47AED8B15233E6700F0280B /* SeeingGreen-Info.plist */ = {isa = PBXFileReference; path = "SeeingGreen-Info.plist"; sourceTree = "<group>"; };
+		B47AED8B15233E6700F0280B /* SeeingGreen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SeeingGreen-Info.plist"; sourceTree = "<group>"; };
 		B47AED8D15233E6700F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B47AED8F15233E6700F0280B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B47AED9115233E6700F0280B /* SeeingGreen-Prefix.pch */ = {isa = PBXFileReference; path = "SeeingGreen-Prefix.pch"; sourceTree = "<group>"; };
-		B47AED9215233E6700F0280B /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		B47AED9115233E6700F0280B /* SeeingGreen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeeingGreen-Prefix.pch"; sourceTree = "<group>"; };
+		B47AED9215233E6700F0280B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B47AED9315233E6700F0280B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B47AED9615233E6700F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		B47AED9915233E6700F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		B47AED9B15233E6700F0280B /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		B47AED9C15233E6700F0280B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B47AEDA315233E6800F0280B /* SeeingGreenTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeeingGreenTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47AEDA415233E6800F0280B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B47AEDAC15233E6800F0280B /* SeeingGreenTests-Info.plist */ = {isa = PBXFileReference; path = "SeeingGreenTests-Info.plist"; sourceTree = "<group>"; };
+		B47AEDAC15233E6800F0280B /* SeeingGreenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SeeingGreenTests-Info.plist"; sourceTree = "<group>"; };
 		B47AEDAE15233E6800F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B47AEDB015233E6800F0280B /* SeeingGreenTests.h */ = {isa = PBXFileReference; path = SeeingGreenTests.h; sourceTree = "<group>"; };
+		B47AEDB015233E6800F0280B /* SeeingGreenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeeingGreenTests.h; sourceTree = "<group>"; };
 		B47AEDB115233E6800F0280B /* SeeingGreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeeingGreenTests.m; sourceTree = "<group>"; };
+		B47AEDBB15233EBE00F0280B /* LocationServicesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServicesManager.h; sourceTree = "<group>"; };
+		B47AEDBC15233EBE00F0280B /* LocationServicesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServicesManager.m; sourceTree = "<group>"; };
+		B47AEDBD15233EBE00F0280B /* PointOfInterest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointOfInterest.h; sourceTree = "<group>"; };
+		B47AEDBE15233EBE00F0280B /* PointOfInterest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointOfInterest.m; sourceTree = "<group>"; };
+		B47AEDBF15233EBE00F0280B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B47AEDC015233EBE00F0280B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B47AEDC415233EDF00F0280B /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
+		B47AEDC515233EDF00F0280B /* poiCompass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiCompass.png; sourceTree = "<group>"; };
+		B47AEDC815233F6800F0280B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B47AEDC915233F6800F0280B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B47AEDCA15233F6800F0280B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47AEDCB15233F6800F0280B /* AVFoundation.framework in Frameworks */,
+				B47AEDCC15233F6800F0280B /* CoreData.framework in Frameworks */,
+				B47AEDCD15233F6800F0280B /* CoreLocation.framework in Frameworks */,
 				B47AED8415233E6700F0280B /* UIKit.framework in Frameworks */,
 				B47AED8615233E6700F0280B /* Foundation.framework in Frameworks */,
 				B47AED8815233E6700F0280B /* CoreGraphics.framework in Frameworks */,
@@ -102,6 +121,9 @@
 		B47AED8215233E6700F0280B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B47AEDC815233F6800F0280B /* AVFoundation.framework */,
+				B47AEDC915233F6800F0280B /* CoreData.framework */,
+				B47AEDCA15233F6800F0280B /* CoreLocation.framework */,
 				B47AED8315233E6700F0280B /* UIKit.framework */,
 				B47AED8515233E6700F0280B /* Foundation.framework */,
 				B47AED8715233E6700F0280B /* CoreGraphics.framework */,
@@ -113,12 +135,18 @@
 		B47AED8915233E6700F0280B /* SeeingGreen */ = {
 			isa = PBXGroup;
 			children = (
+				B47AEDC415233EDF00F0280B /* compass.png */,
+				B47AEDC515233EDF00F0280B /* poiCompass.png */,
+				B47AEDBB15233EBE00F0280B /* LocationServicesManager.h */,
+				B47AEDBC15233EBE00F0280B /* LocationServicesManager.m */,
+				B47AEDBD15233EBE00F0280B /* PointOfInterest.h */,
+				B47AEDBE15233EBE00F0280B /* PointOfInterest.m */,
+				B47AEDBF15233EBE00F0280B /* ViewController.h */,
+				B47AEDC015233EBE00F0280B /* ViewController.m */,
 				B47AED9215233E6700F0280B /* AppDelegate.h */,
 				B47AED9315233E6700F0280B /* AppDelegate.m */,
 				B47AED9515233E6700F0280B /* MainStoryboard_iPhone.storyboard */,
 				B47AED9815233E6700F0280B /* MainStoryboard_iPad.storyboard */,
-				B47AED9B15233E6700F0280B /* ViewController.h */,
-				B47AED9C15233E6700F0280B /* ViewController.m */,
 				B47AED8A15233E6700F0280B /* Supporting Files */,
 			);
 			path = SeeingGreen;
@@ -227,6 +255,8 @@
 				B47AED8E15233E6700F0280B /* InfoPlist.strings in Resources */,
 				B47AED9715233E6700F0280B /* MainStoryboard_iPhone.storyboard in Resources */,
 				B47AED9A15233E6700F0280B /* MainStoryboard_iPad.storyboard in Resources */,
+				B47AEDC615233EDF00F0280B /* compass.png in Resources */,
+				B47AEDC715233EDF00F0280B /* poiCompass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +293,9 @@
 			files = (
 				B47AED9015233E6700F0280B /* main.m in Sources */,
 				B47AED9415233E6700F0280B /* AppDelegate.m in Sources */,
-				B47AED9D15233E6700F0280B /* ViewController.m in Sources */,
+				B47AEDC115233EBE00F0280B /* LocationServicesManager.m in Sources */,
+				B47AEDC215233EBE00F0280B /* PointOfInterest.m in Sources */,
+				B47AEDC315233EBE00F0280B /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
