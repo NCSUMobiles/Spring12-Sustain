@@ -13,6 +13,7 @@
 	double longitude;
 	NSString *name;
 	NSString *description;
+	UIButton *button;
 }
 
 -(id)initWithLatitude:(double)lat andLongitude:(double)lon andName:(NSString *)locName andDescription:(NSString *)desc;
@@ -21,5 +22,5 @@
 @property double longitude;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *description;
-
+@property (nonatomic, retain) UIButton *button;
 @end

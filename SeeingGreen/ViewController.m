@@ -35,23 +35,25 @@
 	
 	poiButtons = [[NSMutableArray alloc] initWithCapacity:30];
 	
-	capitolBuilding = [[PointOfInterest alloc] initWithLatitude:35.780204 andLongitude:-78.639214 andName:@"State Capitol" andDescription:@"Capitol. With an O."];
+	poiArray = [[NSMutableArray alloc] initWithCapacity:30];
 	
-	
-	// programmatically add a button for the POI
-	// it doesn't make sense to do this for just one POI,
-	// but when they're all loaded via CoreData or JSON 
-	// we can put this in a loop
-	UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[poiButton addTarget:self 
-				  action:@selector(poiButtonTouched:)
-		forControlEvents:UIControlEventTouchUpInside];
-	[poiButton setTitle:[capitolBuilding name] forState:UIControlStateNormal];
-	poiButton.frame = CGRectMake(-1000, 240, 117, 37);
-	poiButton.alpha = 0.7;
-	[[self view] addSubview:poiButton];
-	[poiButtons addObject:poiButton];
+	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 andLongitude:-78.639214 andName:@"State Capitol" andDescription:@"Capitol. With an O."]];
+	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773605 andLongitude:-78.640831 andName:@"Raleigh Convention Center" andDescription:@"Evryday I'm convention. Evryday I'm convention."]];
+	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773609 andLongitude:-78.640541 andName:@"R-Line Hybrid Electric Bus" andDescription:@"I'm on a bus."]];
 
+	// programmatically add a button for the POIs	
+	for(PointOfInterest *poi in poiArray) {
+		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		[poiButton addTarget:self 
+					  action:@selector(poiButtonTouched:)
+			forControlEvents:UIControlEventTouchUpInside];
+		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
+		poiButton.frame = CGRectMake(-1000, 240, 117, 37);
+		poiButton.alpha = 0.5;
+		[[self view] addSubview:poiButton];
+		[poiButtons addObject:poiButton];
+		[poi setButton:poiButton];
+	}
 	
 	[self initLocationServices];
 	[self initCaptureSession];
@@ -141,14 +143,19 @@
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
 	
-	UIButton *poiButton = [poiButtons objectAtIndex:0];
+	//UIButton *poiButton = [poiButtons objectAtIndex:0];
 	
-	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingTo:capitolBuilding]-[locationServicesManager getHeading]));
+	//CLLocationDirection headingToPOI = [self headingTo:[poiArray objectAtIndex:0]];
+	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingTo:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading]));
 	
-	if(fabs([self headingTo:capitolBuilding]-[locationServicesManager getHeading]) < 90)
-		poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * ([self headingTo:capitolBuilding]-[locationServicesManager getHeading])), poiButton.center.y);
-	else
-		poiButton.center = CGPointMake(-1000,poiButton.center.y);
+	for(PointOfInterest *poi in poiArray) {
+		UIButton *poiButton = [poi button];
+		CLLocationDirection headingToPOI = [self headingTo:poi];
+		if(fabs(headingToPOI-[locationServicesManager getHeading]) < 90)
+			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[locationServicesManager getHeading])), poiButton.center.y);
+		else
+			poiButton.center = CGPointMake(-1000,poiButton.center.y);
+	}
 	
 }
 
@@ -165,7 +172,7 @@
 		[locationServicesManager addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
 		latLabel.text = [NSString stringWithFormat:@"%+.6f", [locationServicesManager latitude]];
 		longLabel.text = [NSString stringWithFormat:@"%+.6f", [locationServicesManager longitude]];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:capitolBuilding])];
+		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[poiArray objectAtIndex:0]])];
 		[self updatePOICompass];
     }
     // else skip the event and process the next one.
@@ -175,7 +182,7 @@
 //this should push a new view controller (not yet implemented)
 -(void)poiButtonTouched:(id)sender {
 	UIButton *sendingButton = (UIButton *)sender;
-	NSLog([sendingButton titleForState:UIControlStateNormal]);
+	NSLog(@"%@", [sendingButton titleForState:UIControlStateNormal]);
 }
 
 //called when the magnetometer heading changes
@@ -190,7 +197,7 @@
 	[locationServicesManager addHeading:theHeading];
 	
 	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[locationServicesManager getHeading]];
-	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingTo:capitolBuilding]-[locationServicesManager getHeading])];
+	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingTo:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading])];
 	
 	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[locationServicesManager getHeading]);
 	[self updatePOICompass];

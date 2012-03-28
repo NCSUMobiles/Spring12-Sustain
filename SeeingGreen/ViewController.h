@@ -28,9 +28,9 @@
 	UIImageView *compassImage;
 	UIImageView *poiCompassImage;
 	
+	NSMutableArray *poiArray;
 	NSMutableArray *poiButtons;
-
-	PointOfInterest *capitolBuilding;
+	
 	LocationServicesManager *locationServicesManager;
 }
 
