@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B47AED8415233E6700F0280B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8315233E6700F0280B /* UIKit.framework */; };
+		B47AED8615233E6700F0280B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8515233E6700F0280B /* Foundation.framework */; };
+		B47AED8815233E6700F0280B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8715233E6700F0280B /* CoreGraphics.framework */; };
+		B47AED8E15233E6700F0280B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B47AED8C15233E6700F0280B /* InfoPlist.strings */; };
+		B47AED9015233E6700F0280B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AED8F15233E6700F0280B /* main.m */; };
+		B47AED9415233E6700F0280B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AED9315233E6700F0280B /* AppDelegate.m */; };
+		B47AED9715233E6700F0280B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47AED9515233E6700F0280B /* MainStoryboard_iPhone.storyboard */; };
+		B47AED9A15233E6700F0280B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47AED9815233E6700F0280B /* MainStoryboard_iPad.storyboard */; };
+		B47AED9D15233E6700F0280B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AED9C15233E6700F0280B /* ViewController.m */; };
+		B47AEDA515233E6800F0280B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDA415233E6800F0280B /* SenTestingKit.framework */; };
+		B47AEDA615233E6800F0280B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8315233E6700F0280B /* UIKit.framework */; };
+		B47AEDA715233E6800F0280B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8515233E6700F0280B /* Foundation.framework */; };
+		B47AEDAF15233E6800F0280B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDAD15233E6800F0280B /* InfoPlist.strings */; };
+		B47AEDB215233E6800F0280B /* SeeingGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDB115233E6800F0280B /* SeeingGreenTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B47AEDA815233E6800F0280B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B47AED7615233E6700F0280B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B47AED7E15233E6700F0280B;
+			remoteInfo = SeeingGreen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B47AED7F15233E6700F0280B /* SeeingGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeingGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47AED8315233E6700F0280B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B47AED8515233E6700F0280B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B47AED8715233E6700F0280B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B47AED8B15233E6700F0280B /* SeeingGreen-Info.plist */ = {isa = PBXFileReference; path = "SeeingGreen-Info.plist"; sourceTree = "<group>"; };
+		B47AED8D15233E6700F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B47AED8F15233E6700F0280B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B47AED9115233E6700F0280B /* SeeingGreen-Prefix.pch */ = {isa = PBXFileReference; path = "SeeingGreen-Prefix.pch"; sourceTree = "<group>"; };
+		B47AED9215233E6700F0280B /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		B47AED9315233E6700F0280B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B47AED9615233E6700F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		B47AED9915233E6700F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		B47AED9B15233E6700F0280B /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		B47AED9C15233E6700F0280B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B47AEDA315233E6800F0280B /* SeeingGreenTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeeingGreenTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47AEDA415233E6800F0280B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B47AEDAC15233E6800F0280B /* SeeingGreenTests-Info.plist */ = {isa = PBXFileReference; path = "SeeingGreenTests-Info.plist"; sourceTree = "<group>"; };
+		B47AEDAE15233E6800F0280B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B47AEDB015233E6800F0280B /* SeeingGreenTests.h */ = {isa = PBXFileReference; path = SeeingGreenTests.h; sourceTree = "<group>"; };
+		B47AEDB115233E6800F0280B /* SeeingGreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeeingGreenTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B47AED7C15233E6700F0280B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47AED8415233E6700F0280B /* UIKit.framework in Frameworks */,
+				B47AED8615233E6700F0280B /* Foundation.framework in Frameworks */,
+				B47AED8815233E6700F0280B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B47AED9F15233E6800F0280B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47AEDA515233E6800F0280B /* SenTestingKit.framework in Frameworks */,
+				B47AEDA615233E6800F0280B /* UIKit.framework in Frameworks */,
+				B47AEDA715233E6800F0280B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B47AED7415233E6700F0280B = {
+			isa = PBXGroup;
+			children = (
+				B47AED8915233E6700F0280B /* SeeingGreen */,
+				B47AEDAA15233E6800F0280B /* SeeingGreenTests */,
+				B47AED8215233E6700F0280B /* Frameworks */,
+				B47AED8015233E6700F0280B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B47AED8015233E6700F0280B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B47AED7F15233E6700F0280B /* SeeingGreen.app */,
+				B47AEDA315233E6800F0280B /* SeeingGreenTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B47AED8215233E6700F0280B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B47AED8315233E6700F0280B /* UIKit.framework */,
+				B47AED8515233E6700F0280B /* Foundation.framework */,
+				B47AED8715233E6700F0280B /* CoreGraphics.framework */,
+				B47AEDA415233E6800F0280B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B47AED8915233E6700F0280B /* SeeingGreen */ = {
+			isa = PBXGroup;
+			children = (
+				B47AED9215233E6700F0280B /* AppDelegate.h */,
+				B47AED9315233E6700F0280B /* AppDelegate.m */,
+				B47AED9515233E6700F0280B /* MainStoryboard_iPhone.storyboard */,
+				B47AED9815233E6700F0280B /* MainStoryboard_iPad.storyboard */,
+				B47AED9B15233E6700F0280B /* ViewController.h */,
+				B47AED9C15233E6700F0280B /* ViewController.m */,
+				B47AED8A15233E6700F0280B /* Supporting Files */,
+			);
+			path = SeeingGreen;
+			sourceTree = "<group>";
+		};
+		B47AED8A15233E6700F0280B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B47AED8B15233E6700F0280B /* SeeingGreen-Info.plist */,
+				B47AED8C15233E6700F0280B /* InfoPlist.strings */,
+				B47AED8F15233E6700F0280B /* main.m */,
+				B47AED9115233E6700F0280B /* SeeingGreen-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B47AEDAA15233E6800F0280B /* SeeingGreenTests */ = {
+			isa = PBXGroup;
+			children = (
+				B47AEDB015233E6800F0280B /* SeeingGreenTests.h */,
+				B47AEDB115233E6800F0280B /* SeeingGreenTests.m */,
+				B47AEDAB15233E6800F0280B /* Supporting Files */,
+			);
+			path = SeeingGreenTests;
+			sourceTree = "<group>";
+		};
+		B47AEDAB15233E6800F0280B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B47AEDAC15233E6800F0280B /* SeeingGreenTests-Info.plist */,
+				B47AEDAD15233E6800F0280B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B47AED7E15233E6700F0280B /* SeeingGreen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B47AEDB515233E6800F0280B /* Build configuration list for PBXNativeTarget "SeeingGreen" */;
+			buildPhases = (
+				B47AED7B15233E6700F0280B /* Sources */,
+				B47AED7C15233E6700F0280B /* Frameworks */,
+				B47AED7D15233E6700F0280B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SeeingGreen;
+			productName = SeeingGreen;
+			productReference = B47AED7F15233E6700F0280B /* SeeingGreen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B47AEDA215233E6800F0280B /* SeeingGreenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B47AEDB815233E6800F0280B /* Build configuration list for PBXNativeTarget "SeeingGreenTests" */;
+			buildPhases = (
+				B47AED9E15233E6800F0280B /* Sources */,
+				B47AED9F15233E6800F0280B /* Frameworks */,
+				B47AEDA015233E6800F0280B /* Resources */,
+				B47AEDA115233E6800F0280B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B47AEDA915233E6800F0280B /* PBXTargetDependency */,
+			);
+			name = SeeingGreenTests;
+			productName = SeeingGreenTests;
+			productReference = B47AEDA315233E6800F0280B /* SeeingGreenTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B47AED7615233E6700F0280B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = B47AED7915233E6700F0280B /* Build configuration list for PBXProject "SeeingGreen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B47AED7415233E6700F0280B;
+			productRefGroup = B47AED8015233E6700F0280B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B47AED7E15233E6700F0280B /* SeeingGreen */,
+				B47AEDA215233E6800F0280B /* SeeingGreenTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B47AED7D15233E6700F0280B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47AED8E15233E6700F0280B /* InfoPlist.strings in Resources */,
+				B47AED9715233E6700F0280B /* MainStoryboard_iPhone.storyboard in Resources */,
+				B47AED9A15233E6700F0280B /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B47AEDA015233E6800F0280B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47AEDAF15233E6800F0280B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B47AEDA115233E6800F0280B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B47AED7B15233E6700F0280B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47AED9015233E6700F0280B /* main.m in Sources */,
+				B47AED9415233E6700F0280B /* AppDelegate.m in Sources */,
+				B47AED9D15233E6700F0280B /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B47AED9E15233E6800F0280B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47AEDB215233E6800F0280B /* SeeingGreenTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B47AEDA915233E6800F0280B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B47AED7E15233E6700F0280B /* SeeingGreen */;
+			targetProxy = B47AEDA815233E6800F0280B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B47AED8C15233E6700F0280B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B47AED8D15233E6700F0280B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B47AED9515233E6700F0280B /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B47AED9615233E6700F0280B /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		B47AED9815233E6700F0280B /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B47AED9915233E6700F0280B /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		B47AEDAD15233E6800F0280B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B47AEDAE15233E6800F0280B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B47AEDB315233E6800F0280B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B47AEDB415233E6800F0280B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B47AEDB615233E6800F0280B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SeeingGreen/SeeingGreen-Prefix.pch";
+				INFOPLIST_FILE = "SeeingGreen/SeeingGreen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B47AEDB715233E6800F0280B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SeeingGreen/SeeingGreen-Prefix.pch";
+				INFOPLIST_FILE = "SeeingGreen/SeeingGreen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B47AEDB915233E6800F0280B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SeeingGreen.app/SeeingGreen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SeeingGreen/SeeingGreen-Prefix.pch";
+				INFOPLIST_FILE = "SeeingGreenTests/SeeingGreenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B47AEDBA15233E6800F0280B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SeeingGreen.app/SeeingGreen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SeeingGreen/SeeingGreen-Prefix.pch";
+				INFOPLIST_FILE = "SeeingGreenTests/SeeingGreenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B47AED7915233E6700F0280B /* Build configuration list for PBXProject "SeeingGreen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B47AEDB315233E6800F0280B /* Debug */,
+				B47AEDB415233E6800F0280B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B47AEDB515233E6800F0280B /* Build configuration list for PBXNativeTarget "SeeingGreen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B47AEDB615233E6800F0280B /* Debug */,
+				B47AEDB715233E6800F0280B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B47AEDB815233E6800F0280B /* Build configuration list for PBXNativeTarget "SeeingGreenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B47AEDB915233E6800F0280B /* Debug */,
+				B47AEDBA15233E6800F0280B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B47AED7615233E6700F0280B /* Project object */;
+}
