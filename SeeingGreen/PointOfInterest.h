@@ -11,16 +11,21 @@
 @interface PointOfInterest : NSObject {
 	double latitude;
 	double longitude;
+	
 	NSString *name;
+	NSString *shortName;
+	NSString *address;
 	NSString *description;
 	UIButton *button;
 }
 
--(id)initWithLatitude:(double)lat andLongitude:(double)lon andName:(NSString *)locName andDescription:(NSString *)desc;
+-(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName;
 
 @property double latitude;
 @property double longitude;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *shortName;
+@property (nonatomic, retain) NSString *address;
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, retain) UIButton *button;
 @end

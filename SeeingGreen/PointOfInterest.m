@@ -13,16 +13,17 @@
 @synthesize latitude;
 @synthesize longitude;
 @synthesize name;
+@synthesize shortName;
+@synthesize address;
 @synthesize description;
 @synthesize button;
 
 //creates a POI with the given latitude, longitude, name, and description
--(id)initWithLatitude:(double)lat andLongitude:(double)lon andName:(NSString *)locName andDescription:(NSString *)desc {
+-(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName {
 	if(self = [super init]) {
 		latitude = lat;
 		longitude = lon;
 		name = locName;
-		description = desc;
 		button = nil;
 	}
 	

@@ -36,7 +36,7 @@
 
 -(void)initCaptureSession;
 -(double)distanceTo:(PointOfInterest *)poi;
--(double)headingTo:(PointOfInterest *)poi;
+-(double)headingToInDegrees:(PointOfInterest *)poi;
 
 @property (nonatomic, retain) IBOutlet UILabel *latLabel;
 @property (nonatomic, retain) IBOutlet UILabel *longLabel;
