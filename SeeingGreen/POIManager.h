@@ -17,6 +17,7 @@
 }
 
 +(POIManager *)sharedPOIManager;
+-(void)createButtonsInViewController:(UIViewController *)viewController;
 -(NSArray *)sortedByDistance;
 -(NSArray *)sortedByHeading;
 

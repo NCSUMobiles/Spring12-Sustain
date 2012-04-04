@@ -28,8 +28,6 @@
 	
 	UIImageView *compassImage;
 	UIImageView *poiCompassImage;
-	
-	NSMutableArray *poiButtons;
 }
 
 -(void)initCaptureSession;

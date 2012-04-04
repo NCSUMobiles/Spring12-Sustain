@@ -8,6 +8,9 @@
 
 #import "POIManager.h"
 
+#define DEFAULT_BUTTON_HEIGHT 50
+#define DEFAULT_BUTTON_WIDTH 150
+
 @implementation POIManager
 
 @synthesize poiArray;
@@ -50,6 +53,22 @@ static POIManager *_sharedPOIManager = nil;
 	}
 	
 	return self;
+}
+
+-(void)createButtonsInViewController:(UIViewController *)viewController {
+	//add a UIButton for each POI
+	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
+		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		[poiButton addTarget:viewController 
+					  action:@selector(poiButtonTouched:)
+			forControlEvents:UIControlEventTouchUpInside];
+		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
+		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+		poiButton.alpha = 1.0;
+		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+		[poi setButton:poiButton];
+		[[viewController view] addSubview:poi.button];
+	}
 }
 
 -(NSArray *)sortedByDistance {

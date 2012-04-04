@@ -25,34 +25,14 @@
 @synthesize distanceLabel;
 @synthesize compassImage;
 @synthesize poiCompassImage;
-
 @synthesize cameraView;
-
-#define DEFAULT_BUTTON_HEIGHT 50
-#define DEFAULT_BUTTON_WIDTH 150
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
-	
-	poiButtons = [[NSMutableArray alloc] initWithCapacity:30];
-	
-	//add a UIButton for each POI
-	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
-		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[poiButton addTarget:self 
-					  action:@selector(poiButtonTouched:)
-			forControlEvents:UIControlEventTouchUpInside];
-		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
-		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-		poiButton.alpha = 1.0;
-		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
-		[[self view] addSubview:poiButton];
-		[poiButtons addObject:poiButton];
-		[poi setButton:poiButton];
-	}
-	
+		
+	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
 }
