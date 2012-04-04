@@ -108,7 +108,7 @@
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
 	
-	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] distanceTo]-[[LocationServicesManager sharedLSM] getHeading];
+	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 		
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
