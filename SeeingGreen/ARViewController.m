@@ -103,8 +103,6 @@
 	[[cameraView layer] addSublayer:previewLayer];
 }
 
-
-
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
 	
