@@ -13,6 +13,15 @@
 @synthesize poiArray;
 @synthesize currentTarget;
 
+static POIManager *_sharedPOIManager = nil;
+
+//returns the singleton instance of the class or creates one if one does not exist
++(POIManager *) sharedPOIManager {
+	if(!_sharedPOIManager)
+		_sharedPOIManager = [[self alloc] init];
+	return _sharedPOIManager;
+}
+
 -(id) init {
 	if(self = [super init]) {
 		poiArray = [[NSMutableArray alloc] initWithCapacity:30];

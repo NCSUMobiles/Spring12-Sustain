@@ -15,6 +15,8 @@
 
 }
 
++(POIManager *)sharedPOIManager;
+
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) PointOfInterest *currentTarget;
 

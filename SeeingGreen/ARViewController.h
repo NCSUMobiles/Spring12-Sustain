@@ -30,7 +30,6 @@
 	UIImageView *poiCompassImage;
 	
 	NSMutableArray *poiButtons;
-	POIManager *poiManager;
 	LocationServicesManager *locationServicesManager;
 }
 

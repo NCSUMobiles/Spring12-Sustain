@@ -38,10 +38,8 @@
 	
 	poiButtons = [[NSMutableArray alloc] initWithCapacity:30];
 	
-	poiManager = [[POIManager alloc] init];
-
 	//add a UIButton for each POI
-	for(PointOfInterest *poi in [poiManager poiArray]) {
+	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[poiButton addTarget:self 
 					  action:@selector(poiButtonTouched:)
@@ -152,9 +150,9 @@
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
 		
-	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[poiManager currentTarget]]-[locationServicesManager getHeading]));
+	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[[POIManager sharedPOIManager] currentTarget]]-[locationServicesManager getHeading]));
 		
-	for(PointOfInterest *poi in [poiManager poiArray]) {
+	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [poi button];
 		double headingToPOI = [self headingToInDegrees:poi];
 		//NSLog(@"Heading to POI %@: %f", poiButton.titleLabel.text, headingToPOI-[locationServicesManager getHeading]);
@@ -179,7 +177,7 @@
 		[locationServicesManager addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
 		latLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.latitude];
 		longLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.longitude];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[poiManager currentTarget]])];
+		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[[POIManager sharedPOIManager] currentTarget]])];
 		[self updatePOICompass];
     }
     // else skip the event and process the next one.
@@ -204,7 +202,7 @@
 	[locationServicesManager addHeading:theHeading];
 	
 	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[locationServicesManager getHeading]];
-	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingToInDegrees:[poiManager currentTarget]]-[locationServicesManager getHeading])];
+	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingToInDegrees:[[POIManager sharedPOIManager] currentTarget]]-[locationServicesManager getHeading])];
 	
 	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[locationServicesManager getHeading]);
 	[self updatePOICompass];
