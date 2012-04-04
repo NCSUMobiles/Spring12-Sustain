@@ -2,7 +2,7 @@
 //  ViewController.m
 //  LocationTest
 //
-//  Contains all of the main functionality of the application.  Most of this
+//  Contains all of the main functionality of the AR view for the application.  Most of this
 //  should really be moved to a secondary class.
 //  
 //  Created by JONATHAN B MORGAN on 3/22/12.
@@ -38,31 +38,10 @@
 	
 	poiButtons = [[NSMutableArray alloc] initWithCapacity:30];
 	
-	poiArray = [[NSMutableArray alloc] initWithCapacity:30];
-
-	//add POIs for Centennial Campus
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771621 longitude:-78.675048 andName:@"EB I"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771969 longitude:-78.673847 andName:@"EB II"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770925 longitude:-78.673804 andName:@"EB III"]];
-	/*
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773588 longitude:-78.673375 andName:@"Innovation Cafe"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773088 longitude:-78.673943 andName:@"BTEC"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.77358 longitude:-78.676014 andName:@"RedHat"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
-	 */
-	
-	//Add POIs for the walking tour
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 longitude:-78.639214 andName:@"State Capitol"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773605 longitude:-78.640831 andName:@"Raleigh Convention Center"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773609 longitude:-78.640541 andName:@"R-Line Hybrid Electric Bus"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773132 longitude:-78.640602 andName:@"Big Belly Solar Trash Compactor"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.772404 longitude:-78.640617 andName:@"Solar EV Charging Stations"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771580 longitude:-78.639587 andName:@"Progress Energy Center"]];
-	
+	poiManager = [[POIManager alloc] init];
 
 	//add a UIButton for each POI
-	for(PointOfInterest *poi in poiArray) {
+	for(PointOfInterest *poi in [poiManager poiArray]) {
 		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[poiButton addTarget:self 
 					  action:@selector(poiButtonTouched:)
@@ -98,7 +77,7 @@
 		[locationManager startUpdatingHeading];	
 		
 		[self updatePOICompass];
-	}	
+	}
 }
 
 //initializes the capture session used to display the camera feed
@@ -173,9 +152,9 @@
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
 		
-	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading]));
+	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[poiManager currentTarget]]-[locationServicesManager getHeading]));
 		
-	for(PointOfInterest *poi in poiArray) {
+	for(PointOfInterest *poi in [poiManager poiArray]) {
 		UIButton *poiButton = [poi button];
 		double headingToPOI = [self headingToInDegrees:poi];
 		//NSLog(@"Heading to POI %@: %f", poiButton.titleLabel.text, headingToPOI-[locationServicesManager getHeading]);
@@ -200,7 +179,7 @@
 		[locationServicesManager addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
 		latLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.latitude];
 		longLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.longitude];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[poiArray objectAtIndex:0]])];
+		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[poiManager currentTarget]])];
 		[self updatePOICompass];
     }
     // else skip the event and process the next one.
@@ -225,11 +204,11 @@
 	[locationServicesManager addHeading:theHeading];
 	
 	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[locationServicesManager getHeading]];
-	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingToInDegrees:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading])];
+	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingToInDegrees:[poiManager currentTarget]]-[locationServicesManager getHeading])];
 	
 	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[locationServicesManager getHeading]);
 	[self updatePOICompass];
-} 
+}
 
 //called when the location manager experiences a failure
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

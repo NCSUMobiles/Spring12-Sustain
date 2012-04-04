@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "PointOfInterest.h"
+#import "POIManager.h"
 #import "LocationServicesManager.h"
 
 @interface ARViewController : UIViewController <CLLocationManagerDelegate> {
@@ -28,9 +29,8 @@
 	UIImageView *compassImage;
 	UIImageView *poiCompassImage;
 	
-	NSMutableArray *poiArray;
 	NSMutableArray *poiButtons;
-	
+	POIManager *poiManager;
 	LocationServicesManager *locationServicesManager;
 }
 
