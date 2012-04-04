@@ -17,6 +17,8 @@
 }
 
 +(POIManager *)sharedPOIManager;
+-(NSArray *)sortedByDistance;
+-(NSArray *)sortedByHeading;
 
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) PointOfInterest *currentTarget;

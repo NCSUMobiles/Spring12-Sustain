@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "PointOfInterest.h"
+@class PointOfInterest;
 
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 

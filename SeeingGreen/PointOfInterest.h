@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LocationServicesManager.h"
 
 @interface PointOfInterest : NSObject {
 	double latitude;
@@ -20,6 +21,8 @@
 }
 
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName;
+-(double)distanceTo;
+-(double)headingTo;
 
 @property double latitude;
 @property double longitude;

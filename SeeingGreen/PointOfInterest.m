@@ -30,4 +30,12 @@
 	return self;
 }
 
+-(double)distanceTo {
+	return [[[LocationServicesManager sharedLSM] distanceToPOI:self] doubleValue];
+}
+
+-(double)headingTo {
+	return [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:self] doubleValue];
+}
+
 @end

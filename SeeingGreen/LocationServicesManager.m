@@ -7,6 +7,7 @@
 //
 
 #import "LocationServicesManager.h"
+#import "PointOfInterest.h"
 
 #define HEADINGS_TO_SAVE 5
 

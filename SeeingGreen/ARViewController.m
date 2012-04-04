@@ -108,13 +108,13 @@
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
 	
-	double headingToTarget = [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:[[POIManager sharedPOIManager] currentTarget]] doubleValue]-[[LocationServicesManager sharedLSM] getHeading];
+	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] distanceTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 		
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [poi button];
-		double headingToPOI = [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:poi] doubleValue];
-		//NSLog(@"Heading to POI %@: %f", poiButton.titleLabel.text, headingToPOI-[[LocationServicesManager sharedLSM] getHeading]);
+		double headingToPOI = [poi headingTo];
+
 		if(fabs(headingToPOI-[[LocationServicesManager sharedLSM] getHeading]) < 90)
 			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[[LocationServicesManager sharedLSM] getHeading])), poiButton.center.y);
 		else
@@ -137,7 +137,7 @@
 		latLabel.text = [NSString stringWithFormat:@"%+.6f", [LocationServicesManager sharedLSM].latitude];
 		longLabel.text = [NSString stringWithFormat:@"%+.6f", [LocationServicesManager sharedLSM].longitude];
 		
-		double distanceToTarget = [[[LocationServicesManager sharedLSM] distanceToPOI:[[POIManager sharedPOIManager] currentTarget]] doubleValue];
+		double distanceToTarget = [[[POIManager sharedPOIManager] currentTarget] distanceTo];
 		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * distanceToTarget)];
 		[self updatePOICompass];
     }
@@ -162,7 +162,7 @@
 	
 	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	double headingToTarget = [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:[[POIManager sharedPOIManager] currentTarget]] doubleValue]-[[LocationServicesManager sharedLSM] getHeading];
+	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] distanceTo]-[[LocationServicesManager sharedLSM] getHeading];
 
 	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[[LocationServicesManager sharedLSM] getHeading]];
 	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)headingToTarget];

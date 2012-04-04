@@ -61,4 +61,14 @@ static POIManager *_sharedPOIManager = nil;
 	}];
 	return sortedArray;
 }
+
+-(NSArray *)sortedByHeading {
+	NSArray *sortedArray;
+	sortedArray = [poiArray sortedArrayUsingComparator:^(id a, id b) {
+		NSNumber *first = [[LocationServicesManager sharedLSM] headingToPOIInDegrees:(PointOfInterest*)a];
+		NSNumber *second = [[LocationServicesManager sharedLSM] headingToPOIInDegrees:(PointOfInterest*)b];
+		return [first compare:second];
+	}];
+	return sortedArray;
+}
 @end
