@@ -37,7 +37,6 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 }
 
 -(void)addHeading:(double)heading {
-	
 	while(heading < 0)
 		heading += 360;
 		
@@ -92,7 +91,6 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 	while(bearingInDegrees < -180)
 		bearingInDegrees += 360;
 	
-	//NSLog(@"%f", bearingInDegrees);
 	return [NSNumber numberWithDouble:bearingInDegrees];
 }
 

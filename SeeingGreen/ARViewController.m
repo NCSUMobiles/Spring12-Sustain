@@ -46,7 +46,7 @@
 			forControlEvents:UIControlEventTouchUpInside];
 		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
 		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-		poiButton.alpha = 0.5;
+		poiButton.alpha = 1.0;
 		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		[[self view] addSubview:poiButton];
 		[poiButtons addObject:poiButton];
@@ -167,6 +167,12 @@
 	
 	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
+		
+	//update the button z-orders
+	NSArray *sortedByDistance = [[POIManager sharedPOIManager] sortedByDistance];
+	NSEnumerator *enumerator = [sortedByDistance reverseObjectEnumerator];
+    for (PointOfInterest *poi in enumerator)
+		[poi.button.superview bringSubviewToFront:poi.button];
 }
 
 //called when the location manager experiences a failure
