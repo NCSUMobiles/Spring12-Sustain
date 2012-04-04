@@ -15,6 +15,14 @@
 @synthesize latitude;
 @synthesize longitude;
 
+static LocationServicesManager *_sharedLocationServicesManager = nil;
+
++(LocationServicesManager *)sharedLSM {
+	if(!_sharedLocationServicesManager)
+		_sharedLocationServicesManager = [[self alloc] init];
+	return _sharedLocationServicesManager;
+}
+
 -(id)init {
 	if(self = [super init]) {
 		headings = [[NSMutableArray alloc] initWithCapacity:20];
@@ -49,6 +57,42 @@
 	}
 	
 	return atan2(yDistance,xDistance)/DEGREES_TO_RADIANS;
+}
+
+-(NSNumber *)distanceToPOI:(PointOfInterest *)poi {
+	double dLongitude = (poi.longitude - [LocationServicesManager sharedLSM].longitude) * DEGREES_TO_RADIANS;
+    double dLatitude = (poi.latitude - [LocationServicesManager sharedLSM].latitude) * DEGREES_TO_RADIANS;
+	
+	//I didn't name these variables, I don't know what they signify, I'm a terrible person
+    double a = pow(sin(dLatitude/2.0), 2) + cos([LocationServicesManager sharedLSM].latitude*DEGREES_TO_RADIANS) * cos(poi.latitude*DEGREES_TO_RADIANS) * pow(sin(dLongitude/2.0), 2);
+    double c = 2 * atan2(sqrt(a), sqrt(1-a));
+    double distanceInMiles = 3956 * c; 
+	
+    return [NSNumber numberWithDouble:distanceInMiles];
+}
+
+//returns the heading to a POI from the current location and orientation
+-(NSNumber *)headingToPOIInDegrees:(PointOfInterest *)poi {
+	
+	double lon1, lon2, lat1, lat2;
+	lon1 = DEGREES_TO_RADIANS * longitude;
+	lat1 = DEGREES_TO_RADIANS * latitude;
+	lon2 = DEGREES_TO_RADIANS * poi.longitude;
+	lat2 = DEGREES_TO_RADIANS * poi.latitude;
+	
+	double dLon = lon2 - lon1;
+    double y = sin(dLon) * cos(lat2);
+    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+	
+	double bearingInDegrees = atan2(y, x) / DEGREES_TO_RADIANS;
+	
+	while(bearingInDegrees > 180)
+		bearingInDegrees -= 360;
+	while(bearingInDegrees < -180)
+		bearingInDegrees += 360;
+	
+	//NSLog(@"%f", bearingInDegrees);
+	return [NSNumber numberWithDouble:bearingInDegrees];
 }
 
 @end

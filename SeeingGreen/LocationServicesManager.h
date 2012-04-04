@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "PointOfInterest.h"
+
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 
 @interface LocationServicesManager : NSObject {
@@ -16,9 +18,13 @@
 	NSMutableArray *headings;
 }
 
++(LocationServicesManager *)sharedLSM;
+
 -(void)addLatitude:(double)lat andLongitude:(double)lon;
 -(void)addHeading:(double)heading;
 -(CLLocationDirection)getHeading;
+-(NSNumber *)distanceToPOI:(PointOfInterest *)poi;
+-(NSNumber *)headingToPOIInDegrees:(PointOfInterest *)poi;
 
 @property (readonly) double latitude;
 @property (readonly) double longitude;

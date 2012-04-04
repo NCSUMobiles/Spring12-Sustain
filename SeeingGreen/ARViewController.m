@@ -59,7 +59,6 @@
 
 //initializes the location services used to get GPS coordinates and compass heading
 -(void)initLocationServices { 
-	locationServicesManager = [[LocationServicesManager alloc] init];
 	
 	if( [CLLocationManager locationServicesEnabled]) {
 		
@@ -104,60 +103,20 @@
 	[[cameraView layer] addSublayer:previewLayer];
 }
 
-//returns the heading to a POI from the current location and orientation
--(double)headingToInDegrees:(PointOfInterest *)poi {
 
-	double lon1, lon2, lat1, lat2;
-	lon1 = DEGREES_TO_RADIANS * locationServicesManager.longitude;
-	lat1 = DEGREES_TO_RADIANS * locationServicesManager.latitude;
-	lon2 = DEGREES_TO_RADIANS * poi.longitude;
-	lat2 = DEGREES_TO_RADIANS * poi.latitude;
-	
-	double dLon = lon2 - lon1;
-    double y = sin(dLon) * cos(lat2);
-    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
-	
-	double bearingInDegrees = atan2(y, x) / DEGREES_TO_RADIANS;
-	
-	while(bearingInDegrees > 180)
-		bearingInDegrees -= 360;
-	while(bearingInDegrees < -180)
-		bearingInDegrees += 360;
-	
-	//NSLog(@"%f", bearingInDegrees);
-	return bearingInDegrees;
-}
-
-//returns the distance to a POI from the current location
--(double)distanceTo:(PointOfInterest *)poi {
-	return [self haversineMilesToPOI:poi];
-}
-
-//calculates the distance to a POI from the current location
--(double)haversineMilesToPOI:(PointOfInterest *)poi {
-	
-    double dLongitude = (poi.longitude - locationServicesManager.longitude) * DEGREES_TO_RADIANS;
-    double dLatitude = (poi.latitude - locationServicesManager.latitude) * DEGREES_TO_RADIANS;
-	
-	//I didn't name these variables, I don't know what they signify, I'm a terrible person
-    double a = pow(sin(dLatitude/2.0), 2) + cos(locationServicesManager.latitude*DEGREES_TO_RADIANS) * cos(poi.latitude*DEGREES_TO_RADIANS) * pow(sin(dLongitude/2.0), 2);
-    double c = 2 * atan2(sqrt(a), sqrt(1-a));
-    double distanceInMiles = 3956 * c; 
-	
-    return distanceInMiles;
-}
 
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
-		
-	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[[POIManager sharedPOIManager] currentTarget]]-[locationServicesManager getHeading]));
+	
+	double headingToTarget = [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:[[POIManager sharedPOIManager] currentTarget]] doubleValue]-[[LocationServicesManager sharedLSM] getHeading];
+	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 		
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [poi button];
-		double headingToPOI = [self headingToInDegrees:poi];
-		//NSLog(@"Heading to POI %@: %f", poiButton.titleLabel.text, headingToPOI-[locationServicesManager getHeading]);
-		if(fabs(headingToPOI-[locationServicesManager getHeading]) < 90)
-			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[locationServicesManager getHeading])), poiButton.center.y);
+		double headingToPOI = [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:poi] doubleValue];
+		//NSLog(@"Heading to POI %@: %f", poiButton.titleLabel.text, headingToPOI-[[LocationServicesManager sharedLSM] getHeading]);
+		if(fabs(headingToPOI-[[LocationServicesManager sharedLSM] getHeading]) < 90)
+			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[[LocationServicesManager sharedLSM] getHeading])), poiButton.center.y);
 		else
 			poiButton.center = CGPointMake(-1000,poiButton.center.y);
 	}
@@ -174,10 +133,12 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
 	
     if (abs(howRecent) < 15.0) {		
-		[locationServicesManager addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
-		latLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.latitude];
-		longLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.longitude];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[[POIManager sharedPOIManager] currentTarget]])];
+		[[LocationServicesManager sharedLSM] addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
+		latLabel.text = [NSString stringWithFormat:@"%+.6f", [LocationServicesManager sharedLSM].latitude];
+		longLabel.text = [NSString stringWithFormat:@"%+.6f", [LocationServicesManager sharedLSM].longitude];
+		
+		double distanceToTarget = [[[LocationServicesManager sharedLSM] distanceToPOI:[[POIManager sharedPOIManager] currentTarget]] doubleValue];
+		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * distanceToTarget)];
 		[self updatePOICompass];
     }
     // else skip the event and process the next one.
@@ -199,12 +160,14 @@
 	CLLocationDirection  theHeading = ((newHeading.trueHeading > 0) ?
 									   newHeading.trueHeading : newHeading.magneticHeading);
 	
-	[locationServicesManager addHeading:theHeading];
+	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[locationServicesManager getHeading]];
-	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingToInDegrees:[[POIManager sharedPOIManager] currentTarget]]-[locationServicesManager getHeading])];
+	double headingToTarget = [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:[[POIManager sharedPOIManager] currentTarget]] doubleValue]-[[LocationServicesManager sharedLSM] getHeading];
+
+	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[[LocationServicesManager sharedLSM] getHeading]];
+	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)headingToTarget];
 	
-	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[locationServicesManager getHeading]);
+	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
 }
 

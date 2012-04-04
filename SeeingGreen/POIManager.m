@@ -51,4 +51,14 @@ static POIManager *_sharedPOIManager = nil;
 	
 	return self;
 }
+
+-(NSArray *)sortedByDistance {
+	NSArray *sortedArray;
+	sortedArray = [poiArray sortedArrayUsingComparator:^(id a, id b) {
+		NSNumber *first = [[LocationServicesManager sharedLSM] distanceToPOI:(PointOfInterest*)a];
+		NSNumber *second = [[LocationServicesManager sharedLSM] distanceToPOI:(PointOfInterest*)b];
+		return [first compare:second];
+	}];
+	return sortedArray;
+}
 @end

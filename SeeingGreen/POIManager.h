@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PointOfInterest.h"
+#import "LocationServicesManager.h"
 
 @interface POIManager : NSObject {
 	NSMutableArray *poiArray;
