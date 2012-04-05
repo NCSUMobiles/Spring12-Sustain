@@ -13,7 +13,7 @@
 @end
 
 @implementation POIDetailViewController
-@synthesize nameLabel, addressLabel, poiImageView, descriptionTextView, backButton;
+@synthesize nameLabel, addressLabel, poiImageView, descriptionTextView, backButton, imageURL;
 @synthesize name, address, description;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,6 +34,18 @@
 	addressLabel.text = address;
 	descriptionTextView.text = description;
 
+	//load the image from a URL
+	//this should probably be done at app launch, right?
+	//and cached somewhere?
+	//probably?
+	NSURL *imageNSURL = [NSURL URLWithString:imageURL];
+	NSData *imageData = [NSData dataWithContentsOfURL:imageNSURL];
+	UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
+	
+	//updates the image in the view if the url was valid
+	if(imageFromURL)
+		poiImageView.image = imageFromURL;
+	
 	NSLog(@"%@",@"POIDetailViewController loaded");
 
 }

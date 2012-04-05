@@ -171,6 +171,7 @@
 		detailViewController.name = poi.name;
 		detailViewController.address = poi.address;
 		detailViewController.description = poi.description;
+		detailViewController.imageURL = poi.imageURL;
     }
 }
 

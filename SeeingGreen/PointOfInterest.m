@@ -10,13 +10,7 @@
 
 @implementation PointOfInterest 
 
-@synthesize latitude;
-@synthesize longitude;
-@synthesize name;
-@synthesize shortName;
-@synthesize address;
-@synthesize description;
-@synthesize button;
+@synthesize latitude, longitude, name, shortName, address, description, imageURL, button;
 
 //creates a POI with the given latitude, longitude, name, and description
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName {
@@ -30,13 +24,14 @@
 	return self;
 }
 
--(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr andDescription:(NSString *)desc {
+-(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL {
 	if(self = [super init]) {
 		latitude = lat;
 		longitude = lon;
 		name = locName;
 		description = desc;
 		address = addr;
+		imageURL = imgURL;
 		button = nil;
 	}
 	

@@ -13,6 +13,7 @@
 	NSString *shortName;
 	NSString *address;
 	NSString *description;
+	NSString *imageURL;
 	
 	UIImageView *poiImageView;
 	UILabel *nameLabel;
@@ -30,4 +31,5 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *address;
 @property (nonatomic, retain) NSString *description;
+@property (nonatomic, retain) NSString *imageURL;
 @end
