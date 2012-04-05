@@ -28,9 +28,11 @@
 	
 	UIImageView *compassImage;
 	UIImageView *poiCompassImage;
+	
 }
 
 -(void)initCaptureSession;
+-(IBAction)poiButtonTouched:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UILabel *latLabel;
 @property (nonatomic, retain) IBOutlet UILabel *longLabel;
@@ -40,7 +42,5 @@
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;
-
--(IBAction)poiButtonTouched:(id)sender;
 
 @end

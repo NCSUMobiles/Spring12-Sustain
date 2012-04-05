@@ -10,6 +10,7 @@
 //
 
 #import "ARViewController.h"
+#import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 
 @interface ARViewController ()
@@ -47,8 +48,8 @@
 		
 		locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
 		
-		//set the distance filter to 10 meters
-		locationManager.distanceFilter = 10;
+		//set the distance filter to 5 meters
+		locationManager.distanceFilter = 5;
 		
 		[locationManager startUpdatingLocation];
 		[locationManager startUpdatingHeading];	
@@ -85,7 +86,6 @@
 
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
-	
 	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 		
@@ -98,7 +98,6 @@
 		else
 			poiButton.center = CGPointMake(-1000,poiButton.center.y);
 	}
-	
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
@@ -127,6 +126,10 @@
 -(void)poiButtonTouched:(id)sender {
 	UIButton *sendingButton = (UIButton *)sender;
 	NSLog(@"%@", [sendingButton titleForState:UIControlStateNormal]);
+	
+	//update the current target to the POI whose button was pressed
+	[[POIManager sharedPOIManager] setTargetWithButton:sendingButton];
+	[self performSegueWithIdentifier:@"ShowPOIDetails" sender:sender];
 }
 
 //called when the magnetometer heading changes
@@ -160,6 +163,17 @@
 	NSLog(@"teh errorz :(");
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	NSLog(@"%@",@"prepareForSegue");
+    if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
+        POIDetailViewController *detailViewController = [segue destinationViewController];
+		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
+		detailViewController.name = poi.name;
+		detailViewController.address = poi.address;
+		detailViewController.description = poi.description;
+    }
+}
+
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -167,11 +181,10 @@
 
 //keep the device in portrait orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-	} else {
+	else
 	    return YES;
-	}
 }
 
 @end

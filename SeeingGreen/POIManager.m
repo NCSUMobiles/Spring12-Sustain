@@ -40,9 +40,10 @@ static POIManager *_sharedPOIManager = nil;
 		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
 		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
 		 */
-		
+		//-(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr andDescription:(NSString *)desc;
+
 		//Add POIs for the walking tour
-		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 longitude:-78.639214 andName:@"State Capitol"]];
+		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 longitude:-78.639214 name:@"N.C. State Capitol Building" address:@"1 E. Edenton Street" andDescription:@"The North Carolina State Capitol building was completed in 1840 and is Greek Revival architecture style. Sustainability concepts of utilizing local resources and local labor were used in the construction of the building. The exterior walls are built of gneiss, a form of granite. The stone was locally quarried in southeastern Raleigh and hauled to the site on the horse-drawn Experimental Railroad, North Carolina's first railway. Today, the governor, the lieutenant governor and their immediate staff occupy offices on the first floor of the Capitol. This is an example of the sustainability practice of building reuse."]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773605 longitude:-78.640831 andName:@"Raleigh Convention Center"]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773609 longitude:-78.640541 andName:@"R-Line Hybrid Electric Bus"]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773132 longitude:-78.640602 andName:@"Big Belly Solar Trash Compactor"]];
@@ -69,6 +70,17 @@ static POIManager *_sharedPOIManager = nil;
 		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
 	}
+}
+
+-(PointOfInterest *)getPOIWithButton:(UIButton *)button {
+	for(PointOfInterest *poi in poiArray)
+		if(poi.button == button)
+			return poi;
+	return nil;
+}
+
+-(void)setTargetWithButton:(UIButton *)button {
+	currentTarget = [self getPOIWithButton:button];
 }
 
 -(NSArray *)sortedByDistance {

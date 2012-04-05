@@ -21,6 +21,7 @@
 }
 
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName;
+-(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr andDescription:(NSString *)desc;
 -(double)distanceTo;
 -(double)headingTo;
 

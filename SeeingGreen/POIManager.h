@@ -20,6 +20,8 @@
 -(void)createButtonsInViewController:(UIViewController *)viewController;
 -(NSArray *)sortedByDistance;
 -(NSArray *)sortedByHeading;
+-(void)setTargetWithButton:(UIButton *)button;
+-(PointOfInterest *)getPOIWithButton:(UIButton *)button;
 
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) PointOfInterest *currentTarget;

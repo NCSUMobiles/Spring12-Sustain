@@ -30,6 +30,19 @@
 	return self;
 }
 
+-(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr andDescription:(NSString *)desc {
+	if(self = [super init]) {
+		latitude = lat;
+		longitude = lon;
+		name = locName;
+		description = desc;
+		address = addr;
+		button = nil;
+	}
+	
+	return self;	
+}
+
 -(double)distanceTo {
 	return [[[LocationServicesManager sharedLSM] distanceToPOI:self] doubleValue];
 }

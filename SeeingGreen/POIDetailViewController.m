@@ -13,12 +13,15 @@
 @end
 
 @implementation POIDetailViewController
+@synthesize nameLabel, addressLabel, poiImageView, descriptionTextView, backButton;
+@synthesize name, address, description;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+		nameLabel.text = name;
     }
     return self;
 }
@@ -27,6 +30,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+	nameLabel.text = name;
+	addressLabel.text = address;
+	descriptionTextView.text = description;
+
+	NSLog(@"%@",@"POIDetailViewController loaded");
+
+}
+-(IBAction)backButtonPressed:(id)sender {
+	[self dismissModalViewControllerAnimated:TRUE];
 }
 
 - (void)viewDidUnload
