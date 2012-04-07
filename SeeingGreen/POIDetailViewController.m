@@ -88,7 +88,6 @@
 // This method is called when the server has determined that it has enough information to create the NSURLResponse.	
 // It can be called multiple times, for example in the case of a redirect, so each time we reset the data.
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-	
     [poiImageData setLength:0];
 }
 
@@ -102,6 +101,7 @@
     NSLog(@"Connection failed! Error - %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+	poiImageView.image = [UIImage imageNamed:@"imageNotFound.png"]; 
 }
 
 // update the POI image in the view once the data is finished loading
@@ -111,6 +111,8 @@
 	//updates the image in the view if the url was valid
 	if(imageFromURL)
 		poiImageView.image = imageFromURL;
+	else
+		poiImageView.image = [UIImage imageNamed:@"imageNotFound.png"]; 
 }
 
 

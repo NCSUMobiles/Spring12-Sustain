@@ -176,12 +176,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="placeholder.png" id="WvD-dX-vxY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="WvD-dX-vxY">
                                 <rect key="frame" x="0.0" y="44" width="320" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zwf-tj-eAO">
-                                <rect key="frame" x="2" y="7" width="43" height="28"/>
+                                <rect key="frame" x="2" y="7" width="56" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <state key="normal" title="Back">
@@ -213,9 +213,36 @@
     </scenes>
     <resources>
         <image name="compass.png" width="256" height="256"/>
-        <image name="placeholder.png" width="320" height="180"/>
         <image name="poiCompass.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="ARViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="poiButtonTouched:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="cameraView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="compassImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="poiCompassImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="poiHeadingLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="POIDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="poiImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

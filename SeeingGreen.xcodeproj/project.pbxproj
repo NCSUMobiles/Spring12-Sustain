@@ -38,6 +38,8 @@
 		B4FD20071530E5460009621D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20061530E5460009621D /* Default@2x.png */; };
 		B4FD200D1530E63D0009621D /* SG114.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD200C1530E63D0009621D /* SG114.png */; };
 		B4FD200F1530E6450009621D /* SG57.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD200E1530E6450009621D /* SG57.png */; };
+		B4FD20121530ED9C0009621D /* imageNotFound.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20101530ED9C0009621D /* imageNotFound.png */; };
+		B4FD20131530ED9C0009621D /* imageNotFound@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20111530ED9C0009621D /* imageNotFound@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		B4FD20061530E5460009621D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		B4FD200C1530E63D0009621D /* SG114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SG114.png; path = ../SG114.png; sourceTree = "<group>"; };
 		B4FD200E1530E6450009621D /* SG57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SG57.png; path = ../SG57.png; sourceTree = "<group>"; };
+		B4FD20101530ED9C0009621D /* imageNotFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageNotFound.png; sourceTree = "<group>"; };
+		B4FD20111530ED9C0009621D /* imageNotFound@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imageNotFound@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,8 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4FD20101530ED9C0009621D /* imageNotFound.png */,
+				B4FD20111530ED9C0009621D /* imageNotFound@2x.png */,
 				B4FD200E1530E6450009621D /* SG57.png */,
 				B4FD200C1530E63D0009621D /* SG114.png */,
 				B4FD20061530E5460009621D /* Default@2x.png */,
@@ -325,6 +331,8 @@
 				B4FD20071530E5460009621D /* Default@2x.png in Resources */,
 				B4FD200D1530E63D0009621D /* SG114.png in Resources */,
 				B4FD200F1530E6450009621D /* SG57.png in Resources */,
+				B4FD20121530ED9C0009621D /* imageNotFound.png in Resources */,
+				B4FD20131530ED9C0009621D /* imageNotFound@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
