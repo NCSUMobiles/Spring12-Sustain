@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "LocationServicesManager.h"
 
-@interface PointOfInterest : NSObject {
+@interface PointOfInterest : NSObject <MKAnnotation> {
 	double latitude;
 	double longitude;
+	CLLocationCoordinate2D coordinate;
 	
 	NSString *name;
 	NSString *shortName;
@@ -34,4 +36,6 @@
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, retain) NSString *imageURL;
 @property (nonatomic, retain) UIButton *button;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+
 @end

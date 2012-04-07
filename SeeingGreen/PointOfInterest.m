@@ -10,7 +10,7 @@
 
 @implementation PointOfInterest 
 
-@synthesize latitude, longitude, name, shortName, address, description, imageURL, button;
+@synthesize latitude, longitude, name, shortName, address, description, imageURL, button, coordinate;
 
 //creates a POI with the given latitude, longitude, name, and description
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName {
@@ -19,6 +19,7 @@
 		longitude = lon;
 		name = locName;
 		button = nil;
+		coordinate = CLLocationCoordinate2DMake(lat, lon);
 	}
 	
 	return self;
@@ -33,9 +34,21 @@
 		address = addr;
 		imageURL = imgURL;
 		button = nil;
+		coordinate = CLLocationCoordinate2DMake(lat, lon);
 	}
 	
 	return self;	
+}
+
+- (NSString *)title {
+    if ([name isKindOfClass:[NSNull class]]) 
+        return @"Unknown charge";
+    else
+        return name;
+}
+
+- (NSString *)subtitle {
+    return address;
 }
 
 -(double)distanceTo {
