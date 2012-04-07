@@ -13,8 +13,7 @@
 
 @implementation LocationServicesManager
 
-@synthesize latitude;
-@synthesize longitude;
+@synthesize latitude, longitude;
 
 static LocationServicesManager *_sharedLocationServicesManager = nil;
 

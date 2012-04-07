@@ -19,14 +19,7 @@
 
 @implementation ARViewController
 
-@synthesize latLabel;
-@synthesize longLabel;
-@synthesize headingLabel;
-@synthesize poiHeadingLabel;
-@synthesize distanceLabel;
-@synthesize compassImage;
-@synthesize poiCompassImage;
-@synthesize cameraView;
+@synthesize latLabel, longLabel, headingLabel, poiHeadingLabel, distanceLabel, compassImage, poiCompassImage, cameraView, activityIndicator;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
@@ -154,8 +147,13 @@
 	//update the button z-orders
 	NSArray *sortedByDistance = [[POIManager sharedPOIManager] sortedByDistance];
 	NSEnumerator *enumerator = [sortedByDistance reverseObjectEnumerator];
-    for (PointOfInterest *poi in enumerator)
+	
+	int maxDistanceYValue = 40;
+    for (PointOfInterest *poi in enumerator) {
 		[poi.button.superview bringSubviewToFront:poi.button];
+		poi.button.center = CGPointMake(poi.button.center.x,maxDistanceYValue);
+		maxDistanceYValue+=30;
+	}
 }
 
 //called when the location manager experiences a failure
@@ -163,8 +161,13 @@
 	NSLog(@"teh errorz :(");
 }
 
+//Called when a POI button is pressed
+//passes POI information to the POIDetailViewController being loaded
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	NSLog(@"%@",@"prepareForSegue");
+	[activityIndicator startAnimating];
+	[[self view] bringSubviewToFront:activityIndicator];
+	
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
         POIDetailViewController *detailViewController = [segue destinationViewController];
 		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
@@ -173,6 +176,12 @@
 		detailViewController.description = poi.description;
 		detailViewController.imageURL = poi.imageURL;
     }
+}
+
+//stops and hides the activity indicator when the new view loads
+-(void)viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
+	[activityIndicator stopAnimating];	
 }
 
 - (void)viewDidUnload {

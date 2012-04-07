@@ -29,6 +29,8 @@
 	UIImageView *compassImage;
 	UIImageView *poiCompassImage;
 	
+	UIActivityIndicatorView *activityIndicator;
+	
 }
 
 -(void)initCaptureSession;
@@ -42,5 +44,5 @@
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;
-
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end

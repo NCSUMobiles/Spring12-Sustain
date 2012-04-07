@@ -13,8 +13,7 @@
 
 @implementation POIManager
 
-@synthesize poiArray;
-@synthesize currentTarget;
+@synthesize poiArray, currentTarget;
 
 static POIManager *_sharedPOIManager = nil;
 
