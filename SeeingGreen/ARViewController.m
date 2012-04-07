@@ -117,6 +117,9 @@
 //handles the user touching a POI button
 //this should push a new view controller (not yet implemented)
 -(void)poiButtonTouched:(id)sender {
+	[activityIndicator startAnimating];
+	[[self view] bringSubviewToFront:activityIndicator];
+
 	UIButton *sendingButton = (UIButton *)sender;
 	NSLog(@"%@", [sendingButton titleForState:UIControlStateNormal]);
 	
@@ -165,8 +168,6 @@
 //passes POI information to the POIDetailViewController being loaded
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	NSLog(@"%@",@"prepareForSegue");
-	[activityIndicator startAnimating];
-	[[self view] bringSubviewToFront:activityIndicator];
 	
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
         POIDetailViewController *detailViewController = [segue destinationViewController];
