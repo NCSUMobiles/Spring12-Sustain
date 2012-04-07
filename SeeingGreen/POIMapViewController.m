@@ -16,6 +16,7 @@
 
 @implementation POIMapViewController
 @synthesize mapView;
+@synthesize backButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,8 +50,13 @@
 	
 }
 
+-(IBAction)backButtonPressed:(id)sender {
+	[self dismissModalViewControllerAnimated:TRUE];
+}
+
 - (void)viewDidUnload {
     [self setMapView:nil];
+	[self setBackButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
