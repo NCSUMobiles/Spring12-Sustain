@@ -32,6 +32,7 @@
 		B47AEDDC152392FA00F0280B /* POIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDDB152392FA00F0280B /* POIDetailViewController.m */; };
 		B47AEDE01523942200F0280B /* POIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDDF1523942200F0280B /* POIListViewController.m */; };
 		B47AEDE3152394C900F0280B /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDE2152394C900F0280B /* POIMapViewController.m */; };
+		B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D47D9B1530F4C300A3A1DB /* MapKit.framework */; };
 		B4D83152152E1436008B12EE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D83151152E1436008B12EE /* placeholder.png */; };
 		B4EF289D152CCDF70085B02D /* POIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF289C152CCDF70085B02D /* POIManager.m */; };
 		B4FD20051530E53F0009621D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20041530E53F0009621D /* Default.png */; };
@@ -89,6 +90,7 @@
 		B47AEDDF1523942200F0280B /* POIListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIListViewController.m; sourceTree = "<group>"; };
 		B47AEDE1152394C900F0280B /* POIMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIMapViewController.h; sourceTree = "<group>"; };
 		B47AEDE2152394C900F0280B /* POIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIMapViewController.m; sourceTree = "<group>"; };
+		B4D47D9B1530F4C300A3A1DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B4D83151152E1436008B12EE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B4EF289B152CCDF70085B02D /* POIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIManager.h; sourceTree = "<group>"; };
 		B4EF289C152CCDF70085B02D /* POIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIManager.m; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */,
 				B47AEDCB15233F6800F0280B /* AVFoundation.framework in Frameworks */,
 				B47AEDCC15233F6800F0280B /* CoreData.framework in Frameworks */,
 				B47AEDCD15233F6800F0280B /* CoreLocation.framework in Frameworks */,
@@ -130,6 +133,7 @@
 		B47AED7415233E6700F0280B = {
 			isa = PBXGroup;
 			children = (
+				B4D47D9B1530F4C300A3A1DB /* MapKit.framework */,
 				B47AED8915233E6700F0280B /* SeeingGreen */,
 				B47AEDAA15233E6800F0280B /* SeeingGreenTests */,
 				B47AED8215233E6700F0280B /* Frameworks */,

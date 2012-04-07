@@ -19,7 +19,7 @@
 
 @implementation ARViewController
 
-@synthesize latLabel, longLabel, headingLabel, poiHeadingLabel, distanceLabel, compassImage, poiCompassImage, cameraView, activityIndicator;
+@synthesize latLabel, longLabel, headingLabel, poiHeadingLabel, distanceLabel, compassImage, poiCompassImage, cameraView, activityIndicator, loadMapViewButton;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
@@ -126,6 +126,11 @@
 	//update the current target to the POI whose button was pressed
 	[[POIManager sharedPOIManager] setTargetWithButton:sendingButton];
 	[self performSegueWithIdentifier:@"ShowPOIDetails" sender:sender];
+}
+
+//load the POIMapViewController
+-(void)mapButtonTouched:(id)sender {
+	[self performSegueWithIdentifier:@"ShowPOIMap" sender:sender];
 }
 
 //called when the magnetometer heading changes
