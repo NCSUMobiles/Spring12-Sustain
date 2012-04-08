@@ -56,7 +56,7 @@
 	captureSession = [[AVCaptureSession alloc] init];
 	
 	AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-	if (videoDevice) {
+	if (videoDevice) { 
 		NSError *error;
 		AVCaptureDeviceInput *videoIn = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
 		if (!error) {
