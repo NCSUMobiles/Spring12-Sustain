@@ -12,7 +12,7 @@
 #import "ARViewController.h"
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
-
+#define ASDF 4.0
 @interface ARViewController ()
 
 @end
@@ -84,28 +84,31 @@
 		
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [poi button];
+		
+		
+		//the rest of this block can almost certainly be reduced to 1 line of code
+		//trigonometry lolz
 		double compassHeadingToPOI = [poi headingTo];
 		double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
-		double distanceToPOI = [poi distanceTo];
+		
+		while(userHeadingToPOI < -180)
+			userHeadingToPOI += 360;
+		while(userHeadingToPOI > 180)
+			userHeadingToPOI -= 360;
+		//double distanceToPOI = [poi distanceTo];
 		CGFloat poiButtonXPosition = 160.0f; //center of the screen
 		double theta = 0.0;
 		
 		if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
 			theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition += 160*distanceToPOI * cos(theta);
+			poiButtonXPosition += 160 * cos(theta) * ASDF;
 		} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
 			theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition -= 160*distanceToPOI * cos(theta);
+			poiButtonXPosition -= 160 * cos(theta) * ASDF;
 		} else {
 			poiButtonXPosition = -1000;
 		}
 		poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
-		/*
-		if(fabs(headingToPOI-[[LocationServicesManager sharedLSM] getHeading]) < 90)
-			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[[LocationServicesManager sharedLSM] getHeading])), poiButton.center.y);
-		else
-			poiButton.center = CGPointMake(-1000,poiButton.center.y);
-		 */
 	}
 }
 
@@ -172,11 +175,11 @@
 	NSArray *sortedByDistance = [[POIManager sharedPOIManager] sortedByDistance];
 	NSEnumerator *enumerator = [sortedByDistance reverseObjectEnumerator];
 	
-	int maxDistanceYValue = 40;
+	int maxDistanceYValue = 100;
     for (PointOfInterest *poi in enumerator) {
 		[poi.button.superview bringSubviewToFront:poi.button];
 		poi.button.center = CGPointMake(poi.button.center.x,maxDistanceYValue);
-		maxDistanceYValue+=30;
+		maxDistanceYValue+=5;
 	}
 }
 

@@ -9,7 +9,7 @@
 #import "LocationServicesManager.h"
 #import "PointOfInterest.h"
 
-#define HEADINGS_TO_SAVE 5
+#define HEADINGS_TO_SAVE 3
 
 @implementation LocationServicesManager
 
@@ -33,6 +33,10 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 -(void)addLatitude:(double)lat andLongitude:(double)lon {
 	latitude = lat;
 	longitude = lon;
+	/*
+	latitude = 35.77754;
+	longitude = -78.640952;
+	 */
 }
 
 -(void)addHeading:(double)heading {
