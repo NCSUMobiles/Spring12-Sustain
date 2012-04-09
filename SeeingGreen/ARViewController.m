@@ -84,12 +84,28 @@
 		
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [poi button];
-		double headingToPOI = [poi headingTo];
-
+		double compassHeadingToPOI = [poi headingTo];
+		double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
+		double distanceToPOI = [poi distanceTo];
+		CGFloat poiButtonXPosition = 160.0f; //center of the screen
+		double theta = 0.0;
+		
+		if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
+			theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
+			poiButtonXPosition += 160*distanceToPOI * cos(theta);
+		} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
+			theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
+			poiButtonXPosition -= 160*distanceToPOI * cos(theta);
+		} else {
+			poiButtonXPosition = -1000;
+		}
+		poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
+		/*
 		if(fabs(headingToPOI-[[LocationServicesManager sharedLSM] getHeading]) < 90)
 			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[[LocationServicesManager sharedLSM] getHeading])), poiButton.center.y);
 		else
 			poiButton.center = CGPointMake(-1000,poiButton.center.y);
+		 */
 	}
 }
 
