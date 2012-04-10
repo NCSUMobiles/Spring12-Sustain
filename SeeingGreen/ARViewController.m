@@ -12,7 +12,7 @@
 #import "ARViewController.h"
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
-#define ASDF 4.0
+#define FOV_ADJUSTMENT 4.0
 @interface ARViewController ()
 
 @end
@@ -101,10 +101,10 @@
 		
 		if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
 			theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition += 160 * cos(theta) * ASDF;
+			poiButtonXPosition += 160 * cos(theta) * FOV_ADJUSTMENT;
 		} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
 			theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition -= 160 * cos(theta) * ASDF;
+			poiButtonXPosition -= 160 * cos(theta) * FOV_ADJUSTMENT;
 		} else {
 			poiButtonXPosition = -1000;
 		}
