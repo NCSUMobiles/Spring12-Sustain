@@ -1,133 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vjR-OA-mlB">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Seeing Green-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="ARViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" id="RTc-9M-Pmw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="dist to poi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0n3-6q-gkI">
-                                        <rect key="frame" x="5" y="435" width="64" height="22"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poiCompass.png" id="m4a-xI-4qJ">
+                                        <rect key="frame" x="121" y="311" width="79" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="-1"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 feet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BUK-mm-Bxd">
-                                        <rect key="frame" x="77" y="435" width="149" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="-1"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Heading" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vUg-Dy-iug">
-                                        <rect key="frame" x="151" y="436" width="123" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="-1"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xJx-De-mnN">
-                                        <rect key="frame" x="282" y="436" width="34" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="-1"/>
-                                    </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="4ks-7G-4rZ">
-                                        <rect key="frame" x="151" y="219" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES" updatesFrequently="YES"/>
                                 </accessibility>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Iuy-Mf-zZZ">
-                                <rect key="frame" x="10" y="-2" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lon" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Xlh-g9-ugs">
-                                <rect key="frame" x="10" y="13" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="hdng" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="9eB-0d-yPb">
-                                <rect key="frame" x="7" y="28" width="33" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Otb-1S-NgN">
-                                <rect key="frame" x="46" y="-2" width="175" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Gt3-7x-EXl">
-                                <rect key="frame" x="46" y="13" width="175" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Aon-8S-fuM">
-                                <rect key="frame" x="46" y="28" width="175" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="compass.png" id="IL7-Mj-Y0s">
                                 <rect key="frame" x="221" y="20" width="79" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poiCompass.png" id="m4a-xI-4qJ">
-                                <rect key="frame" x="121" y="361" width="79" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KeN-t4-Z9Z">
-                                <rect key="frame" x="228" y="403" width="72" height="37"/>
+                                <rect key="frame" x="228" y="355" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Map">
@@ -142,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xOh-Yb-dm0">
-                                <rect key="frame" x="7" y="403" width="72" height="37"/>
+                                <rect key="frame" x="7" y="355" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="List">
@@ -159,135 +66,104 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Seeing Green" id="ddB-HR-gfL"/>
                     <connections>
                         <outlet property="cameraView" destination="RTc-9M-Pmw" id="jT5-xK-Am6"/>
                         <outlet property="compassImage" destination="IL7-Mj-Y0s" id="oL4-M6-W40"/>
-                        <outlet property="distanceLabel" destination="BUK-mm-Bxd" id="k68-rS-H3d"/>
-                        <outlet property="headingLabel" destination="Aon-8S-fuM" id="XTN-lz-MuH"/>
-                        <outlet property="latLabel" destination="Otb-1S-NgN" id="dji-Z9-RNc"/>
                         <outlet property="loadListViewButton" destination="xOh-Yb-dm0" id="B4M-bm-Wck"/>
                         <outlet property="loadMapViewButton" destination="KeN-t4-Z9Z" id="q8V-pD-2gG"/>
-                        <outlet property="longLabel" destination="Gt3-7x-EXl" id="rmT-RT-WJS"/>
                         <outlet property="poiCompassImage" destination="m4a-xI-4qJ" id="PSC-N2-bie"/>
-                        <outlet property="poiHeadingLabel" destination="xJx-De-mnN" id="rJu-Ph-ZYm"/>
-                        <segue destination="3n2-zg-EF6" kind="modal" identifier="ShowPOIDetails" modalTransitionStyle="coverVertical" id="8mU-um-AMn"/>
-                        <segue destination="xtk-2d-Lm2" kind="modal" identifier="ShowPOIMap" id="hrX-oJ-OU7"/>
-                        <segue destination="aMh-E5-4tI" kind="modal" identifier="ShowPOIList" modalTransitionStyle="coverVertical" id="PXi-ng-Rus"/>
+                        <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" id="8mU-um-AMn"/>
+                        <segue destination="PPC-oz-NvA" kind="modal" identifier="ShowPOIMap" modalTransitionStyle="flipHorizontal" id="hrX-oJ-OU7"/>
+                        <segue destination="z6j-S7-hLj" kind="modal" identifier="ShowPOIList" modalTransitionStyle="flipHorizontal" id="PXi-ng-Rus"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-40" y="554"/>
+            <point key="canvasLocation" x="-250" y="674"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail View Controller - Name of POI-->
         <scene sceneID="3bK-C7-yj2">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ruJ-B4-CFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3n2-zg-EF6" customClass="POIDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OQz-IN-NSe">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name of POI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lxb-QR-5oj">
-                                <rect key="frame" x="20" y="14" width="280" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DCO-Hs-7WP">
-                                <rect key="frame" x="20" y="232" width="280" height="21"/>
+                                <rect key="frame" x="20" y="188" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description bloobity blah blah blah." id="jZS-JT-P8F">
-                                <rect key="frame" x="0.0" y="261" width="320" height="199"/>
+                                <rect key="frame" x="0.0" y="217" width="320" height="199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="WvD-dX-vxY">
-                                <rect key="frame" x="0.0" y="44" width="320" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zwf-tj-eAO">
-                                <rect key="frame" x="2" y="7" width="56" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="3n2-zg-EF6" eventType="touchUpInside" id="4rz-Xz-os7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hqp-bh-9gx"/>
+                    <navigationItem key="navigationItem" title="Name of POI" id="hqp-bh-9gx">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="HxG-35-Jil">
+                            <connections>
+                                <segue destination="2" kind="modal" identifier="BackToMainView" modalTransitionStyle="flipHorizontal" id="3xS-GW-60y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="DCO-Hs-7WP" id="QzX-Tg-1oY"/>
-                        <outlet property="backButton" destination="zwf-tj-eAO" id="Eu6-9O-ZXg"/>
                         <outlet property="descriptionTextView" destination="jZS-JT-P8F" id="ebj-qY-VJK"/>
-                        <outlet property="nameLabel" destination="lxb-QR-5oj" id="J0L-cg-a2W"/>
                         <outlet property="poiImageView" destination="WvD-dX-vxY" id="anP-0h-ukv"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="397" y="81"/>
+            <point key="canvasLocation" x="777" y="-75"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map View Controller - Map-->
         <scene sceneID="v1w-YX-tZs">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGb-Ig-vw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xtk-2d-Lm2" customClass="POIMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RWw-cX-bdy">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="7fV-Ng-B10">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7CC-On-6yG">
-                                <rect key="frame" x="10" y="10" width="56" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="xtk-2d-Lm2" eventType="touchUpInside" id="DA2-LY-qpM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Map" id="CaO-pm-bfP">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="e28-bU-BeC">
+                            <connections>
+                                <segue destination="vjR-OA-mlB" kind="modal" identifier="BackToMainView" modalTransitionStyle="flipHorizontal" id="l48-UH-pf0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="backButton" destination="7CC-On-6yG" id="xuN-aU-f9b"/>
                         <outlet property="mapView" destination="7fV-Ng-B10" id="D3Z-fr-bKq"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="397" y="1042"/>
+            <point key="canvasLocation" x="825" y="1290"/>
         </scene>
-        <!--List View Controller-->
+        <!--List View Controller - Points of Interest-->
         <scene sceneID="fKj-oc-bkr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRd-c9-Utf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="aMh-E5-4tI" customClass="POIListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" id="2vu-M4-Znk">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -334,9 +210,88 @@
                             <outlet property="delegate" destination="aMh-E5-4tI" id="Yfz-yU-pUM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Points of Interest" id="ziQ-eF-8jO">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="gtP-ve-yyP">
+                            <connections>
+                                <segue destination="vjR-OA-mlB" kind="modal" identifier="BackToMainView" modalTransitionStyle="flipHorizontal" id="tzE-PC-9AD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="865" y="554"/>
+            <point key="canvasLocation" x="1981" y="418"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YxN-qX-0JH">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C9J-eG-BRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="z6j-S7-hLj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="oFM-Fr-a8t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aMh-E5-4tI" kind="relationship" relationship="rootViewController" id="hVD-Pg-196"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1491" y="418"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="atc-5d-VbP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1o-VS-3zL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="PPC-oz-NvA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iAN-xX-U68">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xtk-2d-Lm2" kind="relationship" relationship="rootViewController" id="4OV-e3-knf"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="353" y="1312"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uyd-et-z6A">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBf-cD-ss4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="vjR-OA-mlB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wQu-Vq-YF9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="ncW-7a-twH"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-872" y="666"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pvp-9a-2Fr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Piu-vL-rmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="FFZ-Wc-U4K" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ckA-KL-YA9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3n2-zg-EF6" kind="relationship" relationship="rootViewController" id="eOk-0U-Rat"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="315" y="-67"/>
         </scene>
     </scenes>
     <resources>
