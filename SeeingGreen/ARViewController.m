@@ -196,7 +196,7 @@
 	NSLog(@"%@",@"prepareForSegue");
 	
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
-        POIDetailViewController *detailViewController = [segue destinationViewController];
+        POIDetailViewController *detailViewController = [[segue destinationViewController] visibleViewController];
 		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
 		detailViewController.name = poi.name;
 		detailViewController.address = poi.address;

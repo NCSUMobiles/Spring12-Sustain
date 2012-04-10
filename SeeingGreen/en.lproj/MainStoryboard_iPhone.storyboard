@@ -73,7 +73,7 @@
                         <outlet property="loadListViewButton" destination="xOh-Yb-dm0" id="B4M-bm-Wck"/>
                         <outlet property="loadMapViewButton" destination="KeN-t4-Z9Z" id="q8V-pD-2gG"/>
                         <outlet property="poiCompassImage" destination="m4a-xI-4qJ" id="PSC-N2-bie"/>
-                        <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" id="8mU-um-AMn"/>
+                        <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" modalTransitionStyle="flipHorizontal" id="8mU-um-AMn"/>
                         <segue destination="PPC-oz-NvA" kind="modal" identifier="ShowPOIMap" modalTransitionStyle="flipHorizontal" id="hrX-oJ-OU7"/>
                         <segue destination="z6j-S7-hLj" kind="modal" identifier="ShowPOIList" modalTransitionStyle="flipHorizontal" id="PXi-ng-Rus"/>
                     </connections>
@@ -114,7 +114,7 @@
                     <navigationItem key="navigationItem" title="Name of POI" id="hqp-bh-9gx">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="HxG-35-Jil">
                             <connections>
-                                <segue destination="2" kind="modal" identifier="BackToMainView" modalTransitionStyle="flipHorizontal" id="3xS-GW-60y"/>
+                                <segue destination="vjR-OA-mlB" kind="modal" identifier="BackToMainView" id="aFh-Rj-ah3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -298,59 +298,12 @@
         <image name="compass.png" width="256" height="256"/>
         <image name="poiCompass.png" width="256" height="256"/>
     </resources>
-    <classes>
-        <class className="ARViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="listButtonTouched:"/>
-                <relationship kind="action" name="mapButtonTouched:"/>
-                <relationship kind="action" name="poiButtonTouched:"/>
-                <relationship kind="outlet" name="cameraView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="compassImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loadListViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loadMapViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="poiCompassImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="poiHeadingLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="POIDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="poiImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="POIListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIListViewController.h"/>
-        </class>
-        <class className="POIMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="POITableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POITableCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="aFh-Rj-ah3"/>
+    </inferredMetricsTieBreakers>
 </document>
