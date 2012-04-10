@@ -7,6 +7,9 @@
 //
 
 #import "POIListViewController.h"
+#import "POIManager.h"
+#import "PointOfInterest.h"
+#import "POITableCell.h"
 
 @interface POIListViewController ()
 
@@ -14,13 +17,33 @@
 
 @implementation POIListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return [[[POIManager sharedPOIManager] poiArray] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	POITableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"POICell"];
+	PointOfInterest *poi = [[[POIManager sharedPOIManager] poiArray] objectAtIndex:indexPath.row];
+
+	cell.nameLabel.text = poi.name;
+	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi", [poi distanceTo]];
+	cell.descriptionLabel.text = poi.description;
+
+    return cell;
 }
 
 - (void)viewDidLoad

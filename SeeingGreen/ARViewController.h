@@ -30,14 +30,13 @@
 	UIImageView *poiCompassImage;
 	
 	UIButton *loadMapViewButton;
-	
-	UIActivityIndicatorView *activityIndicator;
-	
+	UIButton *loadListViewButton;
 }
 
 -(void)initCaptureSession;
 -(IBAction)poiButtonTouched:(id)sender;
 -(IBAction)mapButtonTouched:(id)sender;
+-(IBAction)listButtonTouched:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UILabel *latLabel;
 @property (nonatomic, retain) IBOutlet UILabel *longLabel;
@@ -47,6 +46,6 @@
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) IBOutlet UIButton *loadMapViewButton;
+@property (nonatomic, retain) IBOutlet UIButton *loadListViewButton;
 @end

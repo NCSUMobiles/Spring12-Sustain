@@ -8,6 +8,8 @@
 
 #import "ARViewController.h"
 
-@interface POIListViewController : ARViewController
+@interface POIListViewController : UITableViewController {
+	
+}
 
 @end

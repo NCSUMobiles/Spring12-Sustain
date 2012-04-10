@@ -19,7 +19,7 @@
 
 @implementation ARViewController
 
-@synthesize latLabel, longLabel, headingLabel, poiHeadingLabel, distanceLabel, compassImage, poiCompassImage, cameraView, activityIndicator, loadMapViewButton;
+@synthesize latLabel, longLabel, headingLabel, poiHeadingLabel, distanceLabel, compassImage, poiCompassImage, cameraView, loadMapViewButton, loadListViewButton;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
@@ -136,9 +136,6 @@
 //handles the user touching a POI button
 //this should push a new view controller (not yet implemented)
 -(void)poiButtonTouched:(id)sender {
-	[activityIndicator startAnimating];
-	[[self view] bringSubviewToFront:activityIndicator];
-
 	UIButton *sendingButton = (UIButton *)sender;
 	NSLog(@"%@", [sendingButton titleForState:UIControlStateNormal]);
 	
@@ -150,6 +147,11 @@
 //load the POIMapViewController
 -(void)mapButtonTouched:(id)sender {
 	[self performSegueWithIdentifier:@"ShowPOIMap" sender:sender];
+}
+
+//load the POIMapViewController
+-(void)listButtonTouched:(id)sender {
+	[self performSegueWithIdentifier:@"ShowPOIList" sender:sender];
 }
 
 //called when the magnetometer heading changes
@@ -206,7 +208,6 @@
 //stops and hides the activity indicator when the new view loads
 -(void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
-	[activityIndicator stopAnimating];	
 }
 
 - (void)viewDidUnload {
