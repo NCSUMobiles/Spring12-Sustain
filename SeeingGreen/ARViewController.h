@@ -17,13 +17,7 @@
 	CLLocationManager *locationManager;
 	
 	AVCaptureSession *captureSession;
-	
-	UILabel *latLabel;
-	UILabel *longLabel;
-	UILabel *headingLabel;
-	UILabel *poiHeadingLabel;
-	UILabel *distanceLabel;
-	
+		
 	UIView *cameraView;
 	
 	UIImageView *compassImage;
@@ -38,11 +32,6 @@
 -(IBAction)mapButtonTouched:(id)sender;
 -(IBAction)listButtonTouched:(id)sender;
 
-@property (nonatomic, retain) IBOutlet UILabel *latLabel;
-@property (nonatomic, retain) IBOutlet UILabel *longLabel;
-@property (nonatomic, retain) IBOutlet UILabel *headingLabel;
-@property (nonatomic, retain) IBOutlet UILabel *poiHeadingLabel;
-@property (nonatomic, retain) IBOutlet UILabel *distanceLabel;
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;

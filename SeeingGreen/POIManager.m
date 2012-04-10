@@ -91,6 +91,9 @@ static POIManager *_sharedPOIManager = nil;
 		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
+		
+		//add the poi's dot while we're here
+		[[viewController view] addSubview:poi.poiDot];
 	}
 }
 

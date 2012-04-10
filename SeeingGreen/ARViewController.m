@@ -13,19 +13,21 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
+#define RADAR_CUTOFF_IN_MILES 0.4
+
 @interface ARViewController ()
 
 @end
 
 @implementation ARViewController
 
-@synthesize latLabel, longLabel, headingLabel, poiHeadingLabel, distanceLabel, compassImage, poiCompassImage, cameraView, loadMapViewButton, loadListViewButton;
+@synthesize compassImage, poiCompassImage, cameraView, loadMapViewButton, loadListViewButton;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
-		
+	
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
@@ -81,7 +83,7 @@
 -(void)updatePOICompass {
 	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
-		
+	
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
 		UIButton *poiButton = [poi button];
 		
@@ -95,7 +97,7 @@
 			userHeadingToPOI += 360;
 		while(userHeadingToPOI > 180)
 			userHeadingToPOI -= 360;
-		//double distanceToPOI = [poi distanceTo];
+		double distanceToPOI = [poi distanceTo];
 		CGFloat poiButtonXPosition = 160.0f; //center of the screen
 		double theta = 0.0;
 		
@@ -109,6 +111,15 @@
 			poiButtonXPosition = -1000;
 		}
 		poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
+		
+		if(distanceToPOI < RADAR_CUTOFF_IN_MILES) {			
+			double poiDotTheta =  DEGREES_TO_RADIANS * userHeadingToPOI - M_PI/2;
+
+			poi.poiDot.center = CGPointMake(compassImage.center.x + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
+											compassImage.center.y + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+		} else {
+			poi.poiDot.center = CGPointMake(-1000,-1000);
+		}
 	}
 }
 
@@ -123,11 +134,6 @@
 	
     if (abs(howRecent) < 15.0) {		
 		[[LocationServicesManager sharedLSM] addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
-		latLabel.text = [NSString stringWithFormat:@"%+.6f", [LocationServicesManager sharedLSM].latitude];
-		longLabel.text = [NSString stringWithFormat:@"%+.6f", [LocationServicesManager sharedLSM].longitude];
-		
-		double distanceToTarget = [[[POIManager sharedPOIManager] currentTarget] distanceTo];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * distanceToTarget)];
 		[self updatePOICompass];
     }
     // else skip the event and process the next one.
@@ -165,14 +171,9 @@
 	
 	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] distanceTo]-[[LocationServicesManager sharedLSM] getHeading];
-
-	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[[LocationServicesManager sharedLSM] getHeading]];
-	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)headingToTarget];
-	
 	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
-		
+	
 	//update the button z-orders
 	NSArray *sortedByDistance = [[POIManager sharedPOIManager] sortedByDistance];
 	NSEnumerator *enumerator = [sortedByDistance reverseObjectEnumerator];
@@ -196,7 +197,7 @@
 	NSLog(@"%@",@"prepareForSegue");
 	
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
-        POIDetailViewController *detailViewController = [[segue destinationViewController] visibleViewController];
+        POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
 		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
 		detailViewController.name = poi.name;
 		detailViewController.address = poi.address;

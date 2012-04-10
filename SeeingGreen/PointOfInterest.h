@@ -21,6 +21,7 @@
 	NSString *description;
 	NSString *imageURL;
 	UIButton *button;
+	UIImageView *poiDot;
 }
 
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName;
@@ -36,6 +37,7 @@
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, retain) NSString *imageURL;
 @property (nonatomic, retain) UIButton *button;
+@property (nonatomic, retain) UIImageView *poiDot;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 @end

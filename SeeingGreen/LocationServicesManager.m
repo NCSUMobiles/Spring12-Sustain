@@ -9,7 +9,12 @@
 #import "LocationServicesManager.h"
 #import "PointOfInterest.h"
 
-#define HEADINGS_TO_SAVE 3
+#define HEADINGS_TO_SAVE 1
+#define TEST
+
+#ifdef TEST
+#define SPOOF_LOCATION
+#endif
 
 @implementation LocationServicesManager
 
@@ -33,10 +38,11 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 -(void)addLatitude:(double)lat andLongitude:(double)lon {
 	latitude = lat;
 	longitude = lon;
-	/*
-	latitude = 35.77754;
-	longitude = -78.640952;
-	 */
+	
+	#ifdef SPOOF_LOCATION
+		latitude = 35.77754;
+		longitude = -78.640952;
+	#endif
 }
 
 -(void)addHeading:(double)heading {
