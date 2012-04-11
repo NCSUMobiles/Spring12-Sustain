@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vjR-OA-mlB">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -112,6 +111,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Name of POI" id="hqp-bh-9gx">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fpE-i7-fax"/>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="HxG-35-Jil">
                             <connections>
                                 <segue destination="vjR-OA-mlB" kind="modal" identifier="BackToMainView" id="aFh-Rj-ah3"/>
@@ -307,14 +307,9 @@
                 <relationship kind="action" name="poiButtonTouched:"/>
                 <relationship kind="outlet" name="cameraView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="compassImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="loadListViewButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="loadMapViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="poiCompassImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="poiHeadingLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="POIDetailViewController" superclassName="UIViewController">
@@ -354,6 +349,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aFh-Rj-ah3"/>
+        <segue reference="tzE-PC-9AD"/>
     </inferredMetricsTieBreakers>
 </document>

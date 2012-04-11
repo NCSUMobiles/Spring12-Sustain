@@ -65,6 +65,7 @@
 	
 	NSLog(@"%@",@"POIDetailViewController loaded");
 
+	[self setTitle:name];
 }
 
 - (void)viewDidUnload
