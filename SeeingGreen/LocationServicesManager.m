@@ -22,6 +22,7 @@
 
 static LocationServicesManager *_sharedLocationServicesManager = nil;
 
+//gets the singleton instance of the LSM or creates one if one hasn't yet been creates
 +(LocationServicesManager *)sharedLSM {
 	if(!_sharedLocationServicesManager)
 		_sharedLocationServicesManager = [[self alloc] init];
@@ -35,6 +36,7 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 	return self;
 }
 
+//update the user's current location
 -(void)addLatitude:(double)lat andLongitude:(double)lon {
 	latitude = lat;
 	longitude = lon;
@@ -45,6 +47,7 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 	#endif
 }
 
+//add a compass heading to the list of headings
 -(void)addHeading:(double)heading {
 	while(heading < 0)
 		heading += 360;
@@ -68,6 +71,7 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 	return atan2(yDistance,xDistance)/DEGREES_TO_RADIANS;
 }
 
+//returns the distance to a POI from teh user's current location
 -(NSNumber *)distanceToPOI:(PointOfInterest *)poi {
 	double dLongitude = (poi.longitude - [LocationServicesManager sharedLSM].longitude) * DEGREES_TO_RADIANS;
     double dLatitude = (poi.latitude - [LocationServicesManager sharedLSM].latitude) * DEGREES_TO_RADIANS;

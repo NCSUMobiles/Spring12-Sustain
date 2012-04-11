@@ -27,6 +27,7 @@
 	return self;
 }
 
+//creates a POI with the given latitude, longitude, name, address, description, and image
 -(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL {
 	if(self = [super init]) {
 		latitude = lat;
@@ -44,6 +45,8 @@
 	return self;	
 }
 
+//returns the name of the POI
+//implements MKAnnotation
 - (NSString *)title {
     if ([name isKindOfClass:[NSNull class]]) 
         return @"Unknown charge";
@@ -51,14 +54,18 @@
         return name;
 }
 
+//returns the address of the POI
+//implements MKAnnotation
 - (NSString *)subtitle {
     return address;
 }
 
+//get the distance from the user's current location to the POI
 -(double)distanceTo {
 	return [[[LocationServicesManager sharedLSM] distanceToPOI:self] doubleValue];
 }
 
+//get the compass heading from the user's current location to the POI
 -(double)headingTo {
 	return [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:self] doubleValue];
 }

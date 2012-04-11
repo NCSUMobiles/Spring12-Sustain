@@ -97,6 +97,7 @@ static POIManager *_sharedPOIManager = nil;
 	}
 }
 
+//get the POI with the given button
 -(PointOfInterest *)getPOIWithButton:(UIButton *)button {
 	for(PointOfInterest *poi in poiArray)
 		if(poi.button == button)
@@ -104,10 +105,12 @@ static POIManager *_sharedPOIManager = nil;
 	return nil;
 }
 
+//set the current target POI to the poi with the given button
 -(void)setTargetWithButton:(UIButton *)button {
 	currentTarget = [self getPOIWithButton:button];
 }
 
+//returns an array of POIs sorted by distance from the user in ascending order 
 -(NSArray *)sortedByDistance {
 	NSArray *sortedArray;
 	sortedArray = [poiArray sortedArrayUsingComparator:^(id a, id b) {
@@ -118,6 +121,7 @@ static POIManager *_sharedPOIManager = nil;
 	return sortedArray;
 }
 
+//returns an array of POIs sorted by compass heading from the user in ascending order 
 -(NSArray *)sortedByHeading {
 	NSArray *sortedArray;
 	sortedArray = [poiArray sortedArrayUsingComparator:^(id a, id b) {
