@@ -14,7 +14,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>SeeingGreen114.png</string>
+				<string>SG114.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>SG57.png</string>
 			</array>
 		</dict>
 	</dict>

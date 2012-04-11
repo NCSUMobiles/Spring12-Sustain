@@ -10,43 +10,31 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "PointOfInterest.h"
+#import "POIManager.h"
 #import "LocationServicesManager.h"
 
 @interface ARViewController : UIViewController <CLLocationManagerDelegate> {
 	CLLocationManager *locationManager;
 	
 	AVCaptureSession *captureSession;
-	
-	UILabel *latLabel;
-	UILabel *longLabel;
-	UILabel *headingLabel;
-	UILabel *poiHeadingLabel;
-	UILabel *distanceLabel;
-	
+		
 	UIView *cameraView;
 	
 	UIImageView *compassImage;
 	UIImageView *poiCompassImage;
 	
-	NSMutableArray *poiArray;
-	NSMutableArray *poiButtons;
-	
-	LocationServicesManager *locationServicesManager;
+	UIButton *loadMapViewButton;
+	UIButton *loadListViewButton;
 }
 
 -(void)initCaptureSession;
--(double)distanceTo:(PointOfInterest *)poi;
--(double)headingToInDegrees:(PointOfInterest *)poi;
+-(IBAction)poiButtonTouched:(id)sender;
+-(IBAction)mapButtonTouched:(id)sender;
+-(IBAction)listButtonTouched:(id)sender;
 
-@property (nonatomic, retain) IBOutlet UILabel *latLabel;
-@property (nonatomic, retain) IBOutlet UILabel *longLabel;
-@property (nonatomic, retain) IBOutlet UILabel *headingLabel;
-@property (nonatomic, retain) IBOutlet UILabel *poiHeadingLabel;
-@property (nonatomic, retain) IBOutlet UILabel *distanceLabel;
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;
-
--(IBAction)poiButtonTouched:(id)sender;
-
+@property (nonatomic, retain) IBOutlet UIButton *loadMapViewButton;
+@property (nonatomic, retain) IBOutlet UIButton *loadListViewButton;
 @end

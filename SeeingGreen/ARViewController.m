@@ -2,7 +2,7 @@
 //  ViewController.m
 //  LocationTest
 //
-//  Contains all of the main functionality of the application.  Most of this
+//  Contains all of the main functionality of the AR view for the application.  Most of this
 //  should really be moved to a secondary class.
 //  
 //  Created by JONATHAN B MORGAN on 3/22/12.
@@ -10,7 +10,10 @@
 //
 
 #import "ARViewController.h"
+#import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
+#define FOV_ADJUSTMENT 4.0
+#define RADAR_CUTOFF_IN_MILES 0.4
 
 @interface ARViewController ()
 
@@ -18,71 +21,20 @@
 
 @implementation ARViewController
 
-@synthesize latLabel;
-@synthesize longLabel;
-@synthesize headingLabel;
-@synthesize poiHeadingLabel;
-@synthesize distanceLabel;
-@synthesize compassImage;
-@synthesize poiCompassImage;
-
-@synthesize cameraView;
-
-#define DEFAULT_BUTTON_HEIGHT 50
-#define DEFAULT_BUTTON_WIDTH 150
+@synthesize compassImage, poiCompassImage, cameraView, loadMapViewButton, loadListViewButton;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
 	
-	poiButtons = [[NSMutableArray alloc] initWithCapacity:30];
-	
-	poiArray = [[NSMutableArray alloc] initWithCapacity:30];
-
-	//add POIs for Centennial Campus
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771621 longitude:-78.675048 andName:@"EB I"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771969 longitude:-78.673847 andName:@"EB II"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770925 longitude:-78.673804 andName:@"EB III"]];
-	/*
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773588 longitude:-78.673375 andName:@"Innovation Cafe"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773088 longitude:-78.673943 andName:@"BTEC"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.77358 longitude:-78.676014 andName:@"RedHat"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
-	 */
-	
-	//Add POIs for the walking tour
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.780204 longitude:-78.639214 andName:@"State Capitol"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773605 longitude:-78.640831 andName:@"Raleigh Convention Center"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773609 longitude:-78.640541 andName:@"R-Line Hybrid Electric Bus"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773132 longitude:-78.640602 andName:@"Big Belly Solar Trash Compactor"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.772404 longitude:-78.640617 andName:@"Solar EV Charging Stations"]];
-	[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771580 longitude:-78.639587 andName:@"Progress Energy Center"]];
-	
-
-	//add a UIButton for each POI
-	for(PointOfInterest *poi in poiArray) {
-		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[poiButton addTarget:self 
-					  action:@selector(poiButtonTouched:)
-			forControlEvents:UIControlEventTouchUpInside];
-		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
-		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-		poiButton.alpha = 0.5;
-		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
-		[[self view] addSubview:poiButton];
-		[poiButtons addObject:poiButton];
-		[poi setButton:poiButton];
-	}
-	
+	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
 }
 
 //initializes the location services used to get GPS coordinates and compass heading
 -(void)initLocationServices { 
-	locationServicesManager = [[LocationServicesManager alloc] init];
 	
 	if( [CLLocationManager locationServicesEnabled]) {
 		
@@ -91,14 +43,14 @@
 		
 		locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
 		
-		//set the distance filter to 10 meters
-		locationManager.distanceFilter = 10;
+		//set the distance filter to 5 meters
+		locationManager.distanceFilter = 5;
 		
 		[locationManager startUpdatingLocation];
 		[locationManager startUpdatingHeading];	
 		
 		[self updatePOICompass];
-	}	
+	}
 }
 
 //initializes the capture session used to display the camera feed
@@ -106,7 +58,7 @@
 	captureSession = [[AVCaptureSession alloc] init];
 	
 	AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-	if (videoDevice) {
+	if (videoDevice) { 
 		NSError *error;
 		AVCaptureDeviceInput *videoIn = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
 		if (!error) {
@@ -127,64 +79,48 @@
 	[[cameraView layer] addSublayer:previewLayer];
 }
 
-//returns the heading to a POI from the current location and orientation
--(double)headingToInDegrees:(PointOfInterest *)poi {
-
-	double lon1, lon2, lat1, lat2;
-	lon1 = DEGREES_TO_RADIANS * locationServicesManager.longitude;
-	lat1 = DEGREES_TO_RADIANS * locationServicesManager.latitude;
-	lon2 = DEGREES_TO_RADIANS * poi.longitude;
-	lat2 = DEGREES_TO_RADIANS * poi.latitude;
-	
-	double dLon = lon2 - lon1;
-    double y = sin(dLon) * cos(lat2);
-    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
-	
-	double bearingInDegrees = atan2(y, x) / DEGREES_TO_RADIANS;
-	
-	while(bearingInDegrees > 180)
-		bearingInDegrees -= 360;
-	while(bearingInDegrees < -180)
-		bearingInDegrees += 360;
-	
-	//NSLog(@"%f", bearingInDegrees);
-	return bearingInDegrees;
-}
-
-//returns the distance to a POI from the current location
--(double)distanceTo:(PointOfInterest *)poi {
-	return [self haversineMilesToPOI:poi];
-}
-
-//calculates the distance to a POI from the current location
--(double)haversineMilesToPOI:(PointOfInterest *)poi {
-	
-    double dLongitude = (poi.longitude - locationServicesManager.longitude) * DEGREES_TO_RADIANS;
-    double dLatitude = (poi.latitude - locationServicesManager.latitude) * DEGREES_TO_RADIANS;
-	
-	//I didn't name these variables, I don't know what they signify, I'm a terrible person
-    double a = pow(sin(dLatitude/2.0), 2) + cos(locationServicesManager.latitude*DEGREES_TO_RADIANS) * cos(poi.latitude*DEGREES_TO_RADIANS) * pow(sin(dLongitude/2.0), 2);
-    double c = 2 * atan2(sqrt(a), sqrt(1-a));
-    double distanceInMiles = 3956 * c; 
-	
-    return distanceInMiles;
-}
-
 //rotates the POI compass and moves the POI overlay
 -(void)updatePOICompass {
-		
-	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * ([self headingToInDegrees:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading]));
-		
-	for(PointOfInterest *poi in poiArray) {
-		UIButton *poiButton = [poi button];
-		double headingToPOI = [self headingToInDegrees:poi];
-		//NSLog(@"Heading to POI %@: %f", poiButton.titleLabel.text, headingToPOI-[locationServicesManager getHeading]);
-		if(fabs(headingToPOI-[locationServicesManager getHeading]) < 90)
-			poiButton.center = CGPointMake(160 + 230*sin(DEGREES_TO_RADIANS * (headingToPOI-[locationServicesManager getHeading])), poiButton.center.y);
-		else
-			poiButton.center = CGPointMake(-1000,poiButton.center.y);
-	}
+	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
+	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 	
+	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
+		UIButton *poiButton = [poi button];
+		
+		
+		//the rest of this block can almost certainly be reduced to 1 line of code
+		//trigonometry lolz
+		double compassHeadingToPOI = [poi headingTo];
+		double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
+		
+		while(userHeadingToPOI < -180)
+			userHeadingToPOI += 360;
+		while(userHeadingToPOI > 180)
+			userHeadingToPOI -= 360;
+		double distanceToPOI = [poi distanceTo];
+		CGFloat poiButtonXPosition = 160.0f; //center of the screen
+		double theta = 0.0;
+		
+		if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
+			theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
+			poiButtonXPosition += 160 * cos(theta) * FOV_ADJUSTMENT;
+		} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
+			theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
+			poiButtonXPosition -= 160 * cos(theta) * FOV_ADJUSTMENT;
+		} else {
+			poiButtonXPosition = -1000;
+		}
+		poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
+		
+		if(distanceToPOI < RADAR_CUTOFF_IN_MILES) {			
+			double poiDotTheta =  DEGREES_TO_RADIANS * userHeadingToPOI - M_PI/2;
+
+			poi.poiDot.center = CGPointMake(compassImage.center.x + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
+											compassImage.center.y + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+		} else {
+			poi.poiDot.center = CGPointMake(-1000,-1000);
+		}
+	}
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
@@ -197,10 +133,7 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
 	
     if (abs(howRecent) < 15.0) {		
-		[locationServicesManager addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
-		latLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.latitude];
-		longLabel.text = [NSString stringWithFormat:@"%+.6f", locationServicesManager.longitude];
-		distanceLabel.text = [NSString stringWithFormat:@"%d feet", (int)(5280 * [self distanceTo:[poiArray objectAtIndex:0]])];
+		[[LocationServicesManager sharedLSM] addLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
 		[self updatePOICompass];
     }
     // else skip the event and process the next one.
@@ -211,6 +144,20 @@
 -(void)poiButtonTouched:(id)sender {
 	UIButton *sendingButton = (UIButton *)sender;
 	NSLog(@"%@", [sendingButton titleForState:UIControlStateNormal]);
+	
+	//update the current target to the POI whose button was pressed
+	[[POIManager sharedPOIManager] setTargetWithButton:sendingButton];
+	[self performSegueWithIdentifier:@"ShowPOIDetails" sender:sender];
+}
+
+//load the POIMapViewController
+-(void)mapButtonTouched:(id)sender {
+	[self performSegueWithIdentifier:@"ShowPOIMap" sender:sender];
+}
+
+//load the POIMapViewController
+-(void)listButtonTouched:(id)sender {
+	[self performSegueWithIdentifier:@"ShowPOIList" sender:sender];
 }
 
 //called when the magnetometer heading changes
@@ -222,18 +169,46 @@
 	CLLocationDirection  theHeading = ((newHeading.trueHeading > 0) ?
 									   newHeading.trueHeading : newHeading.magneticHeading);
 	
-	[locationServicesManager addHeading:theHeading];
+	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	headingLabel.text = [NSString stringWithFormat:@"%d", (int)[locationServicesManager getHeading]];
-	poiHeadingLabel.text = [NSString stringWithFormat:@"%d", (int)([self headingToInDegrees:[poiArray objectAtIndex:0]]-[locationServicesManager getHeading])];
-	
-	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[locationServicesManager getHeading]);
+	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
-} 
+	
+	//update the button z-orders
+	NSArray *sortedByDistance = [[POIManager sharedPOIManager] sortedByDistance];
+	NSEnumerator *enumerator = [sortedByDistance reverseObjectEnumerator];
+	
+	int maxDistanceYValue = 100;
+    for (PointOfInterest *poi in enumerator) {
+		[poi.button.superview bringSubviewToFront:poi.button];
+		poi.button.center = CGPointMake(poi.button.center.x,maxDistanceYValue);
+		maxDistanceYValue+=5;
+	}
+}
 
 //called when the location manager experiences a failure
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 	NSLog(@"teh errorz :(");
+}
+
+//Called when a POI button is pressed
+//passes POI information to the POIDetailViewController being loaded
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	NSLog(@"%@",@"prepareForSegue");
+	
+    if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
+        POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
+		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
+		detailViewController.name = poi.name;
+		detailViewController.address = poi.address;
+		detailViewController.description = poi.description;
+		detailViewController.imageURL = poi.imageURL;
+    }
+}
+
+//stops and hides the activity indicator when the new view loads
+-(void)viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
 }
 
 - (void)viewDidUnload {
@@ -243,11 +218,10 @@
 
 //keep the device in portrait orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 	    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-	} else {
+	else
 	    return YES;
-	}
 }
 
 @end

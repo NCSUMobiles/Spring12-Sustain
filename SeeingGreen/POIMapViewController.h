@@ -7,7 +7,12 @@
 //
 
 #import "ARViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface POIMapViewController : ARViewController
+@interface POIMapViewController : UIViewController
+
+-(IBAction)backButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
