@@ -171,7 +171,7 @@
 	
 	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
+	//compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
 	
 	//update the button z-orders

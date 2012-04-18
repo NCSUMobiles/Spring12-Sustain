@@ -20,7 +20,7 @@
 		name = locName;
 		button = nil;
 		coordinate = CLLocationCoordinate2DMake(lat, lon);
-		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poiDot.png"]];
+		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar_poi.png"]];
 		poiDot.center = CGPointMake(-1000, -1000);
 	}
 	
@@ -37,7 +37,7 @@
 		address = addr;
 		imageURL = imgURL;
 		button = nil;
-		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poiDot.png"]];
+		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar_poi.png"]];
 		poiDot.center = CGPointMake(-1000, -1000);
 		coordinate = CLLocationCoordinate2DMake(lat, lon);
 	}
