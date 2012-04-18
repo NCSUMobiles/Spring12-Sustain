@@ -39,7 +39,7 @@ static POIManager *_sharedPOIManager = nil;
 		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
 		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
 		 */
-
+		
 		//Add POIs for the walking tour
 		//This really needs to be coming from CoreData (ok) or a web service (ideal)
 		//I'm not making the formatting on this prettier/usable because hopefully this won't be hard coded forever.
@@ -71,7 +71,7 @@ static POIManager *_sharedPOIManager = nil;
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773239 longitude:-78.642334 name:@"Raleigh Amphitheater" address:@"500 S. McDowell Street" description:@"Raleigh Amphitheater was built on a brownfield redevelopment site.  Other sustainability features include LED lights, concrete used instead of asphalt to reflect the sun, 60% of trash recycled, green friendly cleaning products, and use of recycled products." andImageURL:@"http://www.raleighnc.gov/content/AdminServSustain/Images/DowntownSustPhotos/RaleighAmphitheater.jpg"]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.772694 longitude:-78.641685 name:@"Performing Arts Parking Deck" address:@"Lenoir & McDowell Streets" description:@"Located on the right side of the street, this City-owned parking deck features a Level II Electric Vehicle charging station. Patrons charge for free, but must pay to park." andImageURL:@"http://www.raleighnc.gov/content/AdminServSustain/Images/DowntownSustPhotos/LenoirDeckChargingStation.jpg"]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773041 longitude:-78.641212 name:@"Permeable Pavement" address:@"Lenoir Street side of Convention Ctr." description:@"These concrete squares allow the capture of stormwater so that it can seep into the ground. This process reduces stormwater run-off and recharges groundwater." andImageURL:@"http://www.raleighnc.gov/content/AdminServSustain/Images/DowntownSustPhotos/PerviousPavement.jpg"]];
-
+		
 		currentTarget = [poiArray objectAtIndex:0];
 	}
 	
@@ -87,7 +87,7 @@ static POIManager *_sharedPOIManager = nil;
 			forControlEvents:UIControlEventTouchUpInside];
 		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
 		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-		poiButton.alpha = 1.0;
+		poiButton.alpha = 0.7;
 		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
