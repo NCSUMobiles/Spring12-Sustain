@@ -20,7 +20,8 @@
 		
 	UIView *cameraView;
 	
-	UIImageView *compassImage;
+	UIImageView *userFOVImage;
+	UIImageView *userFOVCompassImage;
 	UIImageView *poiCompassImage;
 	
 	UIButton *loadMapViewButton;
@@ -33,7 +34,8 @@
 -(IBAction)listButtonTouched:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIView *cameraView;
-@property (nonatomic, retain) IBOutlet UIImageView *compassImage;
+@property (nonatomic, retain) IBOutlet UIImageView *userFOVImage;
+@property (nonatomic, retain) IBOutlet UIImageView *userFOVCompassImage;
 @property (nonatomic, retain) IBOutlet UIImageView *poiCompassImage;
 @property (nonatomic, retain) IBOutlet UIButton *loadMapViewButton;
 @property (nonatomic, retain) IBOutlet UIButton *loadListViewButton;

@@ -24,19 +24,13 @@
 		B47AEDC215233EBE00F0280B /* PointOfInterest.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDBE15233EBE00F0280B /* PointOfInterest.m */; };
 		B47AEDC315233EBE00F0280B /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDC015233EBE00F0280B /* ARViewController.m */; };
 		B47AEDC615233EDF00F0280B /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDC415233EDF00F0280B /* compass.png */; };
-		B47AEDC715233EDF00F0280B /* poiCompass.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDC515233EDF00F0280B /* poiCompass.png */; };
 		B47AEDCB15233F6800F0280B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDC815233F6800F0280B /* AVFoundation.framework */; };
 		B47AEDCC15233F6800F0280B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDC915233F6800F0280B /* CoreData.framework */; };
 		B47AEDCD15233F6800F0280B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AEDCA15233F6800F0280B /* CoreLocation.framework */; };
-		B47AEDD51523837200F0280B /* SeeingGreen114.png in Resources */ = {isa = PBXBuildFile; fileRef = B47AEDD41523837200F0280B /* SeeingGreen114.png */; };
 		B47AEDDC152392FA00F0280B /* POIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDDB152392FA00F0280B /* POIDetailViewController.m */; };
 		B47AEDE01523942200F0280B /* POIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDDF1523942200F0280B /* POIListViewController.m */; };
 		B47AEDE3152394C900F0280B /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDE2152394C900F0280B /* POIMapViewController.m */; };
 		B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BFD4D715348BBE006F14BF /* POITableCell.m */; };
-		B4BFD4DC15349F08006F14BF /* radar_old.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFD4DA15349F08006F14BF /* radar_old.png */; };
-		B4BFD4DD15349F08006F14BF /* radar_old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFD4DB15349F08006F14BF /* radar_old@2x.png */; };
-		B4BFD4E81534A7E5006F14BF /* poiDot.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFD4E61534A7E5006F14BF /* poiDot.png */; };
-		B4BFD4E91534A7E5006F14BF /* poiDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFD4E71534A7E5006F14BF /* poiDot@2x.png */; };
 		B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D47D9B1530F4C300A3A1DB /* MapKit.framework */; };
 		B4D83152152E1436008B12EE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D83151152E1436008B12EE /* placeholder.png */; };
 		B4EF289D152CCDF70085B02D /* POIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF289C152CCDF70085B02D /* POIManager.m */; };
@@ -46,6 +40,8 @@
 		B4F91474153F0AAC003C1C03 /* radar_poi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F91470153F0AAC003C1C03 /* radar_poi@2x.png */; };
 		B4F9147B153F0AFE003C1C03 /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F91479153F0AFE003C1C03 /* radar.png */; };
 		B4F9147C153F0AFE003C1C03 /* radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9147A153F0AFE003C1C03 /* radar@2x.png */; };
+		B4F9147E153F0E4B003C1C03 /* poiCompass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */; };
+		B4F91480153F0E87003C1C03 /* poiCompass.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9147F153F0E86003C1C03 /* poiCompass.png */; };
 		B4FD20051530E53F0009621D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20041530E53F0009621D /* Default.png */; };
 		B4FD20071530E5460009621D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20061530E5460009621D /* Default@2x.png */; };
 		B4FD200D1530E63D0009621D /* SG114.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD200C1530E63D0009621D /* SG114.png */; };
@@ -90,11 +86,9 @@
 		B47AEDBF15233EBE00F0280B /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B47AEDC015233EBE00F0280B /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B47AEDC415233EDF00F0280B /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
-		B47AEDC515233EDF00F0280B /* poiCompass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiCompass.png; sourceTree = "<group>"; };
 		B47AEDC815233F6800F0280B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B47AEDC915233F6800F0280B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B47AEDCA15233F6800F0280B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		B47AEDD41523837200F0280B /* SeeingGreen114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeeingGreen114.png; sourceTree = SOURCE_ROOT; };
 		B47AEDDA152392FA00F0280B /* POIDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = POIDetailViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B47AEDDB152392FA00F0280B /* POIDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = POIDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B47AEDDE1523942200F0280B /* POIListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIListViewController.h; sourceTree = "<group>"; };
@@ -103,10 +97,6 @@
 		B47AEDE2152394C900F0280B /* POIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIMapViewController.m; sourceTree = "<group>"; };
 		B4BFD4D615348BBE006F14BF /* POITableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POITableCell.h; sourceTree = "<group>"; };
 		B4BFD4D715348BBE006F14BF /* POITableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POITableCell.m; sourceTree = "<group>"; };
-		B4BFD4DA15349F08006F14BF /* radar_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar_old.png; sourceTree = "<group>"; };
-		B4BFD4DB15349F08006F14BF /* radar_old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar_old@2x.png"; sourceTree = "<group>"; };
-		B4BFD4E61534A7E5006F14BF /* poiDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiDot.png; sourceTree = "<group>"; };
-		B4BFD4E71534A7E5006F14BF /* poiDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poiDot@2x.png"; sourceTree = "<group>"; };
 		B4D47D9B1530F4C300A3A1DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B4D83151152E1436008B12EE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B4EF289B152CCDF70085B02D /* POIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIManager.h; sourceTree = "<group>"; };
@@ -117,6 +107,8 @@
 		B4F91470153F0AAC003C1C03 /* radar_poi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar_poi@2x.png"; sourceTree = "<group>"; };
 		B4F91479153F0AFE003C1C03 /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
 		B4F9147A153F0AFE003C1C03 /* radar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar@2x.png"; sourceTree = "<group>"; };
+		B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poiCompass@2x.png"; sourceTree = "<group>"; };
+		B4F9147F153F0E86003C1C03 /* poiCompass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiCompass.png; sourceTree = "<group>"; };
 		B4FD20041530E53F0009621D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		B4FD20061530E5460009621D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		B4FD200C1530E63D0009621D /* SG114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SG114.png; path = ../SG114.png; sourceTree = "<group>"; };
@@ -235,16 +227,14 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4F9147F153F0E86003C1C03 /* poiCompass.png */,
+				B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */,
 				B4F91479153F0AFE003C1C03 /* radar.png */,
 				B4F9147A153F0AFE003C1C03 /* radar@2x.png */,
 				B4F9146D153F0AAB003C1C03 /* radar_arrow.png */,
 				B4F9146E153F0AAB003C1C03 /* radar_arrow@2x.png */,
 				B4F9146F153F0AAC003C1C03 /* radar_poi.png */,
 				B4F91470153F0AAC003C1C03 /* radar_poi@2x.png */,
-				B4BFD4E61534A7E5006F14BF /* poiDot.png */,
-				B4BFD4E71534A7E5006F14BF /* poiDot@2x.png */,
-				B4BFD4DA15349F08006F14BF /* radar_old.png */,
-				B4BFD4DB15349F08006F14BF /* radar_old@2x.png */,
 				B4FD20101530ED9C0009621D /* imageNotFound.png */,
 				B4FD20111530ED9C0009621D /* imageNotFound@2x.png */,
 				B4FD200E1530E6450009621D /* SG57.png */,
@@ -252,9 +242,7 @@
 				B4FD20061530E5460009621D /* Default@2x.png */,
 				B4FD20041530E53F0009621D /* Default.png */,
 				B4D83151152E1436008B12EE /* placeholder.png */,
-				B47AEDD41523837200F0280B /* SeeingGreen114.png */,
 				B47AEDC415233EDF00F0280B /* compass.png */,
-				B47AEDC515233EDF00F0280B /* poiCompass.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -363,8 +351,6 @@
 				B47AED9715233E6700F0280B /* MainStoryboard_iPhone.storyboard in Resources */,
 				B47AED9A15233E6700F0280B /* MainStoryboard_iPad.storyboard in Resources */,
 				B47AEDC615233EDF00F0280B /* compass.png in Resources */,
-				B47AEDC715233EDF00F0280B /* poiCompass.png in Resources */,
-				B47AEDD51523837200F0280B /* SeeingGreen114.png in Resources */,
 				B4D83152152E1436008B12EE /* placeholder.png in Resources */,
 				B4FD20051530E53F0009621D /* Default.png in Resources */,
 				B4FD20071530E5460009621D /* Default@2x.png in Resources */,
@@ -372,16 +358,14 @@
 				B4FD200F1530E6450009621D /* SG57.png in Resources */,
 				B4FD20121530ED9C0009621D /* imageNotFound.png in Resources */,
 				B4FD20131530ED9C0009621D /* imageNotFound@2x.png in Resources */,
-				B4BFD4DC15349F08006F14BF /* radar_old.png in Resources */,
-				B4BFD4DD15349F08006F14BF /* radar_old@2x.png in Resources */,
-				B4BFD4E81534A7E5006F14BF /* poiDot.png in Resources */,
-				B4BFD4E91534A7E5006F14BF /* poiDot@2x.png in Resources */,
 				B4F91471153F0AAC003C1C03 /* radar_arrow.png in Resources */,
 				B4F91472153F0AAC003C1C03 /* radar_arrow@2x.png in Resources */,
 				B4F91473153F0AAC003C1C03 /* radar_poi.png in Resources */,
 				B4F91474153F0AAC003C1C03 /* radar_poi@2x.png in Resources */,
 				B4F9147B153F0AFE003C1C03 /* radar.png in Resources */,
 				B4F9147C153F0AFE003C1C03 /* radar@2x.png in Resources */,
+				B4F9147E153F0E4B003C1C03 /* poiCompass@2x.png in Resources */,
+				B4F91480153F0E87003C1C03 /* poiCompass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

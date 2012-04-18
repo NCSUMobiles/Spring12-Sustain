@@ -18,17 +18,15 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" id="RTc-9M-Pmw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poiCompass.png" id="m4a-xI-4qJ">
-                                        <rect key="frame" x="121" y="311" width="79" height="79"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES" updatesFrequently="YES"/>
                                 </accessibility>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radar_arrow.png" id="m3E-qH-h1c">
+                                <rect key="frame" x="201" y="12" width="107" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radar.png" id="IL7-Mj-Y0s">
                                 <rect key="frame" x="201" y="12" width="107" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,16 +61,21 @@
                                     <action selector="listButtonTouched:" destination="2" eventType="touchUpInside" id="dcd-kP-oHn"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poiCompass.png" id="m4a-xI-4qJ">
+                                <rect key="frame" x="112" y="326" width="96" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Seeing Green" id="ddB-HR-gfL"/>
                     <connections>
                         <outlet property="cameraView" destination="RTc-9M-Pmw" id="jT5-xK-Am6"/>
-                        <outlet property="compassImage" destination="IL7-Mj-Y0s" id="oL4-M6-W40"/>
                         <outlet property="loadListViewButton" destination="xOh-Yb-dm0" id="B4M-bm-Wck"/>
                         <outlet property="loadMapViewButton" destination="KeN-t4-Z9Z" id="q8V-pD-2gG"/>
                         <outlet property="poiCompassImage" destination="m4a-xI-4qJ" id="PSC-N2-bie"/>
+                        <outlet property="userFOVCompassImage" destination="m3E-qH-h1c" id="WmK-ro-qtK"/>
+                        <outlet property="userFOVImage" destination="IL7-Mj-Y0s" id="s45-99-86S"/>
                         <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" modalTransitionStyle="flipHorizontal" id="8mU-um-AMn"/>
                         <segue destination="PPC-oz-NvA" kind="modal" identifier="ShowPOIMap" modalTransitionStyle="flipHorizontal" id="hrX-oJ-OU7"/>
                         <segue destination="z6j-S7-hLj" kind="modal" identifier="ShowPOIList" modalTransitionStyle="flipHorizontal" id="PXi-ng-Rus"/>
@@ -296,54 +299,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="poiCompass.png" width="256" height="256"/>
+        <image name="poiCompass.png" width="128" height="128"/>
         <image name="radar.png" width="107" height="107"/>
+        <image name="radar_arrow.png" width="107" height="107"/>
     </resources>
-    <classes>
-        <class className="ARViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="listButtonTouched:"/>
-                <relationship kind="action" name="mapButtonTouched:"/>
-                <relationship kind="action" name="poiButtonTouched:"/>
-                <relationship kind="outlet" name="cameraView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="compassImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadListViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loadMapViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="poiCompassImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="POIDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="poiImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="POIListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIListViewController.h"/>
-        </class>
-        <class className="POIMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POIMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="POITableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/POITableCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

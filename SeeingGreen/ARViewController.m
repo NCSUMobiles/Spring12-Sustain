@@ -21,13 +21,15 @@
 
 @implementation ARViewController
 
-@synthesize compassImage, poiCompassImage, cameraView, loadMapViewButton, loadListViewButton;
+@synthesize userFOVImage, poiCompassImage, userFOVCompassImage, cameraView, loadMapViewButton, loadListViewButton;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
+	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;
 	
+
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
@@ -115,8 +117,9 @@
 		if(distanceToPOI < RADAR_CUTOFF_IN_MILES) {			
 			double poiDotTheta =  DEGREES_TO_RADIANS * userHeadingToPOI - M_PI/2;
 
-			poi.poiDot.center = CGPointMake(compassImage.center.x + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
-											compassImage.center.y + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+			
+			poi.poiDot.center = CGPointMake(userFOVImage.center.x + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
+											userFOVImage.center.y + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
 		} else {
 			poi.poiDot.center = CGPointMake(-1000,-1000);
 		}
@@ -171,7 +174,7 @@
 	
 	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	//compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
+	userFOVCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
 	
 	//update the button z-orders
@@ -184,6 +187,8 @@
 		poi.button.center = CGPointMake(poi.button.center.x,maxDistanceYValue);
 		maxDistanceYValue+=5;
 	}
+	
+	[userFOVCompassImage.superview bringSubviewToFront:userFOVCompassImage];
 }
 
 //called when the location manager experiences a failure
