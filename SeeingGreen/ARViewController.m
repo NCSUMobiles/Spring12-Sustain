@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.4
+#define RADAR_CUTOFF_IN_MILES 0.2
 
 @interface ARViewController ()
 
@@ -204,6 +204,7 @@
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
         POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
 		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
+		detailViewController.poi = poi;
 		detailViewController.name = poi.name;
 		detailViewController.address = poi.address;
 		detailViewController.description = poi.description;

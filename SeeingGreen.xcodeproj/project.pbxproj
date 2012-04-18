@@ -42,6 +42,7 @@
 		B4F9147C153F0AFE003C1C03 /* radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9147A153F0AFE003C1C03 /* radar@2x.png */; };
 		B4F9147E153F0E4B003C1C03 /* poiCompass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */; };
 		B4F91480153F0E87003C1C03 /* poiCompass.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9147F153F0E86003C1C03 /* poiCompass.png */; };
+		B4F91482153F163C003C1C03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B4F91481153F163C003C1C03 /* README.md */; };
 		B4FD20051530E53F0009621D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20041530E53F0009621D /* Default.png */; };
 		B4FD20071530E5460009621D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD20061530E5460009621D /* Default@2x.png */; };
 		B4FD200D1530E63D0009621D /* SG114.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FD200C1530E63D0009621D /* SG114.png */; };
@@ -109,6 +110,7 @@
 		B4F9147A153F0AFE003C1C03 /* radar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar@2x.png"; sourceTree = "<group>"; };
 		B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poiCompass@2x.png"; sourceTree = "<group>"; };
 		B4F9147F153F0E86003C1C03 /* poiCompass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiCompass.png; sourceTree = "<group>"; };
+		B4F91481153F163C003C1C03 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B4FD20041530E53F0009621D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		B4FD20061530E5460009621D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		B4FD200C1530E63D0009621D /* SG114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SG114.png; path = ../SG114.png; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		B47AED7415233E6700F0280B = {
 			isa = PBXGroup;
 			children = (
+				B4F91481153F163C003C1C03 /* README.md */,
 				B47AED8915233E6700F0280B /* SeeingGreen */,
 				B47AEDAA15233E6800F0280B /* SeeingGreenTests */,
 				B47AED8215233E6700F0280B /* Frameworks */,
@@ -366,6 +369,7 @@
 				B4F9147C153F0AFE003C1C03 /* radar@2x.png in Resources */,
 				B4F9147E153F0E4B003C1C03 /* poiCompass@2x.png in Resources */,
 				B4F91480153F0E87003C1C03 /* poiCompass.png in Resources */,
+				B4F91482153F163C003C1C03 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

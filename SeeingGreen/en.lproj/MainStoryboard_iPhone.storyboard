@@ -82,7 +82,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-250" y="674"/>
+            <point key="canvasLocation" x="22" y="664"/>
         </scene>
         <!--Detail View Controller - Name of POI-->
         <scene sceneID="3bK-C7-yj2">
@@ -129,7 +129,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="777" y="-75"/>
+            <point key="canvasLocation" x="1049" y="-85"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="v1w-YX-tZs">
@@ -159,7 +159,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="825" y="1290"/>
+            <point key="canvasLocation" x="1097" y="1280"/>
         </scene>
         <!--List View Controller - Points of Interest-->
         <scene sceneID="fKj-oc-bkr">
@@ -223,7 +223,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1981" y="418"/>
+            <point key="canvasLocation" x="2253" y="408"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YxN-qX-0JH">
@@ -241,7 +241,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1491" y="418"/>
+            <point key="canvasLocation" x="1763" y="408"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="atc-5d-VbP">
@@ -259,7 +259,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="353" y="1312"/>
+            <point key="canvasLocation" x="625" y="1302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uyd-et-z6A">
@@ -277,7 +277,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-872" y="666"/>
+            <point key="canvasLocation" x="-600" y="656"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pvp-9a-2Fr">
@@ -295,7 +295,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="315" y="-67"/>
+            <point key="canvasLocation" x="587" y="-77"/>
         </scene>
     </scenes>
     <resources>
@@ -309,6 +309,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tzE-PC-9AD"/>
+        <segue reference="aFh-Rj-ah3"/>
     </inferredMetricsTieBreakers>
 </document>

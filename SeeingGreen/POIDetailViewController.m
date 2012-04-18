@@ -14,7 +14,7 @@
 
 @implementation POIDetailViewController
 @synthesize nameLabel, addressLabel, poiImageView, descriptionTextView, backButton, imageURL;
-@synthesize name, address, description;
+@synthesize poi, name, address, description;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -110,10 +110,15 @@
 	UIImage *imageFromURL = [[UIImage alloc] initWithData:poiImageData];
 	
 	//updates the image in the view if the url was valid
-	if(imageFromURL)
+	if(imageFromURL) {
 		poiImageView.image = imageFromURL;
-	else
+		
+		if(poi)
+			poi.image = imageFromURL;
+		
+	} else {
 		poiImageView.image = [UIImage imageNamed:@"imageNotFound.png"]; 
+	}
 }
 
 

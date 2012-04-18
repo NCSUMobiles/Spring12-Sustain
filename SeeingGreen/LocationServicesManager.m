@@ -10,7 +10,6 @@
 #import "PointOfInterest.h"
 
 #define HEADINGS_TO_SAVE 1
-#define TEST
 
 #ifdef TEST
 #define SPOOF_LOCATION
