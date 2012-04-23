@@ -41,6 +41,8 @@
 	cell.nameLabel.text = poi.name;
 	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi", [poi distanceTo]];
 	cell.descriptionLabel.text = poi.description;
+	if(poi.image)
+		cell.thumbnailImageView.image = poi.image;
 
     return cell;
 }

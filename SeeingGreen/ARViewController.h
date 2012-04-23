@@ -26,6 +26,9 @@
 	
 	UIButton *loadMapViewButton;
 	UIButton *loadListViewButton;
+	
+	double currentViewHeading;
+	double targetViewHeading;
 }
 
 -(void)initCaptureSession;

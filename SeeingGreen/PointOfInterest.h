@@ -23,12 +23,16 @@
 	UIButton *button;
 	UIImageView *poiDot;
 	UIImage *image;
+	
+	NSMutableData *poiImageData;
+
 }
 
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName;
 -(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL;
 -(double)distanceTo;
 -(double)headingTo;
+-(void)loadImage;
 
 @property double latitude;
 @property double longitude;

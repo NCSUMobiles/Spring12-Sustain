@@ -47,7 +47,7 @@
 		
 		//set the distance filter to 5 meters
 		locationManager.distanceFilter = 5;
-		
+				
 		[locationManager startUpdatingLocation];
 		[locationManager startUpdatingHeading];	
 		
@@ -94,7 +94,7 @@
 		//trigonometry lolz
 		double compassHeadingToPOI = [poi headingTo];
 		double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
-		
+				   
 		while(userHeadingToPOI < -180)
 			userHeadingToPOI += 360;
 		while(userHeadingToPOI > 180)

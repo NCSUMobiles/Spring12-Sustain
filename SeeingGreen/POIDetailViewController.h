@@ -24,7 +24,6 @@
 	UITextView *descriptionTextView;
 	UIButton *backButton;
 	
-	NSMutableData *poiImageData;
 }
 -(IBAction)backButtonPressed:(id)sender;
 

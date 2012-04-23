@@ -10,6 +10,9 @@
 #import "PointOfInterest.h"
 
 #define HEADINGS_TO_SAVE 1
+#define MAX_HEADING_VELOCITY 1
+
+#define TEST
 
 #ifdef TEST
 #define SPOOF_LOCATION
@@ -31,8 +34,24 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 -(id)init {
 	if(self = [super init]) {
 		headings = [[NSMutableArray alloc] initWithCapacity:20];
+		currentSmoothedHeading = 0;
+		//[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSmoothedCompass:) userInfo:nil repeats:YES];
+
 	}
 	return self;
+}
+
+- (void)updateSmoothedCompass:(NSTimer*)theTimer {
+	if(currentSmoothedHeading < currentActualHeading) {
+		currentSmoothedHeading += MAX_HEADING_VELOCITY;
+		if(currentSmoothedHeading > currentActualHeading)
+			currentSmoothedHeading = currentActualHeading;
+	} else if(currentSmoothedHeading > currentActualHeading) {
+		currentSmoothedHeading -= MAX_HEADING_VELOCITY;
+		if(currentSmoothedHeading < currentActualHeading)
+			currentSmoothedHeading = currentActualHeading;
+	}
+	NSLog(@"%f", currentSmoothedHeading);
 }
 
 //update the user's current location
@@ -67,7 +86,10 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 		yDistance += sin([heading doubleValue]*DEGREES_TO_RADIANS);
 	}
 	
-	return atan2(yDistance,xDistance)/DEGREES_TO_RADIANS;
+	currentActualHeading =  atan2(yDistance,xDistance)/DEGREES_TO_RADIANS;
+	
+	//return currentSmoothedHeading;
+	return currentActualHeading;
 }
 
 //returns the distance to a POI from teh user's current location

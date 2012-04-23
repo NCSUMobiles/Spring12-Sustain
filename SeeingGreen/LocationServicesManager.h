@@ -15,6 +15,8 @@
 @interface LocationServicesManager : NSObject {
 	double latitude;
 	double longitude;
+	double currentSmoothedHeading;
+	double currentActualHeading;
 	NSMutableArray *headings;
 }
 
