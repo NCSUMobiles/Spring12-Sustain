@@ -188,13 +188,13 @@
 		B47AED8915233E6700F0280B /* SeeingGreen */ = {
 			isa = PBXGroup;
 			children = (
-				B47AEDCE1523409A00F0280B /* Images */,
 				B47AEDCF152340A600F0280B /* Classes */,
 				B47AEDDD1523930100F0280B /* ViewControllers */,
 				B47AED9215233E6700F0280B /* AppDelegate.h */,
 				B47AED9315233E6700F0280B /* AppDelegate.m */,
 				B47AED9515233E6700F0280B /* MainStoryboard_iPhone.storyboard */,
 				B47AED9815233E6700F0280B /* MainStoryboard_iPad.storyboard */,
+				B47AEDCE1523409A00F0280B /* Images */,
 				B47AED8A15233E6700F0280B /* Supporting Files */,
 			);
 			path = SeeingGreen;
@@ -233,6 +233,12 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B47AEDC415233EDF00F0280B /* compass.png */,
+				B4FD20041530E53F0009621D /* Default.png */,
+				B4FD20061530E5460009621D /* Default@2x.png */,
+				B4FD20101530ED9C0009621D /* imageNotFound.png */,
+				B4FD20111530ED9C0009621D /* imageNotFound@2x.png */,
+				B4D83151152E1436008B12EE /* placeholder.png */,
 				B4F9147F153F0E86003C1C03 /* poiCompass.png */,
 				B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */,
 				B4F91479153F0AFE003C1C03 /* radar.png */,
@@ -241,14 +247,8 @@
 				B4F9146E153F0AAB003C1C03 /* radar_arrow@2x.png */,
 				B4F9146F153F0AAC003C1C03 /* radar_poi.png */,
 				B4F91470153F0AAC003C1C03 /* radar_poi@2x.png */,
-				B4FD20101530ED9C0009621D /* imageNotFound.png */,
-				B4FD20111530ED9C0009621D /* imageNotFound@2x.png */,
-				B4FD200E1530E6450009621D /* SG57.png */,
 				B4FD200C1530E63D0009621D /* SG114.png */,
-				B4FD20061530E5460009621D /* Default@2x.png */,
-				B4FD20041530E53F0009621D /* Default.png */,
-				B4D83151152E1436008B12EE /* placeholder.png */,
-				B47AEDC415233EDF00F0280B /* compass.png */,
+				B4FD200E1530E6450009621D /* SG57.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -258,10 +258,10 @@
 			children = (
 				B47AEDBB15233EBE00F0280B /* LocationServicesManager.h */,
 				B47AEDBC15233EBE00F0280B /* LocationServicesManager.m */,
-				B47AEDBD15233EBE00F0280B /* PointOfInterest.h */,
-				B47AEDBE15233EBE00F0280B /* PointOfInterest.m */,
 				B4EF289B152CCDF70085B02D /* POIManager.h */,
 				B4EF289C152CCDF70085B02D /* POIManager.m */,
+				B47AEDBD15233EBE00F0280B /* PointOfInterest.h */,
+				B47AEDBE15233EBE00F0280B /* PointOfInterest.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

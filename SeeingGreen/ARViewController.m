@@ -27,9 +27,7 @@
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
-	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;
-	
-
+	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
@@ -42,7 +40,6 @@
 		
 		locationManager = [[CLLocationManager alloc] init];
 		locationManager.delegate = self;
-		
 		locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
 		
 		//set the distance filter to 5 meters
@@ -64,14 +61,17 @@
 		NSError *error;
 		AVCaptureDeviceInput *videoIn = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
 		if (!error) {
-			if ([captureSession canAddInput:videoIn])
+			if ([captureSession canAddInput:videoIn]) {
 				[captureSession addInput:videoIn];
-			else
+			} else {
 				NSLog(@"Couldn't add video input");
-		} else
+			}
+		} else {
 			NSLog(@"Couldn't create video input");
-	} else
+		}
+	} else {
 		NSLog(@"Couldn't create video capture device");
+	}
 	
 	[captureSession startRunning];
 	
@@ -100,28 +100,42 @@
 		while(userHeadingToPOI > 180)
 			userHeadingToPOI -= 360;
 		double distanceToPOI = [poi distanceTo];
-		CGFloat poiButtonXPosition = 160.0f; //center of the screen
-		double theta = 0.0;
-		
-		if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
-			theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition += 160 * cos(theta) * FOV_ADJUSTMENT;
-		} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
-			theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition -= 160 * cos(theta) * FOV_ADJUSTMENT;
-		} else {
-			poiButtonXPosition = -1000;
-		}
-		poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
-		
 		if(distanceToPOI < RADAR_CUTOFF_IN_MILES) {			
+			UIButton *poiButton = [poi button];
+			
+			//the rest of this block can almost certainly be reduced to 1 line of code
+			//trigonometry lolz
+			double compassHeadingToPOI = [poi headingTo];
+			double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
+			
+			while(userHeadingToPOI < -180)
+				userHeadingToPOI += 360;
+			while(userHeadingToPOI > 180)
+				userHeadingToPOI -= 360;
+			
+			CGFloat poiButtonXPosition = 160.0f; //center of the screen
+			double theta = 0.0;
+			
+			if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
+				theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
+				poiButtonXPosition += 160 * cos(theta) * FOV_ADJUSTMENT;
+			} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
+				theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
+				poiButtonXPosition -= 160 * cos(theta) * FOV_ADJUSTMENT;
+			} else {
+				poiButtonXPosition = -1000;
+			}
+			poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
+			
 			double poiDotTheta =  DEGREES_TO_RADIANS * userHeadingToPOI - M_PI/2;
-
 			
 			poi.poiDot.center = CGPointMake(userFOVImage.center.x + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
 											userFOVImage.center.y + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+			poi.button.hidden = FALSE;
+			poi.poiDot.hidden = FALSE;
 		} else {
-			poi.poiDot.center = CGPointMake(-1000,-1000);
+			poi.poiDot.hidden = TRUE;
+			poi.button.hidden = TRUE;
 		}
 	}
 }
