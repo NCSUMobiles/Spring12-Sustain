@@ -26,6 +26,7 @@
 	
 }
 -(IBAction)backButtonPressed:(id)sender;
+-(IBAction)mapIt:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIImageView *poiImageView;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;

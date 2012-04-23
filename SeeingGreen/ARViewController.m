@@ -86,10 +86,7 @@
 	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 	
-	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
-		UIButton *poiButton = [poi button];
-		
-		
+	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {		
 		//the rest of this block can almost certainly be reduced to 1 line of code
 		//trigonometry lolz
 		double compassHeadingToPOI = [poi headingTo];

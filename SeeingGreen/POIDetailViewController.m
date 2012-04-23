@@ -40,17 +40,14 @@
 	[self setTitle:name];
 }
 
-/*
--(void)updateImage:(NSTimer*)theTimer {
-	NSLog(@"updateImage");
-	if(poi.image == nil) {
-		[NSTimer scheduledTimerWithTimeInterval:.3 target:self selector:@selector(updateImage:) userInfo:nil repeats:NO];
-	} else {
-		poiImageView.image = poi.image;
-		[[poiImageView superview] setNeedsDisplay];
-	}
+-(IBAction)mapIt:(id)sender {
+	NSString *routeString = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f&dirflg=w",
+							 [[LocationServicesManager sharedLSM] latitude], 
+							 [[LocationServicesManager sharedLSM] longitude],
+							 [poi latitude],
+							 [poi longitude]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:routeString]];
 }
- */
 
 - (void)viewDidUnload
 {
