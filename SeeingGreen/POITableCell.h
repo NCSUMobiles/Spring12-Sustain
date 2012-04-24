@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PointOfInterest;
 
-@interface POITableCell : UITableViewCell
+@interface POITableCell : UITableViewCell {
+	PointOfInterest *poi;
+}
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *distanceLabel;
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, retain) PointOfInterest *poi;
 
 @end

@@ -10,6 +10,7 @@
 #import "POIManager.h"
 #import "PointOfInterest.h"
 #import "POITableCell.h"
+#import "POIDetailViewController.h"
 
 @interface POIListViewController ()
 
@@ -20,8 +21,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+		selectedPOI = nil;
+	}
     return self;
 }
 
@@ -38,6 +39,7 @@
 	POITableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"POICell"];
 	PointOfInterest *poi = [[[POIManager sharedPOIManager] poiArray] objectAtIndex:indexPath.row];
 
+	cell.poi = poi;
 	cell.nameLabel.text = poi.name;
 	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi", [poi distanceTo]];
 	cell.descriptionLabel.text = poi.description;
@@ -45,6 +47,26 @@
 		cell.thumbnailImageView.image = poi.image;
 
     return cell;
+}
+
+//Called when a POI button is pressed
+//passes POI information to the POIDetailViewController being loaded
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	NSLog(@"%@",@"prepareForSegue");
+	
+	NSLog(@"%@", [[sender class] description]);
+	
+	POITableCell *selectedCell = (POITableCell *)sender;
+	 
+    if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
+        POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
+		PointOfInterest *poi = selectedCell.poi;
+		detailViewController.poi = poi;
+		detailViewController.name = poi.name;
+		detailViewController.address = poi.address;
+		detailViewController.description = poi.description;
+		detailViewController.imageURL = poi.imageURL;
+    }
 }
 
 - (void)viewDidLoad {

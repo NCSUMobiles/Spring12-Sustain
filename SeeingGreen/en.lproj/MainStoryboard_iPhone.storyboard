@@ -225,6 +225,7 @@
                                     <outlet property="distanceLabel" destination="bHm-QR-vca" id="Vi9-dV-csA"/>
                                     <outlet property="nameLabel" destination="15Z-Wj-s89" id="qSQ-fc-lUC"/>
                                     <outlet property="thumbnailImageView" destination="VQI-3x-Lgf" id="tWN-hY-DgM"/>
+                                    <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" id="2hw-dJ-UYk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -377,6 +378,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aFh-Rj-ah3"/>
+        <segue reference="tzE-PC-9AD"/>
+        <segue reference="2hw-dJ-UYk"/>
     </inferredMetricsTieBreakers>
 </document>
