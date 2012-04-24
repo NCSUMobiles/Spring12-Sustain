@@ -17,7 +17,5 @@ Seeing Green is a augmented reality walking tour of the sustainability features 
 7.  Loading the map view can take a bit and freezes the UI. Find out if this can be done async.
 8.  POI buttons should be transparent in proportion to their distance from the user.
 9.  Update list of features.
-10. Add navigation to the map view.
-11. Add an introductory screen explaining what AR is, what the tour is, and how to get started.
-12. Add Mike's graphics to the appropriate UI elements.
-13. Add a tab bar to the main screens.
+10. Add an introductory screen explaining what AR is, what the tour is, and how to get started.
+11. Add Mike's graphics to the appropriate UI elements. (in progress)

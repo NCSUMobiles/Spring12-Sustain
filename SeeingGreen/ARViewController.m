@@ -27,7 +27,21 @@
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
-	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
+	
+    UIImage *i = [UIImage imageNamed:@"greenGradient.png"];
+    UIColor *c = [[UIColor alloc] initWithPatternImage:i];
+	[self.tabBarController.tabBar setTintColor:c];
+	[self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+
+	/*
+    UIImage *navbarGradientImage = [UIImage imageNamed:@"navbarGradient.png"];
+    UIColor *navbarColor = [[UIColor alloc] initWithPatternImage:navbarGradientImage];	
+	[self.navigationController.navigationBar setTintColor:navbarColor];
+	[self.navigationController.navigationBar setOpaque:FALSE];
+	 */
+	
+	
+	 poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];

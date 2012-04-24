@@ -119,11 +119,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGb-Ig-vw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xtk-2d-Lm2" customClass="POIMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RWw-cX-bdy">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="7fV-Ng-B10">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -143,7 +143,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRd-c9-Utf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="aMh-E5-4tI" customClass="POIListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" id="2vu-M4-Znk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -211,6 +211,7 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="oFM-Fr-a8t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.53725490196078429" green="0.6470588235294118" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -230,6 +231,7 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iAN-xX-U68">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.53725490200000003" green="0.64705882349999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -250,6 +252,7 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wQu-Vq-YF9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.53725490200000003" green="0.64705882349999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -269,6 +272,7 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ckA-KL-YA9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.53725490200000003" green="0.64705882349999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -299,10 +303,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arIcon.png" width="18" height="14"/>
+        <image name="arIcon.png" width="30" height="30"/>
         <image name="imageNotFound.png" width="320" height="180"/>
-        <image name="listIcon.png" width="25" height="21"/>
-        <image name="mapIcon.png" width="21" height="22"/>
+        <image name="listIcon.png" width="30" height="30"/>
+        <image name="mapIcon.png" width="30" height="30"/>
         <image name="poiCompass.png" width="128" height="128"/>
         <image name="radar.png" width="107" height="107"/>
         <image name="radar_arrow.png" width="107" height="107"/>
@@ -361,8 +365,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hrX-oJ-OU7"/>
+        <segue reference="LcF-Ao-415"/>
+        <segue reference="5pc-vY-vVM"/>
         <segue reference="8mU-um-AMn"/>
-        <segue reference="PXi-ng-Rus"/>
     </inferredMetricsTieBreakers>
 </document>
