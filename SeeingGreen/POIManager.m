@@ -8,8 +8,8 @@
 
 #import "POIManager.h"
 
-#define DEFAULT_BUTTON_HEIGHT 50
-#define DEFAULT_BUTTON_WIDTH 150
+#define DEFAULT_BUTTON_HEIGHT 56
+#define DEFAULT_BUTTON_WIDTH 256
 
 @implementation POIManager
 
@@ -85,10 +85,21 @@ static POIManager *_sharedPOIManager = nil;
 		[poiButton addTarget:viewController 
 					  action:@selector(poiButtonTouched:)
 			forControlEvents:UIControlEventTouchUpInside];
+		[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateNormal];
+		[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateHighlighted];
+
+		//frame the title such that it lives in the empty part of the button image
+		[poiButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, -206.0, 0.0, 33.0)];
 		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
+		[poiButton.titleLabel setTextAlignment:UITextAlignmentLeft];
+		[poiButton.titleLabel setAdjustsFontSizeToFitWidth:TRUE];
+		[poiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+		[poiButton setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+		
 		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
 		poiButton.alpha = 0.7;
-		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+		
 		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
 		

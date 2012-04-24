@@ -29,12 +29,6 @@
 		B47AEDDC152392FA00F0280B /* POIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDDB152392FA00F0280B /* POIDetailViewController.m */; };
 		B47AEDE01523942200F0280B /* POIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDDF1523942200F0280B /* POIListViewController.m */; };
 		B47AEDE3152394C900F0280B /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47AEDE2152394C900F0280B /* POIMapViewController.m */; };
-		B48197381546E3B50030ACD0 /* ar_button_thumb_holder.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197261546E3B50030ACD0 /* ar_button_thumb_holder.png */; };
-		B48197391546E3B50030ACD0 /* ar_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197271546E3B50030ACD0 /* ar_button.png */; };
-		B481973A1546E3B50030ACD0 /* ar_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197281546E3B50030ACD0 /* ar_button_arrow.png */; };
-		B481973B1546E3B50030ACD0 /* ar_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197291546E3B50030ACD0 /* ar_button@2x.png */; };
-		B481973C1546E3B50030ACD0 /* ar_button_thumb_holder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B481972A1546E3B50030ACD0 /* ar_button_thumb_holder@2x.png */; };
-		B481973D1546E3B50030ACD0 /* ar_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B481972B1546E3B50030ACD0 /* ar_button_arrow@2x.png */; };
 		B481974D1546F7C20030ACD0 /* mapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B481974B1546F7C10030ACD0 /* mapIcon.png */; };
 		B481974E1546F7C20030ACD0 /* mapIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B481974C1546F7C20030ACD0 /* mapIcon@2x.png */; };
 		B48197531546F9000030ACD0 /* listIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B481974F1546F8FE0030ACD0 /* listIcon.png */; };
@@ -43,6 +37,9 @@
 		B48197561546F9000030ACD0 /* arIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197521546F9000030ACD0 /* arIcon@2x.png */; };
 		B48197591546FEFD0030ACD0 /* greenGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197571546FEFB0030ACD0 /* greenGradient.png */; };
 		B481975A1546FEFD0030ACD0 /* greenGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197581546FEFC0030ACD0 /* greenGradient@2x.png */; };
+		B481976115470E860030ACD0 /* POIButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B481976015470E860030ACD0 /* POIButtonView.m */; };
+		B48197641547124D0030ACD0 /* poiButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197621547124C0030ACD0 /* poiButtonBackground.png */; };
+		B48197651547124D0030ACD0 /* poiButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */; };
 		B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BF061A1545F7F4005B894A /* IntroductionViewController.m */; };
 		B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BFD4D715348BBE006F14BF /* POITableCell.m */; };
 		B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D47D9B1530F4C300A3A1DB /* MapKit.framework */; };
@@ -109,12 +106,6 @@
 		B47AEDDF1523942200F0280B /* POIListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIListViewController.m; sourceTree = "<group>"; };
 		B47AEDE1152394C900F0280B /* POIMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIMapViewController.h; sourceTree = "<group>"; };
 		B47AEDE2152394C900F0280B /* POIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIMapViewController.m; sourceTree = "<group>"; };
-		B48197261546E3B50030ACD0 /* ar_button_thumb_holder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ar_button_thumb_holder.png; sourceTree = "<group>"; };
-		B48197271546E3B50030ACD0 /* ar_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ar_button.png; sourceTree = "<group>"; };
-		B48197281546E3B50030ACD0 /* ar_button_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ar_button_arrow.png; sourceTree = "<group>"; };
-		B48197291546E3B50030ACD0 /* ar_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ar_button@2x.png"; sourceTree = "<group>"; };
-		B481972A1546E3B50030ACD0 /* ar_button_thumb_holder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ar_button_thumb_holder@2x.png"; sourceTree = "<group>"; };
-		B481972B1546E3B50030ACD0 /* ar_button_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ar_button_arrow@2x.png"; sourceTree = "<group>"; };
 		B481974B1546F7C10030ACD0 /* mapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapIcon.png; sourceTree = "<group>"; };
 		B481974C1546F7C20030ACD0 /* mapIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapIcon@2x.png"; sourceTree = "<group>"; };
 		B481974F1546F8FE0030ACD0 /* listIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listIcon.png; sourceTree = "<group>"; };
@@ -123,6 +114,10 @@
 		B48197521546F9000030ACD0 /* arIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arIcon@2x.png"; sourceTree = "<group>"; };
 		B48197571546FEFB0030ACD0 /* greenGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenGradient.png; sourceTree = "<group>"; };
 		B48197581546FEFC0030ACD0 /* greenGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenGradient@2x.png"; sourceTree = "<group>"; };
+		B481975F15470E860030ACD0 /* POIButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIButtonView.h; sourceTree = "<group>"; };
+		B481976015470E860030ACD0 /* POIButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIButtonView.m; sourceTree = "<group>"; };
+		B48197621547124C0030ACD0 /* poiButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiButtonBackground.png; sourceTree = "<group>"; };
+		B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poiButtonBackground@2x.png"; sourceTree = "<group>"; };
 		B4BF06191545F7F4005B894A /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
 		B4BF061A1545F7F4005B894A /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
 		B4BFD4D615348BBE006F14BF /* POITableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POITableCell.h; sourceTree = "<group>"; };
@@ -259,24 +254,20 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B48197571546FEFB0030ACD0 /* greenGradient.png */,
-				B48197581546FEFC0030ACD0 /* greenGradient@2x.png */,
-				B481974F1546F8FE0030ACD0 /* listIcon.png */,
-				B48197501546F8FF0030ACD0 /* listIcon@2x.png */,
+				B48197621547124C0030ACD0 /* poiButtonBackground.png */,
+				B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */,
 				B48197511546F8FF0030ACD0 /* arIcon.png */,
 				B48197521546F9000030ACD0 /* arIcon@2x.png */,
-				B481974B1546F7C10030ACD0 /* mapIcon.png */,
-				B481974C1546F7C20030ACD0 /* mapIcon@2x.png */,
-				B48197261546E3B50030ACD0 /* ar_button_thumb_holder.png */,
-				B48197271546E3B50030ACD0 /* ar_button.png */,
-				B48197281546E3B50030ACD0 /* ar_button_arrow.png */,
-				B48197291546E3B50030ACD0 /* ar_button@2x.png */,
-				B481972A1546E3B50030ACD0 /* ar_button_thumb_holder@2x.png */,
-				B481972B1546E3B50030ACD0 /* ar_button_arrow@2x.png */,
 				B4FD20041530E53F0009621D /* Default.png */,
 				B4FD20061530E5460009621D /* Default@2x.png */,
+				B48197571546FEFB0030ACD0 /* greenGradient.png */,
+				B48197581546FEFC0030ACD0 /* greenGradient@2x.png */,
 				B4FD20101530ED9C0009621D /* imageNotFound.png */,
 				B4FD20111530ED9C0009621D /* imageNotFound@2x.png */,
+				B481974F1546F8FE0030ACD0 /* listIcon.png */,
+				B48197501546F8FF0030ACD0 /* listIcon@2x.png */,
+				B481974B1546F7C10030ACD0 /* mapIcon.png */,
+				B481974C1546F7C20030ACD0 /* mapIcon@2x.png */,
 				B4D83151152E1436008B12EE /* placeholder.png */,
 				B4F9147F153F0E86003C1C03 /* poiCompass.png */,
 				B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */,
@@ -320,6 +311,8 @@
 				B4BFD4D715348BBE006F14BF /* POITableCell.m */,
 				B4BF06191545F7F4005B894A /* IntroductionViewController.h */,
 				B4BF061A1545F7F4005B894A /* IntroductionViewController.m */,
+				B481975F15470E860030ACD0 /* POIButtonView.h */,
+				B481976015470E860030ACD0 /* POIButtonView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -413,12 +406,6 @@
 				B4F9147E153F0E4B003C1C03 /* poiCompass@2x.png in Resources */,
 				B4F91480153F0E87003C1C03 /* poiCompass.png in Resources */,
 				B4F91482153F163C003C1C03 /* README.md in Resources */,
-				B48197381546E3B50030ACD0 /* ar_button_thumb_holder.png in Resources */,
-				B48197391546E3B50030ACD0 /* ar_button.png in Resources */,
-				B481973A1546E3B50030ACD0 /* ar_button_arrow.png in Resources */,
-				B481973B1546E3B50030ACD0 /* ar_button@2x.png in Resources */,
-				B481973C1546E3B50030ACD0 /* ar_button_thumb_holder@2x.png in Resources */,
-				B481973D1546E3B50030ACD0 /* ar_button_arrow@2x.png in Resources */,
 				B481974D1546F7C20030ACD0 /* mapIcon.png in Resources */,
 				B481974E1546F7C20030ACD0 /* mapIcon@2x.png in Resources */,
 				B48197531546F9000030ACD0 /* listIcon.png in Resources */,
@@ -427,6 +414,8 @@
 				B48197561546F9000030ACD0 /* arIcon@2x.png in Resources */,
 				B48197591546FEFD0030ACD0 /* greenGradient.png in Resources */,
 				B481975A1546FEFD0030ACD0 /* greenGradient@2x.png in Resources */,
+				B48197641547124D0030ACD0 /* poiButtonBackground.png in Resources */,
+				B48197651547124D0030ACD0 /* poiButtonBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +461,7 @@
 				B4EF289D152CCDF70085B02D /* POIManager.m in Sources */,
 				B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */,
 				B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */,
+				B481976115470E860030ACD0 /* POIButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

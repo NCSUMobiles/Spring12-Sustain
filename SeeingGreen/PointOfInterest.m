@@ -119,6 +119,13 @@
 	//updates the image in the view if the url was valid
 	if(imageFromURL) {
 		image = imageFromURL;
+		UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 9, 35, 34)];
+		[thumbnailImageView setContentMode:UIViewContentModeScaleAspectFill];
+		[thumbnailImageView setClipsToBounds:TRUE];
+		[button addSubview:thumbnailImageView];
+
+		thumbnailImageView.image = image;
+
 	} else {
 		image = [UIImage imageNamed:@"imageNotFound.png"]; 
 	}
