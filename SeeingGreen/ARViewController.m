@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.2
+#define RADAR_CUTOFF_IN_MILES 0.3
 
 @interface ARViewController ()
 

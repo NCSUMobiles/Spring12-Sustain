@@ -254,8 +254,6 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B48197621547124C0030ACD0 /* poiButtonBackground.png */,
-				B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */,
 				B48197511546F8FF0030ACD0 /* arIcon.png */,
 				B48197521546F9000030ACD0 /* arIcon@2x.png */,
 				B4FD20041530E53F0009621D /* Default.png */,
@@ -269,6 +267,8 @@
 				B481974B1546F7C10030ACD0 /* mapIcon.png */,
 				B481974C1546F7C20030ACD0 /* mapIcon@2x.png */,
 				B4D83151152E1436008B12EE /* placeholder.png */,
+				B48197621547124C0030ACD0 /* poiButtonBackground.png */,
+				B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */,
 				B4F9147F153F0E86003C1C03 /* poiCompass.png */,
 				B4F9147D153F0E4B003C1C03 /* poiCompass@2x.png */,
 				B4F91479153F0AFE003C1C03 /* radar.png */,
@@ -301,6 +301,10 @@
 			children = (
 				B47AEDBF15233EBE00F0280B /* ARViewController.h */,
 				B47AEDC015233EBE00F0280B /* ARViewController.m */,
+				B4BF06191545F7F4005B894A /* IntroductionViewController.h */,
+				B4BF061A1545F7F4005B894A /* IntroductionViewController.m */,
+				B481975F15470E860030ACD0 /* POIButtonView.h */,
+				B481976015470E860030ACD0 /* POIButtonView.m */,
 				B47AEDDA152392FA00F0280B /* POIDetailViewController.h */,
 				B47AEDDB152392FA00F0280B /* POIDetailViewController.m */,
 				B47AEDDE1523942200F0280B /* POIListViewController.h */,
@@ -309,10 +313,6 @@
 				B47AEDE2152394C900F0280B /* POIMapViewController.m */,
 				B4BFD4D615348BBE006F14BF /* POITableCell.h */,
 				B4BFD4D715348BBE006F14BF /* POITableCell.m */,
-				B4BF06191545F7F4005B894A /* IntroductionViewController.h */,
-				B4BF061A1545F7F4005B894A /* IntroductionViewController.m */,
-				B481975F15470E860030ACD0 /* POIButtonView.h */,
-				B481976015470E860030ACD0 /* POIButtonView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
