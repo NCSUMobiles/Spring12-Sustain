@@ -10,7 +10,7 @@
 
 @implementation POITableCell
 
-@synthesize nameLabel, distanceLabel, descriptionLabel, thumbnailImageView;
+@synthesize nameLabel, distanceLabel, thumbnailImageView, headingImageView, topConnector, bottomConnector;
 @synthesize poi;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -18,6 +18,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+		headingImageView.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the heading deformed
     }
     return self;
 }

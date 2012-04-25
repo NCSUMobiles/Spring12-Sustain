@@ -87,8 +87,15 @@
 }
 
 //get the compass heading from the user's current location to the POI
+//doesn't take the user's heading into account
 -(double)headingTo {
 	return [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:self] doubleValue];
+}
+
+//get the compass heading from the user's current location to the POI
+//takes into account the user's own heading
+-(double)userHeadingTo {
+	return [self headingTo] - [[LocationServicesManager sharedLSM] getHeading];
 }
 
 #pragma mark -

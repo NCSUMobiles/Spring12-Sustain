@@ -147,46 +147,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="POICell" rowHeight="91" id="acD-jR-Exs" customClass="POITableCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="91"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="POICell" rowHeight="92" id="acD-jR-Exs" customClass="POITableCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="91"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="15Z-Wj-s89">
-                                            <rect key="frame" x="7" y="1" width="224" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cellConnector.png" id="SwC-n7-tAu">
+                                            <rect key="frame" x="48" y="0.0" width="4" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cellConnector.png" id="dtn-4y-FEY">
+                                            <rect key="frame" x="48" y="76" width="4" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Name name name name name name name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="15Z-Wj-s89">
+                                            <rect key="frame" x="88" y="16" width="212" height="39"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="0.0 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bHm-QR-vca">
-                                            <rect key="frame" x="252" y="1" width="100" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="0.0 miles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bHm-QR-vca">
+                                            <rect key="frame" x="110" y="55" width="100" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3AR-k8-uY6">
-                                            <rect key="frame" x="7" y="20" width="224" height="61"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="VQI-3x-Lgf">
-                                            <rect key="frame" x="233" y="20" width="60" height="60"/>
+                                            <rect key="frame" x="20" y="16" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="peekabo.png" id="kgv-dP-5ND">
+                                            <rect key="frame" x="20" y="16" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="miniPOIHeading.png" id="gyb-GK-Syr">
+                                            <rect key="frame" x="88" y="57" width="17" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="3AR-k8-uY6" id="zIa-ry-Zvh"/>
+                                    <outlet property="bottomConnector" destination="dtn-4y-FEY" id="amq-X5-FfY"/>
                                     <outlet property="distanceLabel" destination="bHm-QR-vca" id="Vi9-dV-csA"/>
+                                    <outlet property="headingImageView" destination="gyb-GK-Syr" id="rVM-lV-RIc"/>
                                     <outlet property="nameLabel" destination="15Z-Wj-s89" id="qSQ-fc-lUC"/>
                                     <outlet property="thumbnailImageView" destination="VQI-3x-Lgf" id="tWN-hY-DgM"/>
+                                    <outlet property="topConnector" destination="SwC-n7-tAu" id="3Hj-L8-GT3"/>
                                     <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" modalTransitionStyle="flipHorizontal" id="2hw-dJ-UYk"/>
                                 </connections>
                             </tableViewCell>
@@ -304,9 +315,12 @@
     </scenes>
     <resources>
         <image name="arIcon.png" width="30" height="30"/>
+        <image name="cellConnector.png" width="4" height="20"/>
         <image name="imageNotFound.png" width="320" height="180"/>
         <image name="listIcon.png" width="30" height="30"/>
         <image name="mapIcon.png" width="30" height="30"/>
+        <image name="miniPOIHeading.png" width="17" height="17"/>
+        <image name="peekabo.png" width="60" height="60"/>
         <image name="poiCompass.png" width="128" height="128"/>
         <image name="radar.png" width="107" height="107"/>
         <image name="radar_arrow.png" width="107" height="107"/>
@@ -352,10 +366,12 @@
         <class className="POITableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/POITableCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottomConnector" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headingImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topConnector" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>
@@ -365,8 +381,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="LcF-Ao-415"/>
         <segue reference="5pc-vY-vVM"/>
-        <segue reference="8mU-um-AMn"/>
+        <segue reference="LcF-Ao-415"/>
+        <segue reference="2hw-dJ-UYk"/>
     </inferredMetricsTieBreakers>
 </document>

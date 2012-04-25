@@ -45,7 +45,23 @@
 	cell.poi = poi;
 	cell.nameLabel.text = poi.name;
 	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi", [poi distanceTo]];
-	cell.descriptionLabel.text = poi.description;
+	cell.headingImageView.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the heading deformed
+
+	cell.headingImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * [poi userHeadingTo]);
+	
+	
+	if(indexPath.row == 0) {
+		[cell.topConnector setHidden:TRUE];
+		NSLog(@"NO TOP - %@ %d", poi.name, indexPath.row);
+	} else if(indexPath.row == [[[POIManager sharedPOIManager] poiArray] count] - 1) {
+		[cell.bottomConnector setHidden:TRUE];
+		NSLog(@"NO BOTTOM - %@ %d", poi.name, indexPath.row);
+	} else {
+		[cell.topConnector setHidden:FALSE];
+		[cell.bottomConnector setHidden:FALSE];
+	}
+	
+	
 	if(poi.image)
 		cell.thumbnailImageView.image = poi.image;
 

@@ -15,8 +15,10 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *distanceLabel;
-@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *headingImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *topConnector;
+@property (nonatomic, strong) IBOutlet UIImageView *bottomConnector;
 @property (nonatomic, retain) PointOfInterest *poi;
 
 @end

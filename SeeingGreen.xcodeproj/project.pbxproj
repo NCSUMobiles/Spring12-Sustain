@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B420B6F0154874DA00BC18A7 /* miniPOIHeading.png in Resources */ = {isa = PBXBuildFile; fileRef = B420B6EE154874DA00BC18A7 /* miniPOIHeading.png */; };
+		B420B6F1154874DA00BC18A7 /* miniPOIHeading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B420B6EF154874DA00BC18A7 /* miniPOIHeading@2x.png */; };
+		B420B6F51548893600BC18A7 /* cellConnector.png in Resources */ = {isa = PBXBuildFile; fileRef = B420B6F31548893600BC18A7 /* cellConnector.png */; };
+		B420B6F61548893600BC18A7 /* cellConnector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B420B6F41548893600BC18A7 /* cellConnector@2x.png */; };
+		B420B6F915488B8700BC18A7 /* peekabo.png in Resources */ = {isa = PBXBuildFile; fileRef = B420B6F715488B8700BC18A7 /* peekabo.png */; };
+		B420B6FA15488B8700BC18A7 /* peekabo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B420B6F815488B8700BC18A7 /* peekabo@2x.png */; };
 		B47AED8415233E6700F0280B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8315233E6700F0280B /* UIKit.framework */; };
 		B47AED8615233E6700F0280B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8515233E6700F0280B /* Foundation.framework */; };
 		B47AED8815233E6700F0280B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47AED8715233E6700F0280B /* CoreGraphics.framework */; };
@@ -72,6 +78,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B420B6EE154874DA00BC18A7 /* miniPOIHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miniPOIHeading.png; sourceTree = "<group>"; };
+		B420B6EF154874DA00BC18A7 /* miniPOIHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "miniPOIHeading@2x.png"; sourceTree = "<group>"; };
+		B420B6F31548893600BC18A7 /* cellConnector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellConnector.png; sourceTree = "<group>"; };
+		B420B6F41548893600BC18A7 /* cellConnector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellConnector@2x.png"; sourceTree = "<group>"; };
+		B420B6F715488B8700BC18A7 /* peekabo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peekabo.png; sourceTree = "<group>"; };
+		B420B6F815488B8700BC18A7 /* peekabo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "peekabo@2x.png"; sourceTree = "<group>"; };
 		B47AED7F15233E6700F0280B /* SeeingGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeingGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47AED8315233E6700F0280B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B47AED8515233E6700F0280B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -251,6 +263,12 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B420B6F715488B8700BC18A7 /* peekabo.png */,
+				B420B6F815488B8700BC18A7 /* peekabo@2x.png */,
+				B420B6F31548893600BC18A7 /* cellConnector.png */,
+				B420B6F41548893600BC18A7 /* cellConnector@2x.png */,
+				B420B6EE154874DA00BC18A7 /* miniPOIHeading.png */,
+				B420B6EF154874DA00BC18A7 /* miniPOIHeading@2x.png */,
 				B48197511546F8FF0030ACD0 /* arIcon.png */,
 				B48197521546F9000030ACD0 /* arIcon@2x.png */,
 				B4FD20041530E53F0009621D /* Default.png */,
@@ -411,6 +429,12 @@
 				B481975A1546FEFD0030ACD0 /* greenGradient@2x.png in Resources */,
 				B48197641547124D0030ACD0 /* poiButtonBackground.png in Resources */,
 				B48197651547124D0030ACD0 /* poiButtonBackground@2x.png in Resources */,
+				B420B6F0154874DA00BC18A7 /* miniPOIHeading.png in Resources */,
+				B420B6F1154874DA00BC18A7 /* miniPOIHeading@2x.png in Resources */,
+				B420B6F51548893600BC18A7 /* cellConnector.png in Resources */,
+				B420B6F61548893600BC18A7 /* cellConnector@2x.png in Resources */,
+				B420B6F915488B8700BC18A7 /* peekabo.png in Resources */,
+				B420B6FA15488B8700BC18A7 /* peekabo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

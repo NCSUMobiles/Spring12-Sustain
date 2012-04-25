@@ -32,6 +32,7 @@
 -(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL;
 -(double)distanceTo;
 -(double)headingTo;
+-(double)userHeadingTo;
 -(void)loadImage;
 
 @property double latitude;
