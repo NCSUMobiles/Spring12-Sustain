@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.4
+#define RADAR_CUTOFF_IN_MILES 0.15
 
 @interface ARViewController ()
 
@@ -21,13 +21,19 @@
 
 @implementation ARViewController
 
-@synthesize compassImage, poiCompassImage, cameraView, loadMapViewButton, loadListViewButton;
+@synthesize userFOVImage, poiCompassImage, userFOVCompassImage, cameraView, loadMapViewButton, loadListViewButton;
 
 //initializes location services and video capture functions
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
 	
+    UIImage *i = [UIImage imageNamed:@"greenGradient.png"];
+    UIColor *c = [[UIColor alloc] initWithPatternImage:i];
+	[self.tabBarController.tabBar setTintColor:c];
+	[self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];	
+	
+	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
@@ -40,12 +46,11 @@
 		
 		locationManager = [[CLLocationManager alloc] init];
 		locationManager.delegate = self;
-		
 		locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
 		
 		//set the distance filter to 5 meters
 		locationManager.distanceFilter = 5;
-		
+				
 		[locationManager startUpdatingLocation];
 		[locationManager startUpdatingHeading];	
 		
@@ -62,14 +67,17 @@
 		NSError *error;
 		AVCaptureDeviceInput *videoIn = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
 		if (!error) {
-			if ([captureSession canAddInput:videoIn])
+			if ([captureSession canAddInput:videoIn]) {
 				[captureSession addInput:videoIn];
-			else
+			} else {
 				NSLog(@"Couldn't add video input");
-		} else
+			}
+		} else {
 			NSLog(@"Couldn't create video input");
-	} else
+		}
+	} else {
 		NSLog(@"Couldn't create video capture device");
+	}
 	
 	[captureSession startRunning];
 	
@@ -84,41 +92,53 @@
 	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 	
-	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
-		UIButton *poiButton = [poi button];
-		
-		
+	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {		
 		//the rest of this block can almost certainly be reduced to 1 line of code
 		//trigonometry lolz
 		double compassHeadingToPOI = [poi headingTo];
 		double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
-		
+				   
 		while(userHeadingToPOI < -180)
 			userHeadingToPOI += 360;
 		while(userHeadingToPOI > 180)
 			userHeadingToPOI -= 360;
 		double distanceToPOI = [poi distanceTo];
-		CGFloat poiButtonXPosition = 160.0f; //center of the screen
-		double theta = 0.0;
-		
-		if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
-			theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition += 160 * cos(theta) * FOV_ADJUSTMENT;
-		} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
-			theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
-			poiButtonXPosition -= 160 * cos(theta) * FOV_ADJUSTMENT;
-		} else {
-			poiButtonXPosition = -1000;
-		}
-		poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
-		
 		if(distanceToPOI < RADAR_CUTOFF_IN_MILES) {			
+			UIButton *poiButton = [poi button];
+			
+			//the rest of this block can almost certainly be reduced to 1 line of code
+			//trigonometry lolz
+			double compassHeadingToPOI = [poi headingTo];
+			double userHeadingToPOI = compassHeadingToPOI - [[LocationServicesManager sharedLSM] getHeading];
+			
+			while(userHeadingToPOI < -180)
+				userHeadingToPOI += 360;
+			while(userHeadingToPOI > 180)
+				userHeadingToPOI -= 360;
+			
+			CGFloat poiButtonXPosition = 160.0f; //center of the screen
+			double theta = 0.0;
+			
+			if(0 <= userHeadingToPOI && userHeadingToPOI <= 90) {
+				theta = (90.0 - userHeadingToPOI) * DEGREES_TO_RADIANS;
+				poiButtonXPosition += 160 * cos(theta) * FOV_ADJUSTMENT;
+			} else if(-90 <= userHeadingToPOI && userHeadingToPOI < 0) {
+				theta = (90.0 + userHeadingToPOI) * DEGREES_TO_RADIANS;
+				poiButtonXPosition -= 160 * cos(theta) * FOV_ADJUSTMENT;
+			} else {
+				poiButtonXPosition = -1000;
+			}
+			poiButton.center = CGPointMake(poiButtonXPosition, poiButton.center.y);
+			
 			double poiDotTheta =  DEGREES_TO_RADIANS * userHeadingToPOI - M_PI/2;
-
-			poi.poiDot.center = CGPointMake(compassImage.center.x + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
-											compassImage.center.y + 40.0 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+			
+			poi.poiDot.center = CGPointMake(userFOVImage.center.x + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
+											userFOVImage.center.y + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+			poi.button.hidden = FALSE;
+			poi.poiDot.hidden = FALSE;
 		} else {
-			poi.poiDot.center = CGPointMake(-1000,-1000);
+			poi.poiDot.hidden = TRUE;
+			poi.button.hidden = TRUE;
 		}
 	}
 }
@@ -171,7 +191,7 @@
 	
 	[[LocationServicesManager sharedLSM] addHeading:theHeading];
 	
-	compassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
+	userFOVCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * -[[LocationServicesManager sharedLSM] getHeading]);
 	[self updatePOICompass];
 	
 	//update the button z-orders
@@ -184,6 +204,8 @@
 		poi.button.center = CGPointMake(poi.button.center.x,maxDistanceYValue);
 		maxDistanceYValue+=5;
 	}
+	
+	[userFOVCompassImage.superview bringSubviewToFront:userFOVCompassImage];
 }
 
 //called when the location manager experiences a failure
@@ -199,6 +221,7 @@
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
         POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
 		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];
+		detailViewController.poi = poi;
 		detailViewController.name = poi.name;
 		detailViewController.address = poi.address;
 		detailViewController.description = poi.description;

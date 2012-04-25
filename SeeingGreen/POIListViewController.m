@@ -10,6 +10,7 @@
 #import "POIManager.h"
 #import "PointOfInterest.h"
 #import "POITableCell.h"
+#import "POIDetailViewController.h"
 
 @interface POIListViewController ()
 
@@ -20,29 +21,55 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+		selectedPOI = nil;
+	}
     return self;
 }
 
+//the POI list currently only has one section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;
 }
 
+//returns the number of rows, i.e. the number of POIs
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [[[POIManager sharedPOIManager] poiArray] count];
 }
 
+//loads each POI into a cell in the order that they are returned from the POIManager
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	POITableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"POICell"];
 	PointOfInterest *poi = [[[POIManager sharedPOIManager] poiArray] objectAtIndex:indexPath.row];
 
+	cell.poi = poi;
 	cell.nameLabel.text = poi.name;
 	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi", [poi distanceTo]];
 	cell.descriptionLabel.text = poi.description;
+	if(poi.image)
+		cell.thumbnailImageView.image = poi.image;
 
     return cell;
+}
+
+//Called when a POI button is pressed
+//passes POI information to the POIDetailViewController being loaded
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	NSLog(@"%@",@"prepareForSegue");
+	
+	NSLog(@"%@", [[sender class] description]);
+	
+	POITableCell *selectedCell = (POITableCell *)sender;
+	 
+    if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
+        POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
+		PointOfInterest *poi = selectedCell.poi;
+		detailViewController.poi = poi;
+		detailViewController.name = poi.name;
+		detailViewController.address = poi.address;
+		detailViewController.description = poi.description;
+		detailViewController.imageURL = poi.imageURL;
+    }
 }
 
 - (void)viewDidLoad {

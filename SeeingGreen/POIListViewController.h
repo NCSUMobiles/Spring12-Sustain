@@ -9,7 +9,7 @@
 #import "ARViewController.h"
 
 @interface POIListViewController : UITableViewController {
-	
+	PointOfInterest *selectedPOI;
 }
 
 @end

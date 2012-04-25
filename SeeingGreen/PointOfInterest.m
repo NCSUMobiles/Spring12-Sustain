@@ -10,7 +10,7 @@
 
 @implementation PointOfInterest 
 
-@synthesize latitude, longitude, name, shortName, address, description, imageURL, button, poiDot, coordinate;
+@synthesize latitude, longitude, name, shortName, address, description, imageURL, image, button, poiDot, coordinate;
 
 //creates a POI with the given latitude, longitude, name, and description
 -(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName {
@@ -20,8 +20,9 @@
 		name = locName;
 		button = nil;
 		coordinate = CLLocationCoordinate2DMake(lat, lon);
-		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poiDot.png"]];
+		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar_poi.png"]];
 		poiDot.center = CGPointMake(-1000, -1000);
+		image = nil;
 	}
 	
 	return self;
@@ -37,12 +38,32 @@
 		address = addr;
 		imageURL = imgURL;
 		button = nil;
-		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poiDot.png"]];
+		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar_poi.png"]];
 		poiDot.center = CGPointMake(-1000, -1000);
 		coordinate = CLLocationCoordinate2DMake(lat, lon);
+		image = nil;
+		
+		[self loadImage];
 	}
 	
 	return self;	
+}
+
+//begins the async loading of the POI image
+-(void)loadImage {
+	NSURLRequest *poiImageRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]
+												   cachePolicy:NSURLRequestUseProtocolCachePolicy
+											   timeoutInterval:60.0];
+	
+	//create the connection with the request and start loading the data
+	NSURLConnection *poiImageConnection=[[NSURLConnection alloc] initWithRequest:poiImageRequest delegate:self];
+	
+	if (poiImageConnection) {
+		// Create the NSMutableData to hold the received data.
+		poiImageData = [NSMutableData data];
+	} else {
+		// Inform the user that the connection failed.
+	}	
 }
 
 //returns the name of the POI
@@ -69,5 +90,47 @@
 -(double)headingTo {
 	return [[[LocationServicesManager sharedLSM] headingToPOIInDegrees:self] doubleValue];
 }
+
+#pragma mark -
+#pragma mark Async data loading methods
+
+// This method is called when the server has determined that it has enough information to create the NSURLResponse.	
+// It can be called multiple times, for example in the case of a redirect, so each time we reset the data.
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [poiImageData setLength:0];
+}
+
+// Appends newly received data to poiImageData.
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [poiImageData appendData:data];
+}
+
+// inform the user of any error while loading the poi image data
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {	
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+	image = [UIImage imageNamed:@"imageNotFound.png"]; 
+}
+
+// update the POI image in the view once the data is finished loading
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {	
+	UIImage *imageFromURL = [[UIImage alloc] initWithData:poiImageData];
+	
+	//updates the image in the view if the url was valid
+	if(imageFromURL) {
+		image = imageFromURL;
+		UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 9, 35, 34)];
+		[thumbnailImageView setContentMode:UIViewContentModeScaleAspectFill];
+		[thumbnailImageView setClipsToBounds:TRUE];
+		[button addSubview:thumbnailImageView];
+
+		thumbnailImageView.image = image;
+
+	} else {
+		image = [UIImage imageNamed:@"imageNotFound.png"]; 
+	}
+}
+
 
 @end

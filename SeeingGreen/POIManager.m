@@ -8,8 +8,8 @@
 
 #import "POIManager.h"
 
-#define DEFAULT_BUTTON_HEIGHT 50
-#define DEFAULT_BUTTON_WIDTH 150
+#define DEFAULT_BUTTON_HEIGHT 56
+#define DEFAULT_BUTTON_WIDTH 256
 
 @implementation POIManager
 
@@ -27,19 +27,7 @@ static POIManager *_sharedPOIManager = nil;
 -(id) init {
 	if(self = [super init]) {
 		poiArray = [[NSMutableArray alloc] initWithCapacity:30];
-		
-		/*
-		 //add POIs for Centennial Campus
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771621 longitude:-78.675048 andName:@"EB I"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771969 longitude:-78.673847 andName:@"EB II"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770925 longitude:-78.673804 andName:@"EB III"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773588 longitude:-78.673375 andName:@"Innovation Cafe"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773088 longitude:-78.673943 andName:@"BTEC"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.77358 longitude:-78.676014 andName:@"RedHat"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
-		 */
-
+				
 		//Add POIs for the walking tour
 		//This really needs to be coming from CoreData (ok) or a web service (ideal)
 		//I'm not making the formatting on this prettier/usable because hopefully this won't be hard coded forever.
@@ -71,28 +59,38 @@ static POIManager *_sharedPOIManager = nil;
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773239 longitude:-78.642334 name:@"Raleigh Amphitheater" address:@"500 S. McDowell Street" description:@"Raleigh Amphitheater was built on a brownfield redevelopment site.  Other sustainability features include LED lights, concrete used instead of asphalt to reflect the sun, 60% of trash recycled, green friendly cleaning products, and use of recycled products." andImageURL:@"http://www.raleighnc.gov/content/AdminServSustain/Images/DowntownSustPhotos/RaleighAmphitheater.jpg"]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.772694 longitude:-78.641685 name:@"Performing Arts Parking Deck" address:@"Lenoir & McDowell Streets" description:@"Located on the right side of the street, this City-owned parking deck features a Level II Electric Vehicle charging station. Patrons charge for free, but must pay to park." andImageURL:@"http://www.raleighnc.gov/content/AdminServSustain/Images/DowntownSustPhotos/LenoirDeckChargingStation.jpg"]];
 		[poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773041 longitude:-78.641212 name:@"Permeable Pavement" address:@"Lenoir Street side of Convention Ctr." description:@"These concrete squares allow the capture of stormwater so that it can seep into the ground. This process reduces stormwater run-off and recharges groundwater." andImageURL:@"http://www.raleighnc.gov/content/AdminServSustain/Images/DowntownSustPhotos/PerviousPavement.jpg"]];
-
+		
 		currentTarget = [poiArray objectAtIndex:0];
 	}
 	
 	return self;
 }
 
+//creates a button for each POI to be displayed in the AR View Controller
 -(void)createButtonsInViewController:(UIViewController *)viewController {
 	//add a UIButton for each POI
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
-		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[poiButton addTarget:viewController 
 					  action:@selector(poiButtonTouched:)
 			forControlEvents:UIControlEventTouchUpInside];
+		[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateNormal];
+
+		//frame the title such that it lives in the empty part of the button image
+		[poiButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, -206.0, 0.0, 33.0)];
 		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
-		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-		poiButton.alpha = 1.0;
+		[poiButton.titleLabel setTextAlignment:UITextAlignmentLeft];
+		[poiButton.titleLabel setAdjustsFontSizeToFitWidth:TRUE];
+		[poiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+		[poiButton setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
 		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+		
+		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+		
 		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
 		
-		//add the poi's dot while we're here
+		//add the POI's dot while we're here
 		[[viewController view] addSubview:poi.poiDot];
 	}
 }

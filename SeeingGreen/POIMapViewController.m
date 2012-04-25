@@ -26,6 +26,7 @@
     return self;
 }
 
+//loads the map centered at the latitude and longitude coordinates selected
 - (void)viewWillAppear:(BOOL)animated {  
 	
 	//clear any existing annotations
