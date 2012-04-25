@@ -37,7 +37,6 @@
 		B48197561546F9000030ACD0 /* arIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197521546F9000030ACD0 /* arIcon@2x.png */; };
 		B48197591546FEFD0030ACD0 /* greenGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197571546FEFB0030ACD0 /* greenGradient.png */; };
 		B481975A1546FEFD0030ACD0 /* greenGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197581546FEFC0030ACD0 /* greenGradient@2x.png */; };
-		B481976115470E860030ACD0 /* POIButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B481976015470E860030ACD0 /* POIButtonView.m */; };
 		B48197641547124D0030ACD0 /* poiButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197621547124C0030ACD0 /* poiButtonBackground.png */; };
 		B48197651547124D0030ACD0 /* poiButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */; };
 		B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BF061A1545F7F4005B894A /* IntroductionViewController.m */; };
@@ -114,8 +113,6 @@
 		B48197521546F9000030ACD0 /* arIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arIcon@2x.png"; sourceTree = "<group>"; };
 		B48197571546FEFB0030ACD0 /* greenGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenGradient.png; sourceTree = "<group>"; };
 		B48197581546FEFC0030ACD0 /* greenGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenGradient@2x.png"; sourceTree = "<group>"; };
-		B481975F15470E860030ACD0 /* POIButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIButtonView.h; sourceTree = "<group>"; };
-		B481976015470E860030ACD0 /* POIButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIButtonView.m; sourceTree = "<group>"; };
 		B48197621547124C0030ACD0 /* poiButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiButtonBackground.png; sourceTree = "<group>"; };
 		B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poiButtonBackground@2x.png"; sourceTree = "<group>"; };
 		B4BF06191545F7F4005B894A /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
@@ -303,8 +300,6 @@
 				B47AEDC015233EBE00F0280B /* ARViewController.m */,
 				B4BF06191545F7F4005B894A /* IntroductionViewController.h */,
 				B4BF061A1545F7F4005B894A /* IntroductionViewController.m */,
-				B481975F15470E860030ACD0 /* POIButtonView.h */,
-				B481976015470E860030ACD0 /* POIButtonView.m */,
 				B47AEDDA152392FA00F0280B /* POIDetailViewController.h */,
 				B47AEDDB152392FA00F0280B /* POIDetailViewController.m */,
 				B47AEDDE1523942200F0280B /* POIListViewController.h */,
@@ -461,7 +456,6 @@
 				B4EF289D152CCDF70085B02D /* POIManager.m in Sources */,
 				B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */,
 				B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */,
-				B481976115470E860030ACD0 /* POIButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

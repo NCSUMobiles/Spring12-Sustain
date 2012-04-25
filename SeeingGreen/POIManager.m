@@ -27,19 +27,7 @@ static POIManager *_sharedPOIManager = nil;
 -(id) init {
 	if(self = [super init]) {
 		poiArray = [[NSMutableArray alloc] initWithCapacity:30];
-		
-		/*
-		 //add POIs for Centennial Campus
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771621 longitude:-78.675048 andName:@"EB I"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.771969 longitude:-78.673847 andName:@"EB II"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770925 longitude:-78.673804 andName:@"EB III"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773588 longitude:-78.673375 andName:@"Innovation Cafe"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.773088 longitude:-78.673943 andName:@"BTEC"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.77358 longitude:-78.676014 andName:@"RedHat"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.774019 longitude:-78.675778 andName:@"Partners III"]];
-		 [poiArray addObject:[[PointOfInterest alloc] initWithLatitude:35.770516 longitude:-78.677339 andName:@"Partners I"]];
-		 */
-		
+				
 		//Add POIs for the walking tour
 		//This really needs to be coming from CoreData (ok) or a web service (ideal)
 		//I'm not making the formatting on this prettier/usable because hopefully this won't be hard coded forever.
@@ -78,15 +66,15 @@ static POIManager *_sharedPOIManager = nil;
 	return self;
 }
 
+//creates a button for each POI to be displayed in the AR View Controller
 -(void)createButtonsInViewController:(UIViewController *)viewController {
 	//add a UIButton for each POI
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
-		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[poiButton addTarget:viewController 
 					  action:@selector(poiButtonTouched:)
 			forControlEvents:UIControlEventTouchUpInside];
 		[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateNormal];
-		[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateHighlighted];
 
 		//frame the title such that it lives in the empty part of the button image
 		[poiButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, -206.0, 0.0, 33.0)];
@@ -98,12 +86,11 @@ static POIManager *_sharedPOIManager = nil;
 		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		
 		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-		poiButton.alpha = 0.7;
 		
 		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
 		
-		//add the poi's dot while we're here
+		//add the POI's dot while we're here
 		[[viewController view] addSubview:poi.poiDot];
 	}
 }

@@ -26,14 +26,17 @@
     return self;
 }
 
+//the POI list currently only has one section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;
 }
 
+//returns the number of rows, i.e. the number of POIs
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [[[POIManager sharedPOIManager] poiArray] count];
 }
 
+//loads each POI into a cell in the order that they are returned from the POIManager
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	POITableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"POICell"];

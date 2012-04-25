@@ -25,6 +25,7 @@
     return self;
 }
 
+//updates the view with information passed in the previous view controller's prepareForSegue method
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -40,6 +41,7 @@
 	[self setTitle:name];
 }
 
+//launches the Maps app to get walking directions to the targeted POI
 -(IBAction)mapIt:(id)sender {
 	NSString *routeString = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f&dirflg=w",
 							 [[LocationServicesManager sharedLSM] latitude], 

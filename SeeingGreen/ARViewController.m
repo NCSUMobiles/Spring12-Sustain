@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.3
+#define RADAR_CUTOFF_IN_MILES 0.15
 
 @interface ARViewController ()
 
@@ -31,17 +31,9 @@
     UIImage *i = [UIImage imageNamed:@"greenGradient.png"];
     UIColor *c = [[UIColor alloc] initWithPatternImage:i];
 	[self.tabBarController.tabBar setTintColor:c];
-	[self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
-
-	/*
-    UIImage *navbarGradientImage = [UIImage imageNamed:@"navbarGradient.png"];
-    UIColor *navbarColor = [[UIColor alloc] initWithPatternImage:navbarGradientImage];	
-	[self.navigationController.navigationBar setTintColor:navbarColor];
-	[self.navigationController.navigationBar setOpaque:FALSE];
-	 */
+	[self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];	
 	
-	
-	 poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
+	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];

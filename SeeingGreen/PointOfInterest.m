@@ -49,6 +49,7 @@
 	return self;	
 }
 
+//begins the async loading of the POI image
 -(void)loadImage {
 	NSURLRequest *poiImageRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]
 												   cachePolicy:NSURLRequestUseProtocolCachePolicy

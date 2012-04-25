@@ -12,6 +12,8 @@
 #define HEADINGS_TO_SAVE 1
 #define MAX_HEADING_VELOCITY 1
 
+#define TEST
+
 #ifdef TEST
 #define SPOOF_LOCATION
 #endif
