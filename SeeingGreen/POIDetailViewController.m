@@ -13,6 +13,7 @@
 @end
 
 @implementation POIDetailViewController
+@synthesize mapItBarButtonItem;
 @synthesize nameLabel, addressLabel, poiImageView, descriptionTextView, backButton, imageURL;
 @synthesize poi, name, address, description;
 
@@ -21,6 +22,7 @@
     if (self) {
         // Custom initialization
 		nameLabel.text = name;
+
     }
     return self;
 }
@@ -35,10 +37,11 @@
 	poiImageView.image = poi.image;
 
 	//[self updateImage:nil];
-	
+	[mapItBarButtonItem setAction:@selector(mapIt:)];
+	[mapItBarButtonItem setTarget:self];
 	NSLog(@"%@",@"POIDetailViewController loaded");
 
-	[self setTitle:name];
+	//[self setTitle:name];
 }
 
 //launches the Maps app to get walking directions to the targeted POI
@@ -53,6 +56,7 @@
 
 - (void)viewDidUnload
 {
+	[self setMapItBarButtonItem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
