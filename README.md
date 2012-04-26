@@ -10,12 +10,9 @@ Seeing Green is a augmented reality walking tour of the sustainability features 
 ## To do
 1.  The data is currently hardcoded into the app. This needs to be pulled from a JSON data service (service and data processing have not been started on).
 2.  Support needs to be added to walk through the tour in order.
-3.  The list view of the POIs needs to look better.
-4.  The interface as a whole needs significant work.
-5.  Compass headings need to be added to the list view.
-6.  The detail view needs to be prettied up a bit (different background, for starters).
-7.  Loading the map view can take a bit and freezes the UI. Find out if this can be done async.
-8.  POI buttons should be transparent in proportion to their distance from the user.
-9.  Update list of features.
-10. Add an introductory screen explaining what AR is, what the tour is, and how to get started.
-11. Add Mike's graphics to the appropriate UI elements. (in progress)
+3.  The interface as a whole needs significant work.
+4.  The detail view needs to be prettied up a bit (different background, for starters).
+5.  Loading the map view can take a bit and freezes the UI. Find out if this can be done async.
+6.  POI buttons should be transparent in proportion to their distance from the user.
+7.  Update list of features.
+8.  Add an introductory screen explaining what AR is, what the tour is, and how to get started.
