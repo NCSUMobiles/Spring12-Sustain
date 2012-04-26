@@ -27,7 +27,7 @@ static POIManager *_sharedPOIManager = nil;
 -(id) init {
 	if(self = [super init]) {
 		poiArray = [[NSMutableArray alloc] initWithCapacity:30];
-				
+		
 		//Add POIs for the walking tour
 		//This really needs to be coming from CoreData (ok) or a web service (ideal)
 		//I'm not making the formatting on this prettier/usable because hopefully this won't be hard coded forever.
@@ -70,24 +70,28 @@ static POIManager *_sharedPOIManager = nil;
 -(void)createButtonsInViewController:(UIViewController *)viewController {
 	//add a UIButton for each POI
 	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {
-		UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[poiButton addTarget:viewController 
-					  action:@selector(poiButtonTouched:)
-			forControlEvents:UIControlEventTouchUpInside];
-		[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateNormal];
-
-		//frame the title such that it lives in the empty part of the button image
-		[poiButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, -206.0, 0.0, 33.0)];
-		[poiButton setTitle:[poi name] forState:UIControlStateNormal];
-		[poiButton.titleLabel setTextAlignment:UITextAlignmentLeft];
-		[poiButton.titleLabel setAdjustsFontSizeToFitWidth:TRUE];
-		[poiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-		[poiButton setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-		poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 		
-		poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+		if(!poi.button) {
+			UIButton *poiButton = [UIButton buttonWithType:UIButtonTypeCustom];
+			[poiButton addTarget:viewController 
+						  action:@selector(poiButtonTouched:)
+				forControlEvents:UIControlEventTouchUpInside];
+			[poiButton setImage:[UIImage imageNamed:@"poiButtonBackground"] forState:UIControlStateNormal];
+			
+			//frame the title such that it lives in the empty part of the button image
+			[poiButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, -206.0, 0.0, 33.0)];
+			[poiButton setTitle:[poi name] forState:UIControlStateNormal];
+			[poiButton.titleLabel setTextAlignment:UITextAlignmentLeft];
+			[poiButton.titleLabel setAdjustsFontSizeToFitWidth:TRUE];
+			[poiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+			[poiButton setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+			poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+			
+			poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+			
+			[poi setButton:poiButton];
+		}
 		
-		[poi setButton:poiButton];
 		[[viewController view] addSubview:poi.button];
 		
 		//add the POI's dot while we're here

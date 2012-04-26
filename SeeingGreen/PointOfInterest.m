@@ -12,22 +12,6 @@
 
 @synthesize latitude, longitude, name, shortName, address, description, imageURL, image, button, poiDot, coordinate;
 
-//creates a POI with the given latitude, longitude, name, and description
--(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName {
-	if(self = [super init]) {
-		latitude = lat;
-		longitude = lon;
-		name = locName;
-		button = nil;
-		coordinate = CLLocationCoordinate2DMake(lat, lon);
-		poiDot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar_poi.png"]];
-		poiDot.center = CGPointMake(-1000, -1000);
-		image = nil;
-	}
-	
-	return self;
-}
-
 //creates a POI with the given latitude, longitude, name, address, description, and image
 -(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL {
 	if(self = [super init]) {
@@ -42,6 +26,7 @@
 		poiDot.center = CGPointMake(-1000, -1000);
 		coordinate = CLLocationCoordinate2DMake(lat, lon);
 		image = nil;
+		imageLoading = FALSE;
 		
 		[self loadImage];
 	}
@@ -51,6 +36,12 @@
 
 //begins the async loading of the POI image
 -(void)loadImage {
+	
+	if(imageLoading)
+		return;
+	
+	imageLoading = TRUE;
+	
 	NSURLRequest *poiImageRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]
 												   cachePolicy:NSURLRequestUseProtocolCachePolicy
 											   timeoutInterval:60.0];

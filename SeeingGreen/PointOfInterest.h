@@ -25,10 +25,10 @@
 	UIImage *image;
 	
 	NSMutableData *poiImageData;
+	BOOL imageLoading;
 
 }
 
--(id)initWithLatitude:(double)lat longitude:(double)lon andName:(NSString *)locName;
 -(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL;
 -(double)distanceTo;
 -(double)headingTo;

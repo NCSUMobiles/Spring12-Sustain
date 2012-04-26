@@ -22,7 +22,6 @@
     if (self) {
         // Custom initialization
 		nameLabel.text = name;
-
     }
     return self;
 }
