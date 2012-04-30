@@ -33,7 +33,7 @@
 	nameLabel.text = name;
 	addressLabel.text = address;
 	descriptionTextView.text = description;
-	poiImageView.image = poi.image;
+	poiImageView.image = poi.detailImage;
 
 	//[self updateImage:nil];
 	[mapItBarButtonItem setAction:@selector(mapIt:)];

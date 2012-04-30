@@ -10,7 +10,8 @@
 
 @implementation PointOfInterest 
 
-@synthesize latitude, longitude, name, shortName, address, description, imageURL, image, button, poiDot, coordinate;
+@synthesize latitude, longitude, name, shortName, address, description, imageURL, image, button, poiDot, coordinate, index;
+@synthesize detailImage, thumbnailImage, listImage;
 
 //creates a POI with the given latitude, longitude, name, address, description, and image
 -(id)initWithLatitude:(double)lat longitude:(double)lon name:(NSString *)locName address:(NSString *)addr description:(NSString *)desc andImageURL:(NSString *)imgURL {
@@ -28,7 +29,9 @@
 		image = nil;
 		imageLoading = FALSE;
 		
-		[self loadImage];
+		//commented out because we're now just storing images in the application
+		//can be re-enabled to download remote images
+		//[self loadImage];
 	}
 	
 	return self;	
@@ -118,7 +121,7 @@
 	//updates the image in the view if the url was valid
 	if(imageFromURL) {
 		image = imageFromURL;
-		UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 9, 35, 34)];
+		UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 9, 34, 34)];
 		[thumbnailImageView setContentMode:UIViewContentModeScaleAspectFill];
 		[thumbnailImageView setClipsToBounds:TRUE];
 		[button addSubview:thumbnailImageView];

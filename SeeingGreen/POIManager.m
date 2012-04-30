@@ -63,6 +63,14 @@ static POIManager *_sharedPOIManager = nil;
 		currentTarget = [poiArray objectAtIndex:0];
 	}
 	
+	for(int i = 0; i < poiArray.count; i++) {
+		PointOfInterest *poi = [poiArray objectAtIndex:i];
+		poi.index = i;
+		poi.detailImage = [UIImage imageNamed:[NSString stringWithFormat:@"%i_detail.jpg", i]];
+		poi.thumbnailImage = [UIImage imageNamed:[NSString stringWithFormat:@"%i_thumbnail.png", i]];
+		poi.listImage = [UIImage imageNamed:[NSString stringWithFormat:@"%i_list.png", i]];
+	}
+	
 	return self;
 }
 
@@ -88,6 +96,14 @@ static POIManager *_sharedPOIManager = nil;
 			poiButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
 			
 			poiButton.frame = CGRectMake(-1000, 240, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+			
+			
+			UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 9, 34, 34)];
+			[thumbnailImageView setContentMode:UIViewContentModeScaleAspectFill];
+			[thumbnailImageView setClipsToBounds:TRUE];
+			[poiButton addSubview:thumbnailImageView];
+			
+			thumbnailImageView.image = poi.thumbnailImage;
 			
 			[poi setButton:poiButton];
 		}

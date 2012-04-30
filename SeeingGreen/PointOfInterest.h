@@ -26,6 +26,8 @@
 	
 	NSMutableData *poiImageData;
 	BOOL imageLoading;
+	
+	int index;
 
 }
 
@@ -35,6 +37,7 @@
 -(double)userHeadingTo;
 -(void)loadImage;
 
+@property int index;
 @property double latitude;
 @property double longitude;
 @property (nonatomic, retain) NSString *name;
@@ -46,5 +49,8 @@
 @property (nonatomic, retain) UIImageView *poiDot;
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, retain) UIImage *detailImage;
+@property (nonatomic, retain) UIImage *listImage;
+@property (nonatomic, retain) UIImage *thumbnailImage;
 
 @end

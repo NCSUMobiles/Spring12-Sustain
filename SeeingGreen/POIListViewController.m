@@ -62,8 +62,8 @@
 	}
 	
 	
-	if(poi.image)
-		cell.thumbnailImageView.image = poi.image;
+	if(poi.listImage)
+		cell.thumbnailImageView.image = poi.listImage;
 
     return cell;
 }
