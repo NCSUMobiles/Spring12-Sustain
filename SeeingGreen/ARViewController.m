@@ -28,9 +28,9 @@
 	
     [super viewDidLoad];
 	
-    UIImage *i = [UIImage imageNamed:@"greenGradient.png"];
-    UIColor *c = [[UIColor alloc] initWithPatternImage:i];
-	[self.tabBarController.tabBar setTintColor:c];
+    UIImage *gradientImage = [UIImage imageNamed:@"greenGradient.png"];
+    UIColor *gradientColor = [[UIColor alloc] initWithPatternImage:gradientImage];
+	[self.tabBarController.tabBar setTintColor:gradientColor];
 	[self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];	
 	
 	poiCompassImage.autoresizingMask = UIViewAutoresizingNone;	//prevents the rotation transform from making the compass smaller
