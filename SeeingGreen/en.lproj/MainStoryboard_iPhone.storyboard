@@ -61,25 +61,25 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="imageNotFound.png" id="WvD-dX-vxY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="imageNotFound.png" id="WvD-dX-vxY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DCO-Hs-7WP">
-                                <rect key="frame" x="20" y="214" width="280" height="21"/>
+                                <rect key="frame" x="20" y="217" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description bloobity blah blah blah." id="jZS-JT-P8F">
-                                <rect key="frame" x="0.0" y="232" width="320" height="184"/>
+                                <rect key="frame" x="0.0" y="235" width="320" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="MRR-gD-Yhe">
-                                <rect key="frame" x="20" y="188" width="280" height="28"/>
+                                <rect key="frame" x="20" y="194" width="280" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -114,12 +114,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGb-Ig-vw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xtk-2d-Lm2" customClass="POIMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RWw-cX-bdy">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="7fV-Ng-B10">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xtk-2d-Lm2" id="NR9-bo-uth"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -127,6 +130,7 @@
                     <navigationItem key="navigationItem" title="Map" id="CaO-pm-bfP"/>
                     <connections>
                         <outlet property="mapView" destination="7fV-Ng-B10" id="D3Z-fr-bKq"/>
+                        <segue destination="FFZ-Wc-U4K" kind="modal" identifier="ShowPOIDetails" modalTransitionStyle="flipHorizontal" id="qCD-P6-8Hn"/>
                     </connections>
                 </viewController>
             </objects>
@@ -138,7 +142,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRd-c9-Utf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="aMh-E5-4tI" customClass="POIListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" id="2vu-M4-Znk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -377,8 +381,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="LcF-Ao-415"/>
-        <segue reference="5pc-vY-vVM"/>
-        <segue reference="2hw-dJ-UYk"/>
+        <segue reference="PXi-ng-Rus"/>
+        <segue reference="hrX-oJ-OU7"/>
+        <segue reference="qCD-P6-8Hn"/>
     </inferredMetricsTieBreakers>
 </document>

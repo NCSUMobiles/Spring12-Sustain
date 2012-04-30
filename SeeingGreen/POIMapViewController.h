@@ -9,10 +9,10 @@
 #import "ARViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface POIMapViewController : UIViewController
+@interface POIMapViewController : UIViewController  <MKMapViewDelegate>
 
 -(IBAction)backButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-
+@property (nonatomic, retain) PointOfInterest *selectedPOI;
 @end
