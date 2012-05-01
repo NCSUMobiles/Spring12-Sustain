@@ -29,7 +29,7 @@
 //updates the view with information passed in the previous view controller's prepareForSegue method
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
 	nameLabel.text = name;
 	addressLabel.text = address;
 	descriptionTextView.text = description;
@@ -38,9 +38,6 @@
 	//[self updateImage:nil];
 	[mapItBarButtonItem setAction:@selector(mapIt:)];
 	[mapItBarButtonItem setTarget:self];
-	NSLog(@"%@",@"POIDetailViewController loaded");
-
-	//[self setTitle:name];
 }
 
 //launches the Maps app to get walking directions to the targeted POI

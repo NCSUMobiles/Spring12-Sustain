@@ -36,8 +36,8 @@
         [mapView removeAnnotation:annotation];
 	
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 35.778306;
-    zoomLocation.longitude= -78.640974;
+    zoomLocation.latitude = [[LocationServicesManager sharedLSM] latitude];
+    zoomLocation.longitude= [[LocationServicesManager sharedLSM] longitude];
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
     MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];                
     [mapView setRegion:adjustedRegion animated:YES];      
@@ -88,11 +88,6 @@
 //Called when a POI button is pressed
 //passes POI information to the POIDetailViewController being loaded
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	NSLog(@"%@",@"prepareForSegue");
-	
-	NSLog(@"%@", [[sender class] description]);
-	
-	//POITableCell *selectedCell = (POITableCell *)sender;
 	PointOfInterest *poi = [[mapView selectedAnnotations] objectAtIndex:0];
 	
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {

@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.15
+#define RADAR_CUTOFF_IN_MILES 0.2
 
 @interface ARViewController ()
 
@@ -37,6 +37,25 @@
 	[[POIManager sharedPOIManager] createButtonsInViewController:self];
 	[self initLocationServices];
 	[self initCaptureSession];
+	
+	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"applicationRunBefore"]) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"applicationRunBefore"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		// Application is running for the first time
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome to Seeing Green!" message:@"It appears to be the first time you have run this app. Would you like to view a brief tutorial?" delegate:self cancelButtonTitle:@"No thanks" otherButtonTitles:@"Yes", nil];
+		[alert show];
+	}
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if(buttonIndex == alertView.firstOtherButtonIndex) {
+		//show the tutorial
+		NSLog(@"tutorial");
+		[self performSegueWithIdentifier:@"ShowTutorial" sender:self];
+	} else {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"If you wish to view the tutorial later, simply touch the info button on the upper right corner of the screen." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+		[alert show];
+	}
 }
 
 //initializes the location services used to get GPS coordinates and compass heading
@@ -215,9 +234,7 @@
 
 //Called when a POI button is pressed
 //passes POI information to the POIDetailViewController being loaded
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	NSLog(@"%@",@"prepareForSegue");
-	
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {	
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
         POIDetailViewController *detailViewController = (POIDetailViewController *)[[segue destinationViewController] visibleViewController];
 		PointOfInterest *poi = [[POIManager sharedPOIManager] getPOIWithButton:(UIButton *)sender];

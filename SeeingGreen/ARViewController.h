@@ -13,7 +13,7 @@
 #import "POIManager.h"
 #import "LocationServicesManager.h"
 
-@interface ARViewController : UIViewController <CLLocationManagerDelegate> {
+@interface ARViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate> {
 	CLLocationManager *locationManager;
 	
 	AVCaptureSession *captureSession;

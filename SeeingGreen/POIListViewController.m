@@ -52,10 +52,8 @@
 	
 	if(indexPath.row == 0) {
 		[cell.topConnector setHidden:TRUE];
-		NSLog(@"NO TOP - %@ %d", poi.name, indexPath.row);
 	} else if(indexPath.row == [[[POIManager sharedPOIManager] poiArray] count] - 1) {
 		[cell.bottomConnector setHidden:TRUE];
-		NSLog(@"NO BOTTOM - %@ %d", poi.name, indexPath.row);
 	} else {
 		[cell.topConnector setHidden:FALSE];
 		[cell.bottomConnector setHidden:FALSE];
@@ -71,10 +69,6 @@
 //Called when a POI button is pressed
 //passes POI information to the POIDetailViewController being loaded
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	NSLog(@"%@",@"prepareForSegue");
-	
-	NSLog(@"%@", [[sender class] description]);
-	
 	POITableCell *selectedCell = (POITableCell *)sender;
 	 
     if ([[segue identifier] isEqualToString:@"ShowPOIDetails"]) {
