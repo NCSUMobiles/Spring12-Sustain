@@ -51,7 +51,8 @@
 			 [UIImage imageNamed:@"list2.jpg"],
 			 [UIImage imageNamed:@"list3.jpg"],
 			 [UIImage imageNamed:@"details1.jpg"],
-			 [UIImage imageNamed:@"details2.jpg"], nil];
+			 [UIImage imageNamed:@"details2.jpg"],
+			 [UIImage imageNamed:@"readagain.jpg"], nil];
 	pageNumber = 0;
 }
 

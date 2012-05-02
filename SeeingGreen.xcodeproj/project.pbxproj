@@ -244,6 +244,8 @@
 		B4CA0E371550B04C00F2F9BB /* list1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2C1550B04C00F2F9BB /* list1.jpg */; };
 		B4CA0E381550B04C00F2F9BB /* camera1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2D1550B04C00F2F9BB /* camera1.jpg */; };
 		B4CA0E391550B04C00F2F9BB /* camera2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */; };
+		B4CA0E3C1550B4C700F2F9BB /* readagain@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E3A1550B4C700F2F9BB /* readagain@2x.jpg */; };
+		B4CA0E3D1550B4C700F2F9BB /* readagain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E3B1550B4C700F2F9BB /* readagain.jpg */; };
 		B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D47D9B1530F4C300A3A1DB /* MapKit.framework */; };
 		B4D83152152E1436008B12EE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D83151152E1436008B12EE /* placeholder.png */; };
 		B4EF289D152CCDF70085B02D /* POIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF289C152CCDF70085B02D /* POIManager.m */; };
@@ -526,6 +528,8 @@
 		B4CA0E2C1550B04C00F2F9BB /* list1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list1.jpg; sourceTree = "<group>"; };
 		B4CA0E2D1550B04C00F2F9BB /* camera1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera1.jpg; sourceTree = "<group>"; };
 		B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera2.jpg; sourceTree = "<group>"; };
+		B4CA0E3A1550B4C700F2F9BB /* readagain@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "readagain@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0E3B1550B4C700F2F9BB /* readagain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = readagain.jpg; sourceTree = "<group>"; };
 		B4D47D9B1530F4C300A3A1DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B4D83151152E1436008B12EE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B4EF289B152CCDF70085B02D /* POIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIManager.h; sourceTree = "<group>"; };
@@ -937,28 +941,30 @@
 		B4CA0DF31550AA0000F2F9BB /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				B4CA0E241550B04C00F2F9BB /* map3.jpg */,
-				B4CA0E251550B04C00F2F9BB /* list2.jpg */,
-				B4CA0E261550B04C00F2F9BB /* list3.jpg */,
-				B4CA0E271550B04C00F2F9BB /* map1.jpg */,
-				B4CA0E281550B04C00F2F9BB /* map2.jpg */,
-				B4CA0E291550B04C00F2F9BB /* camera3.jpg */,
-				B4CA0E2A1550B04C00F2F9BB /* details1.jpg */,
-				B4CA0E2B1550B04C00F2F9BB /* details2.jpg */,
-				B4CA0E2C1550B04C00F2F9BB /* list1.jpg */,
 				B4CA0E2D1550B04C00F2F9BB /* camera1.jpg */,
-				B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */,
 				B4CA0DF51550AA1C00F2F9BB /* camera1@2x.jpg */,
+				B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */,
 				B4CA0DF61550AA1C00F2F9BB /* camera2@2x.jpg */,
+				B4CA0E291550B04C00F2F9BB /* camera3.jpg */,
 				B4CA0DF71550AA1C00F2F9BB /* camera3@2x.jpg */,
+				B4CA0E2A1550B04C00F2F9BB /* details1.jpg */,
 				B4CA0DF81550AA1C00F2F9BB /* details1@2x.jpg */,
+				B4CA0E2B1550B04C00F2F9BB /* details2.jpg */,
 				B4CA0DF91550AA1C00F2F9BB /* details2@2x.jpg */,
+				B4CA0E2C1550B04C00F2F9BB /* list1.jpg */,
 				B4CA0DFA1550AA1C00F2F9BB /* list1@2x.jpg */,
+				B4CA0E251550B04C00F2F9BB /* list2.jpg */,
 				B4CA0DFB1550AA1C00F2F9BB /* list2@2x.jpg */,
+				B4CA0E261550B04C00F2F9BB /* list3.jpg */,
 				B4CA0DFC1550AA1C00F2F9BB /* list3@2x.jpg */,
+				B4CA0E271550B04C00F2F9BB /* map1.jpg */,
 				B4CA0DFD1550AA1C00F2F9BB /* map1@2x.jpg */,
+				B4CA0E281550B04C00F2F9BB /* map2.jpg */,
 				B4CA0DFE1550AA1C00F2F9BB /* map2@2x.jpg */,
+				B4CA0E241550B04C00F2F9BB /* map3.jpg */,
 				B4CA0DFF1550AA1C00F2F9BB /* map3@2x.jpg */,
+				B4CA0E3B1550B4C700F2F9BB /* readagain.jpg */,
+				B4CA0E3A1550B4C700F2F9BB /* readagain@2x.jpg */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -1264,6 +1270,8 @@
 				B4CA0E371550B04C00F2F9BB /* list1.jpg in Resources */,
 				B4CA0E381550B04C00F2F9BB /* camera1.jpg in Resources */,
 				B4CA0E391550B04C00F2F9BB /* camera2.jpg in Resources */,
+				B4CA0E3C1550B4C700F2F9BB /* readagain@2x.jpg in Resources */,
+				B4CA0E3D1550B4C700F2F9BB /* readagain.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
