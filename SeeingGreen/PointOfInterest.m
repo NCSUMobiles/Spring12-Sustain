@@ -3,7 +3,7 @@
 //  LocationTest
 //
 //  Created by JONATHAN B MORGAN on 3/22/12.
-//  Copyright (c) 2012 Team Segway Extreme. All rights reserved.
+//  Copyright (c) 2012 Jonathan B Morgan. All rights reserved.
 //
 
 #import "PointOfInterest.h"

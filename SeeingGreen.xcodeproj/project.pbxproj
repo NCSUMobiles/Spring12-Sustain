@@ -219,7 +219,6 @@
 		B481975A1546FEFD0030ACD0 /* greenGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197581546FEFC0030ACD0 /* greenGradient@2x.png */; };
 		B48197641547124D0030ACD0 /* poiButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197621547124C0030ACD0 /* poiButtonBackground.png */; };
 		B48197651547124D0030ACD0 /* poiButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */; };
-		B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BF061A1545F7F4005B894A /* IntroductionViewController.m */; };
 		B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BFD4D715348BBE006F14BF /* POITableCell.m */; };
 		B4CA0E001550AA1C00F2F9BB /* camera1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF51550AA1C00F2F9BB /* camera1@2x.jpg */; };
 		B4CA0E011550AA1C00F2F9BB /* camera2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF61550AA1C00F2F9BB /* camera2@2x.jpg */; };
@@ -500,8 +499,6 @@
 		B48197581546FEFC0030ACD0 /* greenGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenGradient@2x.png"; sourceTree = "<group>"; };
 		B48197621547124C0030ACD0 /* poiButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poiButtonBackground.png; sourceTree = "<group>"; };
 		B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poiButtonBackground@2x.png"; sourceTree = "<group>"; };
-		B4BF06191545F7F4005B894A /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
-		B4BF061A1545F7F4005B894A /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
 		B4BFD4D615348BBE006F14BF /* POITableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POITableCell.h; sourceTree = "<group>"; };
 		B4BFD4D715348BBE006F14BF /* POITableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POITableCell.m; sourceTree = "<group>"; };
 		B4CA0DF51550AA1C00F2F9BB /* camera1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "camera1@2x.jpg"; sourceTree = "<group>"; };
@@ -922,8 +919,6 @@
 			children = (
 				B47AEDBF15233EBE00F0280B /* ARViewController.h */,
 				B47AEDC015233EBE00F0280B /* ARViewController.m */,
-				B4BF06191545F7F4005B894A /* IntroductionViewController.h */,
-				B4BF061A1545F7F4005B894A /* IntroductionViewController.m */,
 				B47AEDDA152392FA00F0280B /* POIDetailViewController.h */,
 				B47AEDDB152392FA00F0280B /* POIDetailViewController.m */,
 				B47AEDDE1523942200F0280B /* POIListViewController.h */,
@@ -1316,7 +1311,6 @@
 				B47AEDE3152394C900F0280B /* POIMapViewController.m in Sources */,
 				B4EF289D152CCDF70085B02D /* POIManager.m in Sources */,
 				B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */,
-				B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */,
 				B4CA0E231550AAF500F2F9BB /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

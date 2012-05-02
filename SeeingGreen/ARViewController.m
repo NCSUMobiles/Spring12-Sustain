@@ -6,7 +6,7 @@
 //  should really be moved to a secondary class.
 //  
 //  Created by JONATHAN B MORGAN on 3/22/12.
-//  Copyright (c) 2012 Team Segway Extreme. All rights reserved.
+//  Copyright (c) 2012 Jonathan B Morgan. All rights reserved.
 //
 
 #import "ARViewController.h"
