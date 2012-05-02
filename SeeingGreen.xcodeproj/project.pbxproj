@@ -221,6 +221,29 @@
 		B48197651547124D0030ACD0 /* poiButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48197631547124C0030ACD0 /* poiButtonBackground@2x.png */; };
 		B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BF061A1545F7F4005B894A /* IntroductionViewController.m */; };
 		B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BFD4D715348BBE006F14BF /* POITableCell.m */; };
+		B4CA0E001550AA1C00F2F9BB /* camera1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF51550AA1C00F2F9BB /* camera1@2x.jpg */; };
+		B4CA0E011550AA1C00F2F9BB /* camera2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF61550AA1C00F2F9BB /* camera2@2x.jpg */; };
+		B4CA0E021550AA1C00F2F9BB /* camera3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF71550AA1C00F2F9BB /* camera3@2x.jpg */; };
+		B4CA0E031550AA1C00F2F9BB /* details1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF81550AA1C00F2F9BB /* details1@2x.jpg */; };
+		B4CA0E041550AA1C00F2F9BB /* details2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DF91550AA1C00F2F9BB /* details2@2x.jpg */; };
+		B4CA0E051550AA1C00F2F9BB /* list1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DFA1550AA1C00F2F9BB /* list1@2x.jpg */; };
+		B4CA0E061550AA1C00F2F9BB /* list2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DFB1550AA1C00F2F9BB /* list2@2x.jpg */; };
+		B4CA0E071550AA1C00F2F9BB /* list3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DFC1550AA1C00F2F9BB /* list3@2x.jpg */; };
+		B4CA0E081550AA1C00F2F9BB /* map1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DFD1550AA1C00F2F9BB /* map1@2x.jpg */; };
+		B4CA0E091550AA1C00F2F9BB /* map2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DFE1550AA1C00F2F9BB /* map2@2x.jpg */; };
+		B4CA0E0A1550AA1C00F2F9BB /* map3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0DFF1550AA1C00F2F9BB /* map3@2x.jpg */; };
+		B4CA0E231550AAF500F2F9BB /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA0E221550AAF500F2F9BB /* TutorialViewController.m */; };
+		B4CA0E2F1550B04C00F2F9BB /* map3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E241550B04C00F2F9BB /* map3.jpg */; };
+		B4CA0E301550B04C00F2F9BB /* list2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E251550B04C00F2F9BB /* list2.jpg */; };
+		B4CA0E311550B04C00F2F9BB /* list3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E261550B04C00F2F9BB /* list3.jpg */; };
+		B4CA0E321550B04C00F2F9BB /* map1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E271550B04C00F2F9BB /* map1.jpg */; };
+		B4CA0E331550B04C00F2F9BB /* map2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E281550B04C00F2F9BB /* map2.jpg */; };
+		B4CA0E341550B04C00F2F9BB /* camera3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E291550B04C00F2F9BB /* camera3.jpg */; };
+		B4CA0E351550B04C00F2F9BB /* details1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2A1550B04C00F2F9BB /* details1.jpg */; };
+		B4CA0E361550B04C00F2F9BB /* details2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2B1550B04C00F2F9BB /* details2.jpg */; };
+		B4CA0E371550B04C00F2F9BB /* list1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2C1550B04C00F2F9BB /* list1.jpg */; };
+		B4CA0E381550B04C00F2F9BB /* camera1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2D1550B04C00F2F9BB /* camera1.jpg */; };
+		B4CA0E391550B04C00F2F9BB /* camera2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */; };
 		B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D47D9B1530F4C300A3A1DB /* MapKit.framework */; };
 		B4D83152152E1436008B12EE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D83151152E1436008B12EE /* placeholder.png */; };
 		B4EF289D152CCDF70085B02D /* POIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF289C152CCDF70085B02D /* POIManager.m */; };
@@ -479,6 +502,30 @@
 		B4BF061A1545F7F4005B894A /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
 		B4BFD4D615348BBE006F14BF /* POITableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POITableCell.h; sourceTree = "<group>"; };
 		B4BFD4D715348BBE006F14BF /* POITableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POITableCell.m; sourceTree = "<group>"; };
+		B4CA0DF51550AA1C00F2F9BB /* camera1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "camera1@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DF61550AA1C00F2F9BB /* camera2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "camera2@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DF71550AA1C00F2F9BB /* camera3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "camera3@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DF81550AA1C00F2F9BB /* details1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "details1@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DF91550AA1C00F2F9BB /* details2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "details2@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DFA1550AA1C00F2F9BB /* list1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "list1@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DFB1550AA1C00F2F9BB /* list2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "list2@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DFC1550AA1C00F2F9BB /* list3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "list3@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DFD1550AA1C00F2F9BB /* map1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "map1@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DFE1550AA1C00F2F9BB /* map2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "map2@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0DFF1550AA1C00F2F9BB /* map3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "map3@2x.jpg"; sourceTree = "<group>"; };
+		B4CA0E211550AAF500F2F9BB /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		B4CA0E221550AAF500F2F9BB /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		B4CA0E241550B04C00F2F9BB /* map3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map3.jpg; sourceTree = "<group>"; };
+		B4CA0E251550B04C00F2F9BB /* list2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list2.jpg; sourceTree = "<group>"; };
+		B4CA0E261550B04C00F2F9BB /* list3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list3.jpg; sourceTree = "<group>"; };
+		B4CA0E271550B04C00F2F9BB /* map1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map1.jpg; sourceTree = "<group>"; };
+		B4CA0E281550B04C00F2F9BB /* map2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map2.jpg; sourceTree = "<group>"; };
+		B4CA0E291550B04C00F2F9BB /* camera3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera3.jpg; sourceTree = "<group>"; };
+		B4CA0E2A1550B04C00F2F9BB /* details1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = details1.jpg; sourceTree = "<group>"; };
+		B4CA0E2B1550B04C00F2F9BB /* details2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = details2.jpg; sourceTree = "<group>"; };
+		B4CA0E2C1550B04C00F2F9BB /* list1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list1.jpg; sourceTree = "<group>"; };
+		B4CA0E2D1550B04C00F2F9BB /* camera1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera1.jpg; sourceTree = "<group>"; };
+		B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera2.jpg; sourceTree = "<group>"; };
 		B4D47D9B1530F4C300A3A1DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B4D83151152E1436008B12EE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B4EF289B152CCDF70085B02D /* POIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIManager.h; sourceTree = "<group>"; };
@@ -816,6 +863,7 @@
 		B47AEDCE1523409A00F0280B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4CA0DF31550AA0000F2F9BB /* Tutorial */,
 				B45CAE7E154EE55E00830227 /* POI Images */,
 				B420B6F715488B8700BC18A7 /* peekabo.png */,
 				B420B6F815488B8700BC18A7 /* peekabo@2x.png */,
@@ -880,8 +928,39 @@
 				B47AEDE2152394C900F0280B /* POIMapViewController.m */,
 				B4BFD4D615348BBE006F14BF /* POITableCell.h */,
 				B4BFD4D715348BBE006F14BF /* POITableCell.m */,
+				B4CA0E211550AAF500F2F9BB /* TutorialViewController.h */,
+				B4CA0E221550AAF500F2F9BB /* TutorialViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B4CA0DF31550AA0000F2F9BB /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B4CA0E241550B04C00F2F9BB /* map3.jpg */,
+				B4CA0E251550B04C00F2F9BB /* list2.jpg */,
+				B4CA0E261550B04C00F2F9BB /* list3.jpg */,
+				B4CA0E271550B04C00F2F9BB /* map1.jpg */,
+				B4CA0E281550B04C00F2F9BB /* map2.jpg */,
+				B4CA0E291550B04C00F2F9BB /* camera3.jpg */,
+				B4CA0E2A1550B04C00F2F9BB /* details1.jpg */,
+				B4CA0E2B1550B04C00F2F9BB /* details2.jpg */,
+				B4CA0E2C1550B04C00F2F9BB /* list1.jpg */,
+				B4CA0E2D1550B04C00F2F9BB /* camera1.jpg */,
+				B4CA0E2E1550B04C00F2F9BB /* camera2.jpg */,
+				B4CA0DF51550AA1C00F2F9BB /* camera1@2x.jpg */,
+				B4CA0DF61550AA1C00F2F9BB /* camera2@2x.jpg */,
+				B4CA0DF71550AA1C00F2F9BB /* camera3@2x.jpg */,
+				B4CA0DF81550AA1C00F2F9BB /* details1@2x.jpg */,
+				B4CA0DF91550AA1C00F2F9BB /* details2@2x.jpg */,
+				B4CA0DFA1550AA1C00F2F9BB /* list1@2x.jpg */,
+				B4CA0DFB1550AA1C00F2F9BB /* list2@2x.jpg */,
+				B4CA0DFC1550AA1C00F2F9BB /* list3@2x.jpg */,
+				B4CA0DFD1550AA1C00F2F9BB /* map1@2x.jpg */,
+				B4CA0DFE1550AA1C00F2F9BB /* map2@2x.jpg */,
+				B4CA0DFF1550AA1C00F2F9BB /* map3@2x.jpg */,
+			);
+			name = Tutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1163,6 +1242,28 @@
 				B45CB050154EEC6A00830227 /* 13_list.png in Resources */,
 				B45CB051154EEC6A00830227 /* 0_list.png in Resources */,
 				B45CB052154EEC6A00830227 /* 10_list.png in Resources */,
+				B4CA0E001550AA1C00F2F9BB /* camera1@2x.jpg in Resources */,
+				B4CA0E011550AA1C00F2F9BB /* camera2@2x.jpg in Resources */,
+				B4CA0E021550AA1C00F2F9BB /* camera3@2x.jpg in Resources */,
+				B4CA0E031550AA1C00F2F9BB /* details1@2x.jpg in Resources */,
+				B4CA0E041550AA1C00F2F9BB /* details2@2x.jpg in Resources */,
+				B4CA0E051550AA1C00F2F9BB /* list1@2x.jpg in Resources */,
+				B4CA0E061550AA1C00F2F9BB /* list2@2x.jpg in Resources */,
+				B4CA0E071550AA1C00F2F9BB /* list3@2x.jpg in Resources */,
+				B4CA0E081550AA1C00F2F9BB /* map1@2x.jpg in Resources */,
+				B4CA0E091550AA1C00F2F9BB /* map2@2x.jpg in Resources */,
+				B4CA0E0A1550AA1C00F2F9BB /* map3@2x.jpg in Resources */,
+				B4CA0E2F1550B04C00F2F9BB /* map3.jpg in Resources */,
+				B4CA0E301550B04C00F2F9BB /* list2.jpg in Resources */,
+				B4CA0E311550B04C00F2F9BB /* list3.jpg in Resources */,
+				B4CA0E321550B04C00F2F9BB /* map1.jpg in Resources */,
+				B4CA0E331550B04C00F2F9BB /* map2.jpg in Resources */,
+				B4CA0E341550B04C00F2F9BB /* camera3.jpg in Resources */,
+				B4CA0E351550B04C00F2F9BB /* details1.jpg in Resources */,
+				B4CA0E361550B04C00F2F9BB /* details2.jpg in Resources */,
+				B4CA0E371550B04C00F2F9BB /* list1.jpg in Resources */,
+				B4CA0E381550B04C00F2F9BB /* camera1.jpg in Resources */,
+				B4CA0E391550B04C00F2F9BB /* camera2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,6 +1309,7 @@
 				B4EF289D152CCDF70085B02D /* POIManager.m in Sources */,
 				B4BFD4D815348BBF006F14BF /* POITableCell.m in Sources */,
 				B4BF061B1545F7F4005B894A /* IntroductionViewController.m in Sources */,
+				B4CA0E231550AAF500F2F9BB /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

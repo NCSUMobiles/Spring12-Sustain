@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.2
+#define RADAR_CUTOFF_IN_MILES 0.1
 
 @interface ARViewController ()
 
@@ -151,8 +151,8 @@
 			
 			double poiDotTheta =  DEGREES_TO_RADIANS * userHeadingToPOI - M_PI/2;
 			
-			poi.poiDot.center = CGPointMake(userFOVImage.center.x + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
-											userFOVImage.center.y + userFOVImage.frame.size.width * 0.5 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
+			poi.poiDot.center = CGPointMake(userFOVImage.center.x + userFOVImage.frame.size.width * 0.4 / RADAR_CUTOFF_IN_MILES * distanceToPOI * cos(poiDotTheta),
+											userFOVImage.center.y + userFOVImage.frame.size.width * 0.4 / RADAR_CUTOFF_IN_MILES * distanceToPOI * sin(poiDotTheta));
 			poi.button.hidden = FALSE;
 			poi.poiDot.hidden = FALSE;
 		} else {
