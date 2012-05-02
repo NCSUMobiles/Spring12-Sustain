@@ -13,3 +13,5 @@ Seeing Green is a augmented reality walking tour of the sustainability features 
 2.  Loading the map view can take a bit and freezes the UI. Find out if this can be done async.
 3.  Add comments to the code.
 4.  Clean up the project, remove unused code, etc.
+5.  Change tutorial to a PageViewController rather than a series of UIImages.
+6.  Add missing image to tutorial.
