@@ -13,7 +13,7 @@
 #import "POIDetailViewController.h"
 #define DEGREES_TO_RADIANS (M_PI / 180.0)
 #define FOV_ADJUSTMENT 4.0
-#define RADAR_CUTOFF_IN_MILES 0.1
+#define RADAR_CUTOFF_IN_MILES 0.25
 
 @interface ARViewController ()
 
@@ -47,6 +47,8 @@
 	}
 }
 
+//responds to the user's input on the alert box displayed upon running the app for the first time
+//runs the tutorial or skips it and goes directly into the app
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	if(buttonIndex == alertView.firstOtherButtonIndex) {
 		//show the tutorial
@@ -111,7 +113,7 @@
 	double headingToTarget = [[[POIManager sharedPOIManager] currentTarget] headingTo]-[[LocationServicesManager sharedLSM] getHeading];
 	poiCompassImage.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS * headingToTarget);
 	
-	for(PointOfInterest *poi in [[POIManager sharedPOIManager] poiArray]) {		
+	for(PointOfInterest *poi in [[NSArray alloc] initWithObjects:[[POIManager sharedPOIManager] previousPOI], [[POIManager sharedPOIManager] closestPOI], [[POIManager sharedPOIManager] nextPOI], nil]) {		
 		//the rest of this block can almost certainly be reduced to 1 line of code
 		//trigonometry lolz
 		double compassHeadingToPOI = [poi headingTo];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="xku-Tc-SCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="xku-Tc-SCn">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -247,11 +247,19 @@
                                             <rect key="frame" x="88" y="57" width="17" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="closest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kh2-U5-tjH">
+                                            <rect key="frame" x="238" y="55" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
                                     <outlet property="bottomConnector" destination="dtn-4y-FEY" id="amq-X5-FfY"/>
+                                    <outlet property="closestLabel" destination="kh2-U5-tjH" id="24a-Li-rIG"/>
                                     <outlet property="distanceLabel" destination="bHm-QR-vca" id="Vi9-dV-csA"/>
                                     <outlet property="headingImageView" destination="gyb-GK-Syr" id="rVM-lV-RIc"/>
                                     <outlet property="nameLabel" destination="15Z-Wj-s89" id="qSQ-fc-lUC"/>
@@ -446,6 +454,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/POITableCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="bottomConnector" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="closestLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headingImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
@@ -466,10 +475,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wYL-E0-vYg"/>
-        <segue reference="PXi-ng-Rus"/>
         <segue reference="hrX-oJ-OU7"/>
-        <segue reference="8mU-um-AMn"/>
+        <segue reference="PXi-ng-Rus"/>
+        <segue reference="2hw-dJ-UYk"/>
+        <segue reference="G01-M9-HZ3"/>
         <segue reference="wkz-Yl-Gcp"/>
     </inferredMetricsTieBreakers>
 </document>

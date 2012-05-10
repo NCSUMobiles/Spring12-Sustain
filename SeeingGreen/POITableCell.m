@@ -10,7 +10,7 @@
 
 @implementation POITableCell
 
-@synthesize nameLabel, distanceLabel, thumbnailImageView, headingImageView, topConnector, bottomConnector;
+@synthesize nameLabel, distanceLabel, thumbnailImageView, headingImageView, topConnector, bottomConnector, closestLabel;
 @synthesize poi;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

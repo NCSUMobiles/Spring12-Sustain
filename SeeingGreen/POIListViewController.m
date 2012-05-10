@@ -59,9 +59,13 @@
 		[cell.bottomConnector setHidden:FALSE];
 	}
 	
-	
 	if(poi.listImage)
 		cell.thumbnailImageView.image = poi.listImage;
+
+	if(poi == [[POIManager sharedPOIManager] closestPOI])
+		cell.closestLabel.hidden = NO;
+	else
+		cell.closestLabel.hidden = YES;
 
     return cell;
 }

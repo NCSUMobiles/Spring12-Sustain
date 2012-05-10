@@ -139,6 +139,18 @@ static POIManager *_sharedPOIManager = nil;
 	return sortedArray;
 }
 
+-(PointOfInterest *)closestPOI {
+	return [[self sortedByDistance] objectAtIndex:0];
+}
+
+-(PointOfInterest *)previousPOI {
+	return [poiArray objectAtIndex: ([poiArray indexOfObject:[self closestPOI]]-1)%poiArray.count];
+}
+
+-(PointOfInterest *)nextPOI {
+	return [poiArray objectAtIndex: ([poiArray indexOfObject:[self closestPOI]]+1)%poiArray.count];
+}
+
 //returns an array of POIs sorted by compass heading from the user in ascending order 
 -(NSArray *)sortedByHeading {
 	NSArray *sortedArray;

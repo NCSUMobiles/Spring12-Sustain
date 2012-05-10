@@ -22,6 +22,9 @@
 -(NSArray *)sortedByHeading;
 -(void)setTargetWithButton:(UIButton *)button;
 -(PointOfInterest *)getPOIWithButton:(UIButton *)button;
+-(PointOfInterest *)closestPOI;
+-(PointOfInterest *)previousPOI;
+-(PointOfInterest *)nextPOI;
 
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) PointOfInterest *currentTarget;

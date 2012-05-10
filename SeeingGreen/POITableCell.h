@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *distanceLabel;
+@property (nonatomic, strong) IBOutlet UILabel *closestLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *headingImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *topConnector;
