@@ -248,6 +248,7 @@
 		B4D47D9C1530F4C300A3A1DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D47D9B1530F4C300A3A1DB /* MapKit.framework */; };
 		B4D83152152E1436008B12EE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D83151152E1436008B12EE /* placeholder.png */; };
 		B4EF289D152CCDF70085B02D /* POIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF289C152CCDF70085B02D /* POIManager.m */; };
+		B4F14699155C34F700271D57 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = B4F14698155C34F600271D57 /* Assets */; };
 		B4F91471153F0AAC003C1C03 /* radar_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9146D153F0AAB003C1C03 /* radar_arrow.png */; };
 		B4F91472153F0AAC003C1C03 /* radar_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9146E153F0AAB003C1C03 /* radar_arrow@2x.png */; };
 		B4F91473153F0AAC003C1C03 /* radar_poi.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9146F153F0AAC003C1C03 /* radar_poi.png */; };
@@ -531,6 +532,7 @@
 		B4D83151152E1436008B12EE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B4EF289B152CCDF70085B02D /* POIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIManager.h; sourceTree = "<group>"; };
 		B4EF289C152CCDF70085B02D /* POIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIManager.m; sourceTree = "<group>"; };
+		B4F14698155C34F600271D57 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = SOURCE_ROOT; };
 		B4F9146D153F0AAB003C1C03 /* radar_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar_arrow.png; sourceTree = "<group>"; };
 		B4F9146E153F0AAB003C1C03 /* radar_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar_arrow@2x.png"; sourceTree = "<group>"; };
 		B4F9146F153F0AAC003C1C03 /* radar_poi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar_poi.png; sourceTree = "<group>"; };
@@ -819,6 +821,7 @@
 		B47AED8915233E6700F0280B /* SeeingGreen */ = {
 			isa = PBXGroup;
 			children = (
+				B4F14698155C34F600271D57 /* Assets */,
 				B47AEDCF152340A600F0280B /* Classes */,
 				B47AEDDD1523930100F0280B /* ViewControllers */,
 				B47AED9215233E6700F0280B /* AppDelegate.h */,
@@ -1267,6 +1270,7 @@
 				B4CA0E391550B04C00F2F9BB /* camera2.jpg in Resources */,
 				B4CA0E3C1550B4C700F2F9BB /* readagain@2x.jpg in Resources */,
 				B4CA0E3D1550B4C700F2F9BB /* readagain.jpg in Resources */,
+				B4F14699155C34F700271D57 /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
