@@ -9,9 +9,5 @@ Seeing Green is a augmented reality walking tour of the sustainability features 
 5.  Tapping the info button displays a short tutorial explaining how the app is used.  An alert is displayed the first time the app is run to ask the user if they want to see the tutorial as well.
 
 ## To do
-1.  Support needs to be added to walk through the tour in order.
-2.  Loading the map view can take a bit and freezes the UI. Find out if this can be done async.
-3.  Add comments to the code.
-4.  Clean up the project, remove unused code, etc.
-5.  Change tutorial to a PageViewController rather than a series of UIImages.
-6.  Add missing image to tutorial.
+1.  Loading the map view can take a bit and freezes the UI. Find out if this can be done async.
+2.  Change tutorial to a PageViewController rather than a series of UIImages.
