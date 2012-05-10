@@ -70,19 +70,8 @@
 #pragma mark -
 #pragma mark MKMapViewDelegate
 
-- (void)showDetails:(id)sender
-{
-	/*
-    // the detail view does not want a toolbar so hide it
-    [self.navigationController setToolbarHidden:YES animated:NO];
-    
-    [self.navigationController pushViewController:self.detailViewController animated:YES];
-	 */
-	
-	//PointOfInterest *poi = (PointOfInterest *)sender;
-	
+- (void)showDetails:(id)sender {
 	[self performSegueWithIdentifier:@"ShowPOIDetails" sender:sender];
-	
 }
 
 //Called when a POI button is pressed
@@ -100,21 +89,19 @@
     }
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
+//creates the pins and callouts for each POI
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation {
     // if it's the user location, just return nil.
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
     
     // handle our two custom annotations
     //
-    if ([annotation isKindOfClass:[PointOfInterest class]])
-    {		
+    if ([annotation isKindOfClass:[PointOfInterest class]]) {		
         // try to dequeue an existing pin view first
 		NSString *annotationIdentifier = selectedPOI.name;
         MKPinAnnotationView* pinView = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
-        if (!pinView)
-        {
+        if (!pinView) {
             // if an existing pin view was not available, create one
             MKPinAnnotationView* customPinView = [[MKPinAnnotationView alloc]
 												   initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
@@ -134,9 +121,7 @@
             customPinView.rightCalloutAccessoryView = rightButton;
 			
             return customPinView;
-        }
-        else
-        {
+        } else {
             pinView.annotation = annotation;
         }
         return pinView;

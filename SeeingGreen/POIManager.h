@@ -13,7 +13,6 @@
 @interface POIManager : NSObject {
 	NSMutableArray *poiArray;
 	PointOfInterest *currentTarget;
-
 }
 
 +(POIManager *)sharedPOIManager;

@@ -34,10 +34,10 @@ static LocationServicesManager *_sharedLocationServicesManager = nil;
 		headings = [[NSMutableArray alloc] initWithCapacity:20];
 		currentSmoothedHeading = 0;
 		//[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSmoothedCompass:) userInfo:nil repeats:YES];
-
 	}
 	return self;
 }
+
 
 - (void)updateSmoothedCompass:(NSTimer*)theTimer {
 	if(currentSmoothedHeading < currentActualHeading) {

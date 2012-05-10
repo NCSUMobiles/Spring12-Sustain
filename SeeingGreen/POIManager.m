@@ -139,14 +139,17 @@ static POIManager *_sharedPOIManager = nil;
 	return sortedArray;
 }
 
+//gets the closest POI to the user's location
 -(PointOfInterest *)closestPOI {
 	return [[self sortedByDistance] objectAtIndex:0];
 }
 
+//gets the POI before the closest POI
 -(PointOfInterest *)previousPOI {
 	return [poiArray objectAtIndex: ([poiArray indexOfObject:[self closestPOI]]-1)%poiArray.count];
 }
 
+//gets the POI after the closest POI
 -(PointOfInterest *)nextPOI {
 	return [poiArray objectAtIndex: ([poiArray indexOfObject:[self closestPOI]]+1)%poiArray.count];
 }

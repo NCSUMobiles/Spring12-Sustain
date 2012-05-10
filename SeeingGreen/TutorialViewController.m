@@ -19,13 +19,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
 
     }
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//advance to the next page when a page is touched
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	
 	pageNumber++;
 	
@@ -36,10 +36,10 @@
 	}
 }
 
+//loads the page images
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 	
 	pages = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"camera1.jpg"],
 			 [UIImage imageNamed:@"camera2.jpg"],
